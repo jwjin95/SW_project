@@ -6,9 +6,9 @@ class diaryView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
-        title: Text("Selected date", style: TextStyle(fontSize: 25, color: Color(0xFF4D70AA), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand'),),
+        title: Text("Selected date", style: TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand'),),
         centerTitle: true,
-        backgroundColor: Color(0xFFD6E2E9),
+        backgroundColor: Color(0xFF6397D2),
         elevation: 0.0,
       ),
       body: Center( child : Column(

@@ -1,8 +1,10 @@
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'diary.dart';
 import 'example.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -30,24 +32,20 @@ class MyStatefulWidget extends StatefulWidget {
 
 /// This is the private State class that goes with MyStatefulWidget.
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  int _selectedIndex = 1;
-  static const TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(0xFF4D70AA), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
   static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Friendiary',
-      style: optionStyle,
-    ),
     Text(
       'Calendar',
       style: optionStyle,
     ),
     Text(
-      'My page',
+      'Write',
       style: optionStyle,
     ),
   ];
 
-  List _pages = [ _settings(), _home(), _mypage()];
+  List _pages = [_calendar(), _mypage()];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -61,7 +59,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       appBar: AppBar(
         title: _widgetOptions.elementAt(_selectedIndex),
         centerTitle: true,
-        backgroundColor: Color(0xFFD6E2E9),
+        backgroundColor: Color(0xFF6397D2),
         elevation: 0.0,
       ),
       body: Center(
@@ -70,21 +68,17 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: Icon(Icons.calendar_today),
+            label: 'calendar',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'My page',
+            icon: Icon(Icons.book_sharp),
+            label: 'write',
           ),
         ],
         currentIndex: _selectedIndex,
-        backgroundColor: Color(0xFFD6E2E9),
-        selectedItemColor: Color(0xFF6397D2),
+        backgroundColor: Color(0xFF6397D2),
+        selectedItemColor: Color(0xFFFFFFFF),
         onTap: _onItemTapped,
       ),
     );
@@ -92,12 +86,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
 }
 
-class _home extends StatefulWidget{
+class _calendar extends StatefulWidget{
   @override
-  _homeState createState() => _homeState();
+  _calendarState createState() => _calendarState();
 }
 
-class _homeState extends State<_home>{
+class _calendarState extends State<_calendar>{
   Widget build(BuildContext context){
     return Container(
       width : 350,
@@ -106,118 +100,118 @@ class _homeState extends State<_home>{
   }
 }
 
-class _settings extends StatefulWidget{
-  @override
-  _settingsState createState() => _settingsState();
-}
-
-class _settingsState extends State<_settings>{
-  SharedPreferences _prefs;
-  String _friendName = 'friendiary';
-  String _selectedTime = '';
-
-  @override
-  final controlFriendName = TextEditingController();
-  final controlSelectedTime = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-    _loadValue();
-  }
-
-  _loadValue() async {
-    _prefs = await SharedPreferences.getInstance();
-    setState(() {
-      controlFriendName.text = _prefs.getString('friendName') ?? 'friendiary';
-      controlSelectedTime.text = (_prefs.getString('selectedTime') ?? ' ');
-
-    });
-  }
-
-  Widget build(BuildContext context){
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SizedBox(height: 50,),
-          Row( //name
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget> [
-              Text('이름 : ',),
-              SizedBox(width : 260, height: 40, child : TextField(
-                controller: controlFriendName,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.symmetric(vertical:5.0, horizontal: 10.0),
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              ),],
-          ),
-          SizedBox(height: 30,),
-          Column(children: [
-            Row( //birth
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget> [
-                Text('알림 시각 :  '),
-                SizedBox(width : 90, height: 40, child : TextFormField(
-                  textAlign: TextAlign.center,
-                  controller: controlSelectedTime,
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.all(5.0),
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                ),
-                SizedBox(width: 15,),
-                SizedBox(
-                  height : 32,
-                  child : RaisedButton(
-                    onPressed: () {
-                      Future<TimeOfDay> selectedTime = showTimePicker(
-                        initialTime: TimeOfDay.now(),
-                        context: context,
-                      );
-
-                      selectedTime.then((timeOfDay) {
-                        setState(() {
-                          _selectedTime = '${timeOfDay.hour}:${timeOfDay.minute}';
-                          controlSelectedTime.text = '$_selectedTime';
-                        });
-                      });
-                    },
-                    child: Text('시간 선택'),
-                    color: Color(0xFFD6E2E9),
-
-                ),
-                ),
-              ],
-            ),
-          ]),
-          SizedBox(height: 25,),
-          SizedBox(
-            width : 65,
-            height : 32,
-            child : RaisedButton(
-              onPressed: () {
-                _friendName = controlFriendName.text;
-                _selectedTime = controlSelectedTime.text;
-                _prefs.setString('friendName', _friendName);
-                _prefs.setString('selectedTime', _selectedTime);
-                showAlertDialog(context);
-              },
-              child: Text('저장',),
-              color: Color(0xFFBCD4E6),
-            ),),
-          SizedBox(height: 30,),
-        ],
-      ),
-    );
-  }
-}
+// class _settings extends StatefulWidget{
+//   @override
+//   _settingsState createState() => _settingsState();
+// }
+//
+// class _settingsState extends State<_settings>{
+//   SharedPreferences _prefs;
+//   String _friendName = 'friendiary';
+//   String _selectedTime = '';
+//
+//   @override
+//   final controlFriendName = TextEditingController();
+//   final controlSelectedTime = TextEditingController();
+//
+//   @override
+//   void initState() {
+//     super.initState();
+//     _loadValue();
+//   }
+//
+//   _loadValue() async {
+//     _prefs = await SharedPreferences.getInstance();
+//     setState(() {
+//       controlFriendName.text = _prefs.getString('friendName') ?? 'friendiary';
+//       controlSelectedTime.text = (_prefs.getString('selectedTime') ?? ' ');
+//
+//     });
+//   }
+//
+//   Widget build(BuildContext context){
+//     return Container(
+//       child: Column(
+//         crossAxisAlignment: CrossAxisAlignment.center,
+//         mainAxisAlignment: MainAxisAlignment.start,
+//         children: [
+//           SizedBox(height: 50,),
+//           Row( //name
+//             crossAxisAlignment: CrossAxisAlignment.center,
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: <Widget> [
+//               Text('이름 : ',),
+//               SizedBox(width : 260, height: 40, child : TextField(
+//                 controller: controlFriendName,
+//                 decoration: InputDecoration(
+//                   contentPadding: EdgeInsets.symmetric(vertical:5.0, horizontal: 10.0),
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//               ),],
+//           ),
+//           SizedBox(height: 30,),
+//           Column(children: [
+//             Row( //birth
+//               crossAxisAlignment: CrossAxisAlignment.center,
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               children: <Widget> [
+//                 Text('알림 시각 :  '),
+//                 SizedBox(width : 90, height: 40, child : TextFormField(
+//                   textAlign: TextAlign.center,
+//                   controller: controlSelectedTime,
+//                   decoration: InputDecoration(
+//                     contentPadding: EdgeInsets.all(5.0),
+//                     border: OutlineInputBorder(),
+//                   ),
+//                 ),
+//                 ),
+//                 SizedBox(width: 15,),
+//                 SizedBox(
+//                   height : 32,
+//                   child : RaisedButton(
+//                     onPressed: () {
+//                       Future<TimeOfDay> selectedTime = showTimePicker(
+//                         initialTime: TimeOfDay.now(),
+//                         context: context,
+//                       );
+//
+//                       selectedTime.then((timeOfDay) {
+//                         setState(() {
+//                           _selectedTime = '${timeOfDay.hour}:${timeOfDay.minute}';
+//                           controlSelectedTime.text = '$_selectedTime';
+//                         });
+//                       });
+//                     },
+//                     child: Text('시간 선택'),
+//                     color: Color(0xFFD6E2E9),
+//
+//                 ),
+//                 ),
+//               ],
+//             ),
+//           ]),
+//           SizedBox(height: 25,),
+//           SizedBox(
+//             width : 65,
+//             height : 32,
+//             child : RaisedButton(
+//               onPressed: () {
+//                 _friendName = controlFriendName.text;
+//                 _selectedTime = controlSelectedTime.text;
+//                 _prefs.setString('friendName', _friendName);
+//                 _prefs.setString('selectedTime', _selectedTime);
+//                 showAlertDialog(context);
+//               },
+//               child: Text('저장',),
+//               color: Color(0xFFBCD4E6),
+//             ),),
+//           SizedBox(height: 30,),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 class _mypage extends StatefulWidget{
   @override
