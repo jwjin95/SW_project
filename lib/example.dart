@@ -98,11 +98,12 @@ class _CalendarPage2State extends State<CalendarPage2> {
       selectedDateTime: _currentDate,
       weekdayTextStyle: TextStyle( fontSize: 15.0, color: Color(0xFF4D70AA)),
       todayButtonColor: Colors.white,
-      todayBorderColor: Color(0xFFBCD4E6),
-      selectedDayButtonColor: Color(0xCCBCD4E6),
-      selectedDayBorderColor: Color(0xFFBCD4E6),
+      todayBorderColor: Color(0xFF6397D2),
+      todayTextStyle: TextStyle(color: Color(0xFF6397D2)),
+      selectedDayButtonColor: Color(0xFF6397D2),
+      selectedDayBorderColor: Color(0xFFFFFFFF),
       selectedDayTextStyle: TextStyle(color: Colors.white),
-      daysHaveCircularBorder: false,
+      daysHaveCircularBorder: true,
       markedDatesMap: _markedDateMap,
       markedDateShowIcon: true,
       markedDateIconMaxShown: 1,
@@ -129,8 +130,8 @@ class _CalendarPage2State extends State<CalendarPage2> {
               child : Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                new Text(DateFormat('yyyy.MM.dd').format(_currentDate), style: TextStyle(color: Color(0xFF71B1E0)),),
-                new FlatButton(child:const Text("상세보기", style: TextStyle(color: Color(0xFF71B1E0),),), onPressed: ()=>{
+                new Text(DateFormat('yyyy.MM.dd').format(_currentDate), style: TextStyle(color: Color(0xFF06397D2)),),
+                new FlatButton(child:const Text("상세보기", style: TextStyle(color: Color(0xFF6397D2),),), onPressed: ()=>{
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -144,18 +145,6 @@ class _CalendarPage2State extends State<CalendarPage2> {
                 "\n스크롤로 표시되고 오른쪽 위에 상세보기 누르면 화면 전환")
           ],
         ),
-      ),
-    );
-  }
-
-  Widget markerRepresent(Color color, String data) {
-    return new ListTile(
-      leading: new CircleAvatar(
-        backgroundColor: color,
-        radius: cHeight * 0.015,
-      ),
-      title: new Text(
-        data,
       ),
     );
   }
