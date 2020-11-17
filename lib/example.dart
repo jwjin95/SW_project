@@ -25,6 +25,7 @@ List<DateTime> presentDates = [
 
 class _CalendarPage2State extends State<CalendarPage2> {
   DateTime _currentDate = DateTime.now();
+  DateTime _targetDate = DateTime.now();
   static Widget _presentIcon(String day) => Container(
     child: Center(
       child: Text(
@@ -40,6 +41,7 @@ class _CalendarPage2State extends State<CalendarPage2> {
 
   void refresh(DateTime date){
     _currentDate = date;
+    _targetDate = date;
   }
 
   static Widget _absentIcon(String day) => Container(
@@ -92,8 +94,24 @@ class _CalendarPage2State extends State<CalendarPage2> {
       // weekendTextStyle: TextStyle(
       //   color: Colors.black,
       // ),
+      onLeftArrowPressed: () {
+        setState(() {
+          if(_targetDate.month != 1) {
+            _targetDate = DateTime(_targetDate.year, _targetDate.month - 1);
+          }else{
+            _targetDate = DateTime(_targetDate.year-1, _targetDate.month + 11);
+          }
+      });},
+      onRightArrowPressed: () {
+        setState(() {
+          if(_targetDate.month != 12) {
+            _targetDate = DateTime(_targetDate.year, _targetDate.month + 1);
+          }else{
+            _targetDate = DateTime(_targetDate.year+1, _targetDate.month - 11);
+          }
+        });},
       headerTextStyle: TextStyle(fontSize: 22.0, color: Color(0xFF4D70AA), fontWeight: FontWeight.w900),
-      headerText: DateFormat('y.MM').format(_currentDate),
+      headerText: DateFormat('y.MM').format(_targetDate),
       iconColor: Color(0xFF4D70AA),
       selectedDateTime: _currentDate,
       weekdayTextStyle: TextStyle( fontSize: 15.0, color: Color(0xFF4D70AA)),
