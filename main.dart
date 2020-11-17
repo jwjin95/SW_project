@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:outline/my_button.dart';
-import 'package:outline/Question1_1.dart';
+import 'package:my_button.dart';
+import 'package:Question1_1.dart';
 void main() {
 
 
