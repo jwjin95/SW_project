@@ -28,7 +28,7 @@ class diaryView extends StatelessWidget {
                 style: TextStyle(
                   height: 2.0,
                 ),),),
-              SizedBox(height:200, width: 200, child:Image.asset("images/라면.png"))
+              
             ],
           )
         ],
