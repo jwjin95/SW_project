@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
+import 'package:softwareEngineering/diary.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart'
     show CalendarCarousel;
 import 'package:flutter_calendar_carousel/classes/event.dart';
@@ -8,9 +8,9 @@ import 'package:flutter_calendar_carousel/classes/event_list.dart';
 import 'package:intl/intl.dart';
 
 import 'Question_end.dart';
-import 'diary.dart';
 
 class CalendarPage2 extends StatefulWidget {
+
   @override
   _CalendarPage2State createState() => new _CalendarPage2State();
 }
@@ -25,6 +25,7 @@ List<DateTime> presentDates = [
 // ];
 
 class _CalendarPage2State extends State<CalendarPage2> {
+  var ans_list = [];
   DateTime _currentDate = DateTime.now();
   DateTime _targetDate = DateTime.now();
   static Widget _presentIcon(String day) => Container(
@@ -154,7 +155,7 @@ class _CalendarPage2State extends State<CalendarPage2> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => diaryView()
+                      builder: (context) => diaryView(ans_list)
                     )
                   )
                 }),
