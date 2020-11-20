@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
+import 'package:outline/diary.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart'
     show CalendarCarousel;
 import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/classes/event_list.dart';
 import 'package:intl/intl.dart';
 
-import 'diary.dart';
+import 'Question_end.dart';
 
 class CalendarPage2 extends StatefulWidget {
+
   @override
   _CalendarPage2State createState() => new _CalendarPage2State();
 }
@@ -24,6 +25,7 @@ List<DateTime> presentDates = [
 // ];
 
 class _CalendarPage2State extends State<CalendarPage2> {
+  var ans_list = [];
   DateTime _currentDate = DateTime.now();
   DateTime _targetDate = DateTime.now();
   static Widget _presentIcon(String day) => Container(
@@ -101,7 +103,7 @@ class _CalendarPage2State extends State<CalendarPage2> {
           }else{
             _targetDate = DateTime(_targetDate.year-1, _targetDate.month + 11);
           }
-      });},
+        });},
       onRightArrowPressed: () {
         setState(() {
           if(_targetDate.month != 12) {
@@ -146,19 +148,19 @@ class _CalendarPage2State extends State<CalendarPage2> {
             Container(
               margin: EdgeInsets.only(left: 13, bottom: 5,),
               child : Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                new Text(DateFormat('yyyy.MM.dd').format(_currentDate), style: TextStyle(color: Color(0xFF06397D2)),),
-                new FlatButton(child:const Text("상세보기", style: TextStyle(color: Color(0xFF6397D2),),), onPressed: ()=>{
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => diaryView()
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  new Text(DateFormat('yyyy.MM.dd').format(_currentDate), style: TextStyle(color: Color(0xFF06397D2)),),
+                  new FlatButton(child:const Text("상세보기", style: TextStyle(color: Color(0xFF6397D2),),), onPressed: ()=>{
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => diaryView(ans_list)
+                        )
                     )
-                  )
-                }),
-              ],
-            ),),
+                  }),
+                ],
+              ),),
             new Text("여기에 일기를 표시"
                 "\n스크롤로 표시되고 오른쪽 위에 상세보기 누르면 화면 전환")
           ],
