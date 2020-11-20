@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:outline/Q1.dart';
-import 'package:outline/Q4.dart';
+import 'package:outline/Q3.dart';
 //constants
-const kPrimaryColor = Color(0xff9ce6ff);
-const kBorderColor = Color(0xfff2feff);
+const kPrimaryColor = Color(0xFF6397D2);
+const kBorderColor = Color(0xFFBCD4E6);
 const kBackgroundWhiteColor = Color(0xffF8F6F5);
-
+const kPointColor = Color(0xff244773);
 const kAmounts = ["50", "100", "250", "500"];
 
 
@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: kPointColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: CPage()

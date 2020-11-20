@@ -2,10 +2,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 //constants
-const kPrimaryColor = Color(0xff9ce6ff);
-const kBorderColor = Color(0xfff2feff);
+const kPrimaryColor = Color(0xFF6397D2);
+const kBorderColor = Color(0xFFBCD4E6);
 const kBackgroundWhiteColor = Color(0xffF8F6F5);
-
+const kPointColor = Color(0xff244773);
 const kAmounts = ["50", "100", "250", "500"];
 
 
@@ -56,13 +56,13 @@ class _StfState extends State<stf>{
   }
   Widget _buildBody(){
     return Container(
-      margin: EdgeInsets.only(top:56),
+      margin: EdgeInsets.only(top:30),
       height: double.maxFinite,
       width: double.maxFinite,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
-          topRight: Radius.circular(50),
-          topLeft: Radius.circular(30),
+          topRight: Radius.circular(10),
+          topLeft: Radius.circular(10),
         ),
         color: Colors.white,
       ),
@@ -70,16 +70,30 @@ class _StfState extends State<stf>{
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.symmetric(
-              horizontal: 32,
-              vertical: 32,
+              horizontal:32,
+              vertical: 100,
             ),
             child: Text(
-              "오늘 기분의 강도는 어때???",
+              "오늘 기분의 강도는 어때??",
               textAlign:TextAlign.center,
-              style:kTextStyle.copyWith(color: Colors.grey.shade700),
+              style:kTextStyle.copyWith(color: kPointColor),
+
             ),
           ),
           Divider(),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(
+          //     horizontal: 32,
+          //     vertical: 32,
+          //   ),
+          //   child: Text(
+          //     "오늘 기분의 강도는 어때???",
+          //     textAlign:TextAlign.center,
+          //     style:kTextStyle.copyWith(color: kPointColor),
+          //     //style:kTextStyle.copyWith(color: Colors.grey.shade700),
+          //   ),
+          // ),
+          // Divider(),
           _buildAmountSection(),
         ],
       ),
@@ -101,9 +115,9 @@ class _StfState extends State<stf>{
               icon: Icons.remove,
             ),
             Text(
-              "\$ amount",
+              " $amount",
               style: TextStyle(
-                color: kPrimaryColor,
+                color: kPointColor,
                 fontSize: 42,
               ),
             ),
@@ -144,7 +158,7 @@ class _StfState extends State<stf>{
               child: RaisedButton(onPressed: () {},
                 color: Colors.grey.shade300,
                 textColor: Colors.grey.shade600,
-                child: Text("Cancel",
+                child: Text("이전",
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                   ),
@@ -159,7 +173,7 @@ class _StfState extends State<stf>{
               child: RaisedButton(onPressed: () {},
                 color: kPrimaryColor,
                 textColor: Colors.white,
-                child: Text("Send",
+                child: Text("다음",
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                   ),

@@ -159,7 +159,7 @@ class Question2_2 extends StatelessWidget {
             radius: 4.0,
             onPressed: (){
 
-              q2_2 = "들으면 신나";
+              q2_2 = "신나";
               ans['q2_2'] = q2_2;
               Navigator.push(
                 context,

@@ -8,6 +8,7 @@ import 'package:outline/Question1_4.dart';
 import 'package:outline/Question1_5.dart';
 import 'package:outline/Question2_1.dart';
 import 'package:outline/Question2_2.dart';
+import 'package:outline/Question2_3.dart';
 import 'package:outline/Question3_1.dart';
 import 'package:outline/Question4_1.dart';
 import 'package:outline/Question5_1.dart';
@@ -126,7 +127,7 @@ class Question2_1 extends StatelessWidget {
               ans['q2_1'] = q2_1;
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Question2_2(ans)),
+                MaterialPageRoute(builder: (context) => Question2_3(ans)),
               );
             },
           ),
@@ -151,7 +152,7 @@ class Question2_1 extends StatelessWidget {
               ans['q2_1'] = q2_1;
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Question2_2(ans)),
+                MaterialPageRoute(builder: (context) => Question2_3(ans)),
               );
 
             },
@@ -178,7 +179,7 @@ class Question2_1 extends StatelessWidget {
               ans['q2_1'] = q2_1;
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Question2_2(ans)),
+                MaterialPageRoute(builder: (context) => Question2_3(ans)),
               );
 
             },
@@ -204,7 +205,7 @@ class Question2_1 extends StatelessWidget {
               ans['q2_1'] = q2_1;
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Question2_2(ans)),
+                MaterialPageRoute(builder: (context) => Question2_3(ans)),
               );
 
             },

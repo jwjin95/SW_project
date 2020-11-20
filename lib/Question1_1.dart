@@ -91,16 +91,15 @@ class Question1_1 extends StatelessWidget {
               style: TextStyle(color: Colors.black),
               decoration: InputDecoration(
                 border: InputBorder.none,
-                hintText: '직접입력',
+                hintText: '직접입력 ("~하기"로 입력해주세요 :) )',
                 hintStyle: TextStyle(color: Colors.grey[300]),
 
               ),
 
               onSubmitted: (String str){
 
-                q1_1 = str;
-
-
+                q1_1 = str.split('').reversed.join('');
+                q1_1= q1_1.substring(2).split('').reversed.join('');
               },
             ),
           ),

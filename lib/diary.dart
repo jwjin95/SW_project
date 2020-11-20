@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class diaryView extends StatelessWidget {
   String tmpStr = '오늘은 다현이와 점심을 먹었다. 강남역에 가서 엽떡을 먹었는데 조금 멀어서 귀찮았지만 맛은 있었다. 오늘 하루는 행복한 하루였다.아주아주아주';
   var ans_list = [];
@@ -24,11 +23,12 @@ class diaryView extends StatelessWidget {
               Container(
                 width : 300,
                 child : Text(
-                tmpStr,
+                //tmpStr,
+                ans_list.join(' '),
                 style: TextStyle(
                   height: 2.0,
                 ),),),
-              SizedBox(height:200, width: 200, child:Image.asset("images/라면.png"))
+              //SizedBox(height:200, width: 200, child:Image.asset("images/라면.png"))
             ],
           )
         ],

@@ -8,9 +8,7 @@ import 'package:outline/Question1_4.dart';
 import 'package:outline/Question1_5.dart';
 import 'package:outline/Question2_1.dart';
 import 'package:outline/Question2_2.dart';
-import 'package:outline/Question2_3.dart';
 import 'package:outline/Question3_1.dart';
-import 'package:outline/Question3_2.dart';
 import 'package:outline/Question4_1.dart';
 import 'package:outline/Question5_1.dart';
 import 'package:outline/Question5_2.dart';
@@ -20,13 +18,17 @@ import 'package:outline/Question7_2.dart';
 import 'package:outline/Question7_3.dart';
 import 'package:outline/Question7_4.dart';
 
-class Question4_2 extends StatelessWidget {
+class Question2_3 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
-  String q4_2 ='';
+  String q2_3 ='';
   Map ans;
-  Question4_2(this.ans);
+  String buf='';
+  var doingSth=['공부','운동','휴식','친구와 놀기'];
+  Question2_3(this.ans);
+
   @override
+  
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
@@ -35,7 +37,7 @@ class Question4_2 extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.blue,
         title: Text(
-          'Question4_2',
+          'Question2_3',
           style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
@@ -57,18 +59,15 @@ class Question4_2 extends StatelessWidget {
         children: <Widget>[
           Center(child: Container(
 
-            child: Text('맛있었어?',
+            child: Text('뭐 하면서 듣게 된 거야?',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 37,
+                fontSize: 30,
                 color: Colors.blueAccent,
                 height:3.5,
               ),
 
             ),
-
-
-
           ),
 
           ),
@@ -91,38 +90,96 @@ class Question4_2 extends StatelessWidget {
               style: TextStyle(color: Colors.black),
               decoration: InputDecoration(
                 border: InputBorder.none,
-                hintText: '직접입력',
+                hintText: '직접입력 ("~하면서" 로 입력해주세요 :) )',
                 hintStyle: TextStyle(color: Colors.grey[300]),
 
               ),
 
               onSubmitted: (String str){
 
-                q4_2 = str;
-
-
+                q2_3 = str;
               },
             ),
           ),
-
           SizedBox(
             height: 10.0,
           ),
 
-
           MyButton(
             text: Text(
-              '엄청 맛있었다.',
+              '공부하면서 들었어',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
             radius: 4.0,
             onPressed: (){
-              q4_2 = "엄청 맛있었다.";
-              ans['q4_2'] = q4_2;
+
+              q2_3 = "공부하면서";
+              ans['q2_3'] = q2_3;
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Question5_1(ans)),
+                MaterialPageRoute(builder: (context) => Question2_2(ans)),
+              );
+            },
+          ),SizedBox(
+            height: 10.0,
+          ),
+
+          MyButton(
+            text: Text(
+              '운동하면서 들었어',
+              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+            ),
+            color: Colors.white,
+            radius: 4.0,
+            onPressed: (){
+
+              q2_3 = "운동하면서";
+              ans['q2_3'] = q2_3;
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Question2_2(ans)),
+              );
+            },
+          ),SizedBox(
+            height: 10.0,
+          ),
+
+          MyButton(
+            text: Text(
+              '친구랑 놀면서 들었어',
+              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+            ),
+            color: Colors.white,
+            radius: 4.0,
+            onPressed: (){
+
+              q2_3 = "친구랑 놀면서";
+              ans['q2_3'] = q2_3;
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Question2_2(ans)),
+              );
+            },
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+          
+          MyButton(
+            text: Text(
+              '지하철에서 들었어',
+              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+            ),
+            color: Colors.white,
+            radius: 4.0,
+            onPressed: (){
+
+              q2_3 = "지하철타고 이동하면서";
+              ans['q2_3'] = q2_3;
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Question2_2(ans)),
               );
             },
           ),
@@ -131,17 +188,18 @@ class Question4_2 extends StatelessWidget {
           ),
           MyButton(
             text: Text(
-              '꽤 괜찮았다.',
+              '버스에서 들었어',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
             radius: 4.0,
             onPressed: (){
-              q4_2 = "꽤 괜찮았다.";
-              ans['q4_2'] = q4_2;
+
+              q2_3 = "버스타고 이동하면서";
+              ans['q2_3'] = q2_3;
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Question5_1(ans)),
+                MaterialPageRoute(builder: (context) => Question2_2(ans)),
               );
 
             },
@@ -152,17 +210,18 @@ class Question4_2 extends StatelessWidget {
 
           MyButton(
             text: Text(
-              '그냥 그랬다.',
+              '그냥 쉬는 시간에 들었어',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
             radius: 4.0,
             onPressed: (){
-              q4_2 = "그냥 그랬다.";
-              ans['q4_2'] = q4_2;
+
+              q2_3 = "쉬는 시간에";
+              ans['q2_3'] = q2_3;
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Question5_1(ans)),
+                MaterialPageRoute(builder: (context) => Question2_2(ans)),
               );
 
             },
@@ -172,22 +231,22 @@ class Question4_2 extends StatelessWidget {
           ),
           MyButton(
             text: Text(
-              '좀 별로였다.',
+              '기억이 잘 안 난다',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
             radius: 4.0,
             onPressed: (){
-              q4_2 = "좀 별로였다.";
-              ans['q4_2'] = q4_2;
+
+              q2_3 = "어쩌다 들은 건지 기억이 잘 안 나지만 아무튼";
+              ans['q2_3'] = q2_3;
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Question5_1(ans)),
+                MaterialPageRoute(builder: (context) => Question2_2(ans)),
               );
 
             },
           ),
-
           Align(
             alignment: Alignment.centerRight,
             child: OutlineButton(
@@ -196,10 +255,11 @@ class Question4_2 extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20)),
               child: Text("확인"),
               onPressed: () {
-                ans['q4_2'] = q4_2;
+
+                ans['q2_3'] = q2_3;
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Question5_1(ans)),
+                  MaterialPageRoute(builder: (context) => Question2_2(ans)),
                 );
 
               },
