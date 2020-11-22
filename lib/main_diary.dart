@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'my_button.dart';
 import 'Question1_1.dart';
-void main() {
 
 
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
+class qna extends StatelessWidget {
   // This widget is the root of your application.
 
   @override

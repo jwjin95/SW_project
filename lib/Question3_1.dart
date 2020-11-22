@@ -33,15 +33,15 @@ class Question3_1 extends StatelessWidget {
       resizeToAvoidBottomPadding: false,
 
 
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: Text(
-          'Question3_1',
-          style: TextStyle(color: Colors.white),
-        ),
-        centerTitle: true,
-        elevation: 0.2,
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.blue,
+      //   title: Text(
+      //     'Question3_1',
+      //     style: TextStyle(color: Colors.white),
+      //   ),
+      //   centerTitle: true,
+      //   elevation: 0.2,
+      // ),
       body:
 
       _buildButton(context),

@@ -32,16 +32,16 @@ class Question1_1 extends StatelessWidget {
         resizeToAvoidBottomPadding: false,
 
 
-      appBar: AppBar(
+      // appBar: AppBar(
 
-        backgroundColor: Colors.blue,
-        title: Text(
-          'Question1_1',
-          style: TextStyle(color: Colors.white),
-        ),
-        centerTitle: true,
-        elevation: 0.2,
-      ),
+      //   backgroundColor: Colors.blue,
+      //   title: Text(
+      //     'Question1_1',
+      //     style: TextStyle(color: Colors.white),
+      //   ),
+      //   centerTitle: true,
+      //   elevation: 0.2,
+      // ),
       body:
       _buildButton(context),
 

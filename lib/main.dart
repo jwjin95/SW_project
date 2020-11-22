@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'Question_end.dart';
 import 'example.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'main_diary.dart';
 
 
 void main() => runApp(MyApp());
@@ -46,7 +46,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     ),
   ];
 
-  List _pages = [_calendar(), _write()];
+  List _pages = [_calendar(), qna()];
 
   void _onItemTapped(int index) {
     setState(() {
