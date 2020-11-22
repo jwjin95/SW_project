@@ -46,7 +46,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     ),
   ];
 
-  List _pages = [_calendar(), qna()];
+  List _pages = [_calendar(), writePage()];
 
   void _onItemTapped(int index) {
     setState(() {

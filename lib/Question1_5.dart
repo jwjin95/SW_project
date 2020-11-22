@@ -1,24 +1,6 @@
 import 'package:softwareEngineering/my_button.dart';
 import 'package:flutter/material.dart';
-import 'package:softwareEngineering/main.dart';
-import 'package:softwareEngineering/Question1_2.dart';
-import 'package:softwareEngineering/Question1_3.dart';
-import 'package:softwareEngineering/Question1_4.dart';
-import 'package:softwareEngineering/Question1_4.dart';
-import 'package:softwareEngineering/Question1_5.dart';
-
 import 'package:softwareEngineering/Question2_1.dart';
-import 'package:softwareEngineering/Question2_2.dart';
-import 'package:softwareEngineering/Question3_1.dart';
-import 'package:softwareEngineering/Question4_1.dart';
-import 'package:softwareEngineering/Question5_1.dart';
-import 'package:softwareEngineering/Question5_2.dart';
-import 'package:softwareEngineering/Question6_1.dart';
-import 'package:softwareEngineering/Question7_1.dart';
-import 'package:softwareEngineering/Question7_2.dart';
-import 'package:softwareEngineering/Question7_3.dart';
-import 'package:softwareEngineering/Question7_4.dart';
-import 'package:softwareEngineering/Question7_5.dart';
 
 class Question1_5 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
@@ -26,12 +8,22 @@ class Question1_5 extends StatelessWidget {
   String q1_5 ='';
   Map ans;
   Question1_5(this.ans);
+  static const TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
 
-
+      appBar: AppBar(
+        title: Text(
+          'Write',
+          style: optionStyle,
+        ),
+        centerTitle: true,
+        backgroundColor: Color(0xFF6397D2),
+        elevation: 0.0,
+      ),
       // appBar: AppBar(
       //   backgroundColor: Colors.blue,
       //   title: Text(

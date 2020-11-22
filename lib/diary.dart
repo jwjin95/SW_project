@@ -14,7 +14,7 @@ class diaryView extends StatelessWidget {
 
     return Scaffold(
       appBar:AppBar(
-        title: Text("Selected date", style: TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand'),),
+        title: Text(DateFormat('yyyy.MM.dd').format(DateTime.now()), style: TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand'),),
         centerTitle: true,
         backgroundColor: Color(0xFF6397D2),
         elevation: 0.0,
