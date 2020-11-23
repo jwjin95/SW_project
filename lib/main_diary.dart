@@ -89,7 +89,6 @@ class writePage extends StatelessWidget {
                 context,
                 MaterialPageRoute(builder: (context) => qna()),
               );
-
             },
           ),
           SizedBox(
