@@ -14,7 +14,6 @@ class writePage extends StatelessWidget {
 
         resizeToAvoidBottomPadding: false,
 
-
       // appBar: AppBar(
 
       //   backgroundColor: Colors.blue,
