@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
+import 'package:softwareEngineering/diary.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart'
     show CalendarCarousel;
 import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/classes/event_list.dart';
 import 'package:intl/intl.dart';
 
-import 'diary.dart';
+import 'Question_end.dart';
 
 class CalendarPage2 extends StatefulWidget {
+
   @override
-  _CalendarPage2State createState() => new _CalendarPage2State();
+  CalendarPage2State createState() => new CalendarPage2State();
 }
 
 List<DateTime> presentDates = [
@@ -23,7 +24,11 @@ List<DateTime> presentDates = [
 //   DateTime(2020, 11, 12),
 // ];
 
-class _CalendarPage2State extends State<CalendarPage2> {
+class CalendarPage2State extends State<CalendarPage2> {
+
+  var ans_list = [];
+  static var diary_list = Map();
+
   DateTime _currentDate = DateTime.now();
   DateTime _targetDate = DateTime.now();
   static Widget _presentIcon(String day) => Container(
@@ -153,14 +158,13 @@ class _CalendarPage2State extends State<CalendarPage2> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => diaryView()
+                      builder: (context) => todaydiaryView(_currentDate, diary_list[_currentDate])
                     )
                   )
                 }),
               ],
             ),),
-            new Text("여기에 일기를 표시"
-                "\n스크롤로 표시되고 오른쪽 위에 상세보기 누르면 화면 전환")
+            new Text(diary_list[_currentDate]!=null ? diary_list[_currentDate] : "쓰여진 일기가 없습니다.")
           ],
         ),
       ),
