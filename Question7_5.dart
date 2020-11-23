@@ -20,10 +20,36 @@ import 'package:outline/Question7_4.dart';
 import 'package:outline/Question7_5.dart';
 import 'package:outline/diary.dart';
 
+import 'package:outline/think1.dart';
+import 'package:outline/think2.dart';
+import 'package:outline/think3.dart';
+import 'package:outline/think4.dart';
+import 'package:outline/think5.dart';
+import 'package:outline/think6.dart';
+import 'package:outline/think7.dart';
+import 'package:outline/think8.dart';
+import 'package:outline/think9.dart';
+import 'package:outline/think10.dart';
+import 'package:outline/think11.dart';
+import 'package:outline/think12.dart';
+import 'package:outline/think13.dart';
+
+import 'dart:math';
+
 class Question7_5 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
   String q7_5 ='';
+
+  String randompage='';
+  Future gen() async{
+
+    Random random = new Random();
+    int ran = random.nextInt(13);
+    String page = ran.toString() ;
+    randompage = page;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -117,10 +143,9 @@ class Question7_5 extends StatelessWidget {
             radius: 4.0,
             onPressed: (){
               q7_5 = "PC방";
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => diary()),
-              );
+              gen();
+              Navigator.pushNamed(context, randompage );
+
             },
           ),
           SizedBox(
@@ -135,10 +160,8 @@ class Question7_5 extends StatelessWidget {
             radius: 4.0,
             onPressed: (){
               q7_5 = "카페";
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => diary()),
-              );
+              gen();
+              Navigator.pushNamed(context, randompage );
 
             },
           ),
@@ -155,10 +178,8 @@ class Question7_5 extends StatelessWidget {
             radius: 4.0,
             onPressed: (){
               q7_5 = "맛집 탐방";
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => diary()),
-              );
+              gen();
+              Navigator.pushNamed(context, randompage );
 
             },
           ),
@@ -174,10 +195,8 @@ class Question7_5 extends StatelessWidget {
             radius: 4.0,
             onPressed: (){
               q7_5 = "술 마시기";
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => diary()),
-              );
+              gen();
+              Navigator.pushNamed(context, randompage );
 
             },
           ),

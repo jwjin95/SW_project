@@ -9,7 +9,10 @@ import 'package:outline/Question1_5.dart';
 import 'package:outline/Question2_1.dart';
 import 'package:outline/Question2_2.dart';
 import 'package:outline/Question3_1.dart';
+import 'package:outline/Question3_2.dart';
 import 'package:outline/Question4_1.dart';
+import 'package:outline/Question4_2.dart';
+
 import 'package:outline/Question5_1.dart';
 import 'package:outline/Question5_2.dart';
 import 'package:outline/Question6_1.dart';
@@ -17,15 +20,27 @@ import 'package:outline/Question7_1.dart';
 import 'package:outline/Question7_2.dart';
 import 'package:outline/Question7_3.dart';
 import 'package:outline/Question7_4.dart';
-import 'package:outline/Question7_5.dart';
-import 'package:outline/diary.dart';
+
+import 'package:outline/think1.dart';
+import 'package:outline/think2.dart';
+import 'package:outline/think3.dart';
+import 'package:outline/think4.dart';
+import 'package:outline/think5.dart';
+import 'package:outline/think6.dart';
+import 'package:outline/think7.dart';
+import 'package:outline/think8.dart';
+import 'package:outline/think9.dart';
+import 'package:outline/think10.dart';
+import 'package:outline/think11.dart';
+import 'package:outline/think12.dart';
+import 'package:outline/think13.dart';
 
 import 'dart:math';
 
-class Question7_3 extends StatelessWidget {
+class think12 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
-  String q7_3 ='';
+  String th12 ='';
   String randompage='';
   Future gen() async{
 
@@ -43,7 +58,7 @@ class Question7_3 extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.blue,
         title: Text(
-          'Question7_3',
+          'think12',
           style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
@@ -65,10 +80,10 @@ class Question7_3 extends StatelessWidget {
         children: <Widget>[
           Center(child: Container(
 
-            child: Text('어디서?',
+            child: Text('내일에 대한 다짐이 있다면?',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 41,
+                fontSize: 23,
                 color: Colors.blueAccent,
                 height:3.5,
               ),
@@ -106,7 +121,7 @@ class Question7_3 extends StatelessWidget {
 
               onSubmitted: (String str){
 
-                q7_3 = str;
+                th12 = str;
 
 
               },
@@ -117,73 +132,35 @@ class Question7_3 extends StatelessWidget {
             height: 10.0,
           ),
 
+          Align(
+            alignment: Alignment.centerRight,
+            child: OutlineButton(
+              color: Colors.orange,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              child: Text("확인"),
+              onPressed: () {
+                gen();
+                Navigator.pushNamed(context, randompage );
 
-          MyButton(
-            text: Text(
-              '집',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              },
             ),
-            color: Colors.white,
-            radius: 4.0,
-            onPressed: (){
-              q7_3 = "집";
-              gen();
-              Navigator.pushNamed(context, randompage );
-            },
           ),
-          SizedBox(
-            height: 10.0,
-          ),
-          MyButton(
-            text: Text(
-              '헬스장',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+
+          Align(
+            alignment: Alignment.centerLeft,
+            child: OutlineButton(
+              color: Colors.orange,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              child: Text("그만"),
+              onPressed: () {
+
+                Navigator.pushNamed(context, 'diary');
+
+              },
             ),
-            color: Colors.white,
-            radius: 4.0,
-            onPressed: (){
-              q7_3 = "헬스장";
-              gen();
-              Navigator.pushNamed(context, randompage );
-
-            },
           ),
-          SizedBox(
-            height: 10.0,
-          ),
-
-          MyButton(
-            text: Text(
-              '요가학원',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
-            ),
-            color: Colors.white,
-            radius: 4.0,
-            onPressed: (){
-              q7_3 = "요가학원";
-              gen();
-              Navigator.pushNamed(context, randompage );
-
-            },
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          MyButton(
-            text: Text(
-              '공원',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
-            ),
-            color: Colors.white,
-            radius: 4.0,
-            onPressed: (){
-              q7_3 = "공원";
-              gen();
-              Navigator.pushNamed(context, randompage );
-
-            },
-          ),
-
 
         ],
       ),

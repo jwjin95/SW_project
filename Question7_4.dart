@@ -19,11 +19,20 @@ import 'package:outline/Question7_3.dart';
 import 'package:outline/Question7_4.dart';
 import 'package:outline/Question7_5.dart';
 import 'package:outline/diary.dart';
-
+import 'dart:math';
 class Question7_4 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
   String q7_4 ='';
+  String randompage='';
+  Future gen() async{
+
+    Random random = new Random();
+    int ran = random.nextInt(13);
+    String page = ran.toString() ;
+    randompage = page;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -117,10 +126,8 @@ class Question7_4 extends StatelessWidget {
             radius: 4.0,
             onPressed: (){
               q7_4 = "휴대폰 보기";
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => diary()),
-              );
+              gen();
+              Navigator.pushNamed(context, randompage );
             },
           ),
           SizedBox(
@@ -135,10 +142,8 @@ class Question7_4 extends StatelessWidget {
             radius: 4.0,
             onPressed: (){
               q7_4 = "영화보기";
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => diary()),
-              );
+              gen();
+              Navigator.pushNamed(context, randompage );
 
             },
           ),
@@ -155,10 +160,8 @@ class Question7_4 extends StatelessWidget {
             radius: 4.0,
             onPressed: (){
               q7_4 = "종일 누워있기";
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => diary()),
-              );
+              gen();
+              Navigator.pushNamed(context, randompage );
 
             },
           ),
@@ -174,10 +177,8 @@ class Question7_4 extends StatelessWidget {
             radius: 4.0,
             onPressed: (){
               q7_4 = "TV보기";
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => diary()),
-              );
+              gen();
+              Navigator.pushNamed(context, randompage );
 
             },
           ),
