@@ -1,5 +1,6 @@
 import 'package:softwareEngineering/my_button.dart';
 import 'package:flutter/material.dart';
+import 'package:softwareEngineering/Question_end.dart';
 import 'package:softwareEngineering/main.dart';
 import 'package:softwareEngineering/Question1_2.dart';
 import 'package:softwareEngineering/Question1_3.dart';
@@ -41,15 +42,19 @@ import 'dart:math';
 class think2 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
-  String th2 ='';
+  String th2 ='내가 바라는 내일 하루: ';
   String randompage='';
-  Future gen() async{
 
+  Future gen() async{
     Random random = new Random();
     int ran = random.nextInt(13);
     String page = ran.toString() ;
     randompage = page;
   }
+
+  Map ans;
+  think2(this.ans);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,7 +127,7 @@ class think2 extends StatelessWidget {
 
               onSubmitted: (String str){
 
-                th2 = str;
+                th2 = th2 + str + "\n";
 
 
               },
@@ -141,8 +146,11 @@ class think2 extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20)),
               child: Text("그만"),
               onPressed: () {
-
-                Navigator.pushNamed(context, 'diary');
+                ans['th2'] = th2;
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Question_end(ans)),
+                );
 
               },
             ),
@@ -156,17 +164,14 @@ class think2 extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20)),
               child: Text("확인"),
               onPressed: () {
+                ans['th2'] = th2;
                 gen();
-                Navigator.pushNamed(context, randompage );
+                Navigator.pushNamed(context, randompage,
+                arguments: ans);
 
               },
             ),
           ),
-
-
-
-
-
         ],
       ),
     );

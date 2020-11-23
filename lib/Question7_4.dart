@@ -10,8 +10,8 @@ class Question7_4 extends StatelessWidget {
   Question7_4(this.ans);
 
   String randompage='';
-  Future gen() async{
 
+  Future gen() async{
     Random random = new Random();
     int ran = random.nextInt(13);
     String page = ran.toString() ;
@@ -122,10 +122,8 @@ class Question7_4 extends StatelessWidget {
             onPressed: (){
               q7_4 = "휴대폰 보기";
               ans['q7_4'] = q7_4;
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Question_end(ans)),
-              );
+              gen();
+              Navigator.pushNamed(context, randompage );
             },
           ),
           SizedBox(
@@ -141,10 +139,8 @@ class Question7_4 extends StatelessWidget {
             onPressed: (){
               q7_4 = "영화보기";
               ans['q7_4'] = q7_4;
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Question_end(ans)),
-              );
+              gen();
+              Navigator.pushNamed(context, randompage );
 
             },
           ),
@@ -162,10 +158,8 @@ class Question7_4 extends StatelessWidget {
             onPressed: (){
               q7_4 = "종일 누워있기";
               ans['q7_4'] = q7_4;
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Question_end(ans)),
-              );
+              gen();
+              Navigator.pushNamed(context, randompage );
 
             },
           ),
@@ -182,10 +176,8 @@ class Question7_4 extends StatelessWidget {
             onPressed: (){
               q7_4 = "TV보기";
               ans['q7_4'] = q7_4;
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Question_end(ans)),
-              );
+              gen();
+              Navigator.pushNamed(context, randompage );
 
             },
           ),
@@ -198,10 +190,8 @@ class Question7_4 extends StatelessWidget {
               child: Text("확인"),
               onPressed: () {
                 ans['q7_4'] = q7_4;
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Question_end(ans)),
-                );
+                gen();
+                Navigator.pushNamed(context, randompage );
 
               },
             ),

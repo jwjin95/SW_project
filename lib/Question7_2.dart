@@ -10,8 +10,8 @@ class Question7_2 extends StatelessWidget {
   Question7_2(this.ans);
 
   String randompage='';
-  Future gen() async{
 
+  Future gen() async{
     Random random = new Random();
     int ran = random.nextInt(13);
     String page = ran.toString() ;
@@ -122,10 +122,9 @@ class Question7_2 extends StatelessWidget {
             onPressed: (){
               q7_2 = "집";
               ans['q7_2'] = q7_2;
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Question_end(ans)),
-              );
+              gen();
+              Navigator.pushNamed(context, randompage,
+              arguments: ans);
             },
           ),
           SizedBox(
@@ -141,10 +140,9 @@ class Question7_2 extends StatelessWidget {
             onPressed: (){
               q7_2 = "학교";
               ans['q7_2'] = q7_2;
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Question_end(ans)),
-              );
+              gen();
+              Navigator.pushNamed(context, randompage,
+              arguments: ans);
 
             },
           ),
@@ -162,10 +160,9 @@ class Question7_2 extends StatelessWidget {
             onPressed: (){
               q7_2 = "도서관";
               ans['q7_2'] = q7_2;
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Question_end(ans)),
-              );
+              gen();
+              Navigator.pushNamed(context, randompage,
+              arguments: ans);
 
             },
           ),
@@ -182,10 +179,9 @@ class Question7_2 extends StatelessWidget {
             onPressed: (){
               q7_2 = "카페";
               ans['q7_2'] = q7_2;
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Question_end(ans)),
-              );
+              gen();
+              Navigator.pushNamed(context, randompage,
+              arguments: ans);
 
             },
           ),
@@ -198,10 +194,9 @@ class Question7_2 extends StatelessWidget {
               child: Text("확인"),
               onPressed: () {
                 ans['q7_2'] = q7_2;
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Question_end(ans)),
-                );
+                gen();
+                Navigator.pushNamed(context, randompage,
+                arguments: ans);
 
               },
             ),

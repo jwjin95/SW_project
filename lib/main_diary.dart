@@ -124,6 +124,7 @@ class writePage extends StatelessWidget {
 }
 class qna extends StatelessWidget {
   // This widget is the root of your application.
+  Map ans;
 
   @override
   Widget build(BuildContext context) {
@@ -132,19 +133,19 @@ class qna extends StatelessWidget {
       home: Question1_1(),
       title: 'Question',
       routes: {
-        '1' : (context) => think1(),
-        '2' : (context) => think2(),
-        '3' : (context) => think3(),
-        '4' : (context) => think4(),
-        '5' : (context) => think5(),
-        '6' : (context) => think6(),
-        '7' : (context) => think7(),
-        '8' : (context) => think8(),
-        '9' : (context) => think9(),
-        '10' : (context) => think10(),
-        '11' : (context) => think11(),
-        '12' : (context) => think12(),
-        '0' : (context) => think13(),
+        '1' : (context) => think1(ans),
+        '2' : (context) => think2(ans),
+        '3' : (context) => think3(ans),
+        '4' : (context) => think4(ans),
+        '5' : (context) => think5(ans),
+        '6' : (context) => think6(ans),
+        '7' : (context) => think7(ans),
+        '8' : (context) => think8(ans),
+        '9' : (context) => think9(ans),
+        '10' : (context) => think10(ans),
+        '11' : (context) => think11(ans),
+        '12' : (context) => think12(ans),
+        '0' : (context) => think13(ans),
         'diary': (context) => diary_end(),        
       },
       theme: ThemeData(

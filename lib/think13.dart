@@ -1,5 +1,6 @@
 import 'package:softwareEngineering/my_button.dart';
 import 'package:flutter/material.dart';
+import 'package:softwareEngineering/Question_end.dart';
 import 'package:softwareEngineering/main.dart';
 import 'package:softwareEngineering/Question1_2.dart';
 import 'package:softwareEngineering/Question1_3.dart';
@@ -41,15 +42,19 @@ import 'dart:math';
 class think13 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
-  String th13 ='';
+  String th13 ='진로에 대한 나의 고민: ';
   String randompage='';
-  Future gen() async{
 
+  Future gen() async{
     Random random = new Random();
     int ran = random.nextInt(13);
     String page = ran.toString() ;
     randompage = page;
   }
+
+  Map ans;
+  think13(this.ans);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,7 +127,7 @@ class think13 extends StatelessWidget {
 
               onSubmitted: (String str){
 
-                th13 = str;
+                th13 = th13 + str + "\n";
 
 
               },
@@ -142,8 +147,10 @@ class think13 extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20)),
               child: Text("확인"),
               onPressed: () {
+                ans['th13'] = th13;
                 gen();
-                Navigator.pushNamed(context, randompage );
+                Navigator.pushNamed(context, randompage,
+                arguments: ans);
 
               },
             ),
@@ -157,9 +164,11 @@ class think13 extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20)),
               child: Text("그만"),
               onPressed: () {
-
-                Navigator.pushNamed(context, 'diary');
-
+                ans['th13'] = th13;
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Question_end(ans)),
+                );
               },
             ),
           ),
