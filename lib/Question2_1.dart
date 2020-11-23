@@ -1,6 +1,7 @@
 import 'package:softwareEngineering/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:softwareEngineering/Question2_2.dart';
+import 'package:softwareEngineering/Question2_3.dart';
 import 'package:softwareEngineering/Question3_1.dart';
 class Question2_1 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
@@ -120,7 +121,7 @@ class Question2_1 extends StatelessWidget {
               ans['q2_1'] = q2_1;
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Question2_2(ans)),
+                MaterialPageRoute(builder: (context) => Question2_3(ans)),
               );
             },
           ),
@@ -145,7 +146,7 @@ class Question2_1 extends StatelessWidget {
               ans['q2_1'] = q2_1;
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Question2_2(ans)),
+                MaterialPageRoute(builder: (context) => Question2_3(ans)),
               );
 
             },
@@ -172,7 +173,7 @@ class Question2_1 extends StatelessWidget {
               ans['q2_1'] = q2_1;
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Question2_2(ans)),
+                MaterialPageRoute(builder: (context) => Question2_3(ans)),
               );
 
             },
@@ -198,7 +199,7 @@ class Question2_1 extends StatelessWidget {
               ans['q2_1'] = q2_1;
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Question2_2(ans)),
+                MaterialPageRoute(builder: (context) => Question2_3(ans)),
               );
 
             },

@@ -1,13 +1,22 @@
 import 'package:softwareEngineering/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:softwareEngineering/Question_end.dart';
-
+import 'dart:math';
 class Question7_4 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
   String q7_4 ='';
   Map ans;
   Question7_4(this.ans);
+
+  String randompage='';
+  Future gen() async{
+
+    Random random = new Random();
+    int ran = random.nextInt(13);
+    String page = ran.toString() ;
+    randompage = page;
+  }
   static const TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
 
   @override

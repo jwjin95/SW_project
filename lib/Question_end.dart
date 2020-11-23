@@ -67,7 +67,7 @@ class Question_end extends StatelessWidget {
           ),
           MyButton(
             text: Text(
-              '일기 생성',
+              '일기 보기',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
@@ -102,7 +102,7 @@ class Question_end extends StatelessWidget {
           ),
           MyButton(
             text: Text(
-              '디버깅',
+              '편집',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
@@ -152,18 +152,40 @@ class Question_end extends StatelessWidget {
           tmp = '오늘은 친구와 ${ans['q1_5']}를 하며 놀았다.';
         }
         break;
+      default:
+        tmp='오늘 한 것 : ${ans['q1_1']}';
+        break;
     } //Question 1
     ret.add(tmp);
 
     var music_genre = ['K-POP', 'POP', 'JAZZ', 'CLASSIC'];
+
     tmp = '';
+    String buf ='';
     if (music_genre.contains(ans['q2_1'])) {
-      tmp = '나는 오늘 ${ans['q2_1']}을 들었다.';
+      if (ans['q2_1']=='JAZZ'){
+        tmp = '그리고 ${ans['q2_1']}를 들었다.';
+      }
+      else{
+        tmp = '그리고${ans['q2_1']}을 들었다.';
+      }
+      if(ans['q1_1']=='친구와 놀기'&&ans['q2_3']=='친구랑 놀면서'){
+        if (ans['q1_5'] == '맛집 탐방'){
+          buf = '맛집 탐방 하다가 들은 건지는 비밀이다. ';
+        } else if(ans['q1_5'] == '술 마시기'){
+          buf = '술마시다가 들은 건지는 비밀이다.';
+        } else if (ans['q1_5'] == 'PC방' || ans['q1_5'] == '카페'){
+          buf = '${ans['q1_5']}에서 들었는지는 비밀이다.';
+        } else {
+          buf = '';
+        }
+      }
+      tmp=tmp+'${ans['q2_3']} 들은 건데 $buf이 음악을 들으면';
       if (ans['q2_2'] == '덕질하려고'){
-        tmp = tmp + ' 덕질할 수 있기 때문에 이 노래를 좋아한다.';
+        tmp = tmp + ' 덕질할 수 있어서 좋다.';
       }
       else {
-        tmp = tmp + ' 이 노래를 들으면 ${ans['q2_2']}서 좋다.';
+        tmp = tmp + ' ${ans['q2_2']}서 좋다.';
       }
     } else {
       tmp = ans['q2_1'].toString();
@@ -182,14 +204,35 @@ class Question_end extends StatelessWidget {
         tmp = '나는 오늘 화가 났다.';
         break;
       case '설렘':
-        tmp = '나는 오늘 설레는 기분이었다.';
+        tmp = '나는 오늘 설렜다.';
         break;
     } //Question 3
-    tmp = tmp + ' 왜냐하면 ${ans['q3_2']}이다';
+
+    if (ans['q3_2']=='') {
+      tmp+='이유는 말하기가 좀 그렇다..어쨌든';
+      switch(ans['q3_1']){
+        case '즐거움':
+          tmp+= '즐거운 하루였다.';
+          break;
+        case '짜증':
+          tmp += '짜증나는 하루였다.';
+          break;
+        case '화남':
+          tmp += '화나는 하루였다.';
+          break;
+        case '설렘':
+          tmp += '설레이는 하루였다.';
+          break;
+      }
+    }
+    else{
+      tmp = tmp + ' 그 이유는... ${ans['q3_2']}이다';
+    }
     ret.add(tmp);
 
     tmp = '';
-    tmp = '오늘 ${ans['q4_1']}을 먹었는데, ${ans['q4_2']}'; //Question 4
+    tmp = '식사로는 ${ans['q4_1']}을 먹었는데, ${ans['q4_2']}'; //Question 4
+
     ret.add(tmp);
 
     tmp= '';
@@ -210,11 +253,18 @@ class Question_end extends StatelessWidget {
         tmp = '오늘은 ${ans['q5_1']} 날 이었다.';
         break;
     } //Question 5
-    tmp = tmp + ' 이는 내가 ${ans['q5_2']}하는 날씨이다. 왜냐하면 ${ans['q5_3']}이다.';
+    tmp = tmp + ' 내가 ${ans['q5_2']}하는 날씨이다. 왜냐하면 ${ans['q5_3']}이다.';
     ret.add(tmp);
 
     tmp = '';
-    tmp = '하루를 한 문장으로 표현하자면 \'${ans['q6_1']}\'한 하루였다.'; //Question 6
+
+    switch(ans['q6_1']){
+      case '':
+        tmp='하루를 한 문장으로 표현해보려 했는데, 쓸 말이 없다. :)';
+        break;
+      default:
+        tmp = '하루를 한 문장으로 표현하자면 \'${ans['q6_1']}\'한 하루였다.'; //Question 6
+    }
     ret.add(tmp);
 
     tmp = '';

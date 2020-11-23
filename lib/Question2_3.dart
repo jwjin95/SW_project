@@ -1,20 +1,24 @@
 import 'package:softwareEngineering/my_button.dart';
 import 'package:flutter/material.dart';
-import 'package:softwareEngineering/Question4_2.dart';
-import 'package:softwareEngineering/Question5_1.dart';
-class Question4_1 extends StatelessWidget {
+import 'package:softwareEngineering/Question2_2.dart';
+
+
+class Question2_3 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
-  String q4_1 ='';
+  String q2_3 ='';
   Map ans;
-  Question4_1(this.ans);
+  String buf='';
+  var doingSth=['공부','운동','휴식','친구와 놀기'];
+  Question2_3(this.ans);
   static const TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
 
   @override
+  
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
-
+      
       appBar: AppBar(
         title: Text(
           'Write',
@@ -24,10 +28,11 @@ class Question4_1 extends StatelessWidget {
         backgroundColor: Color(0xFF6397D2),
         elevation: 0.0,
       ),
+
       // appBar: AppBar(
       //   backgroundColor: Colors.blue,
       //   title: Text(
-      //     'Question4_1',
+      //     'Question2_3',
       //     style: TextStyle(color: Colors.white),
       //   ),
       //   centerTitle: true,
@@ -42,61 +47,26 @@ class Question4_1 extends StatelessWidget {
 
   Widget _buildButton(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(16.0),
+      padding: EdgeInsets.all(0),
 
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Center(child: Container(
 
-            child: Text('오늘 뭐 먹었어?',
+            child: Text('뭐 하면서 듣게 된 거야?',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 37,
+                fontSize: 30,
                 color: Colors.blueAccent,
                 height:3.5,
               ),
 
             ),
-
-
-
           ),
 
           ),
-          SizedBox(
-            height: 10.0,
-          ),
-          new Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children:[
-              new Radio(
-                value: 0,
-                groupValue:0,
-              ),
-              new Text(
-                '아침',
-              ),
-              new Radio(
-                value: 1,
-                groupValue: 1,
 
-              ),
-              new Text(
-                '점심'
-              ),
-              new Radio(
-                value: 2,
-                groupValue: 2,
-              ),
-              new Text(
-                '저녁',
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
           Container(
             alignment: Alignment(0.0, 0.0),
             height: 45,
@@ -112,127 +82,163 @@ class Question4_1 extends StatelessWidget {
               style: TextStyle(color: Colors.black),
               decoration: InputDecoration(
                 border: InputBorder.none,
-                hintText: '직접입력',
+                hintText: '직접입력 ("~하면서" 로 입력해주세요 :) )',
                 hintStyle: TextStyle(color: Colors.grey[300]),
 
               ),
 
               onSubmitted: (String str){
 
-                q4_1 = str;
-
-
+                q2_3 = str;
               },
             ),
           ),
-
           SizedBox(
-            height: 10.0,
+            height: 5.0,
           ),
-
 
           MyButton(
             text: Text(
-              '삼겹살',
+              '공부하면서 들었어',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
             radius: 4.0,
             onPressed: (){
-              for(int i=2; i<3; i++) {
-                String key = 'q4_' + i.toString();
-                if (ans.containsKey(key)) {
-                  ans.remove(key);
-                }
-              }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
-              q4_1 = "삼겹살";
-              ans['q4_1'] = q4_1;
+
+              q2_3 = "공부하면서";
+              ans['q2_3'] = q2_3;
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Question4_2(ans)),
+                MaterialPageRoute(builder: (context) => Question2_2(ans)),
               );
             },
+          ),SizedBox(
+            height: 5.0,
           ),
-          SizedBox(
-            height: 10.0,
-          ),
+
           MyButton(
             text: Text(
-              '치킨',
+              '운동하면서 들었어',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
             radius: 4.0,
             onPressed: (){
-              for(int i=2; i<3; i++) {
-                String key = 'q4_' + i.toString();
-                if (ans.containsKey(key)) {
-                  ans.remove(key);
-                }
-              }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
-              q4_1 = "치킨";
-              ans['q4_1'] = q4_1;
+
+              q2_3 = "운동하면서";
+              ans['q2_3'] = q2_3;
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Question4_2(ans)),
+                MaterialPageRoute(builder: (context) => Question2_2(ans)),
               );
-
             },
-          ),
-          SizedBox(
-            height: 10.0,
+          ),SizedBox(
+            height: 5.0,
           ),
 
           MyButton(
             text: Text(
-              '초밥',
+              '친구랑 놀면서 들었어',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
             radius: 4.0,
             onPressed: (){
-              for(int i=2; i<3; i++) {
-                String key = 'q4_' + i.toString();
-                if (ans.containsKey(key)) {
-                  ans.remove(key);
-                }
-              }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
-              q4_1 = "초밥";
-              ans['q4_1'] = q4_1;
+
+              q2_3 = "친구랑 놀면서";
+              ans['q2_3'] = q2_3;
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Question4_2(ans)),
+                MaterialPageRoute(builder: (context) => Question2_2(ans)),
               );
-
             },
           ),
           SizedBox(
-            height: 10.0,
+            height: 5.0,
           ),
+          
           MyButton(
             text: Text(
-              '파스타',
+              '지하철에서 들었어',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
             radius: 4.0,
             onPressed: (){
-              for(int i=2; i<3; i++) {
-                String key = 'q4_' + i.toString();
-                if (ans.containsKey(key)) {
-                  ans.remove(key);
-                }
-              }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
-              q4_1 = "파스타";
-              ans['q4_1'] = q4_1;
+
+              q2_3 = "지하철타고 이동하면서";
+              ans['q2_3'] = q2_3;
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Question4_2(ans)),
+                MaterialPageRoute(builder: (context) => Question2_2(ans)),
+              );
+            },
+          ),
+          SizedBox(
+            height: 5.0,
+          ),
+          MyButton(
+            text: Text(
+              '버스에서 들었어',
+              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+            ),
+            color: Colors.white,
+            radius: 4.0,
+            onPressed: (){
+
+              q2_3 = "버스타고 이동하면서";
+              ans['q2_3'] = q2_3;
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Question2_2(ans)),
               );
 
             },
           ),
+          SizedBox(
+            height: 5.0,
+          ),
 
+          MyButton(
+            text: Text(
+              '그냥 쉬는 시간에 들었어',
+              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+            ),
+            color: Colors.white,
+            radius: 4.0,
+            onPressed: (){
+
+              q2_3 = "쉬는 시간에";
+              ans['q2_3'] = q2_3;
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Question2_2(ans)),
+              );
+
+            },
+          ),
+          SizedBox(
+            height: 5.0,
+          ),
+          MyButton(
+            text: Text(
+              '기억이 잘 안 난다',
+              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+            ),
+            color: Colors.white,
+            radius: 4.0,
+            onPressed: (){
+
+              q2_3 = "어쩌다 들은 건지 기억이 잘 안 나지만 아무튼";
+              ans['q2_3'] = q2_3;
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Question2_2(ans)),
+              );
+
+            },
+          ),
           Align(
             alignment: Alignment.centerRight,
             child: OutlineButton(
@@ -241,16 +247,11 @@ class Question4_1 extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20)),
               child: Text("확인"),
               onPressed: () {
-                for(int i=2; i<3; i++) {
-                  String key = 'q4_' + i.toString();
-                  if (ans.containsKey(key)) {
-                    ans.remove(key);
-                  }
-                }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
-                ans['q4_1'] = q4_1;
+
+                ans['q2_3'] = q2_3;
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Question5_1(ans)),
+                  MaterialPageRoute(builder: (context) => Question2_2(ans)),
                 );
 
               },
