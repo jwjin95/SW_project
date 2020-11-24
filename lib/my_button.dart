@@ -14,23 +14,25 @@ class MyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ButtonTheme(
-      height: 50.0,
+      height: 45.0,
       child: RaisedButton(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-
             text,
 
           ],
         ),
-        color: color,
+        color: Color(0xffFAFAFA),
         onPressed: onPressed,
+
       ),
+
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
-          Radius.circular(radius),
+          Radius.circular(30),
         ),
+        side: BorderSide(color: Color(0xff99C1DE),width: 3),
       ),
     );
   }

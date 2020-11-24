@@ -116,12 +116,6 @@ class Question_end extends StatelessWidget {
           SizedBox(
             height: 10.0,
           ),
-
-
-
-
-
-
         ],
       ),
     );
@@ -292,6 +286,15 @@ class Question_end extends StatelessWidget {
     } //Question 7
     ret.add(tmp);
 
+    String key;
+    for (int i =0; i<13 ; i++) {
+      key = 'th' + i.toString();
+      if (ans.containsKey(key)) {
+        if (ans[key] != '') {
+          ret.add(ans[key]);
+        }
+      }
+    }
     return ret;
   }
 }

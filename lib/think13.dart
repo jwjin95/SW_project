@@ -42,33 +42,37 @@ import 'dart:math';
 class think13 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
-  String th13 ='진로에 대한 나의 고민: ';
+  String th13 = '';
   String randompage='';
 
-  Future gen() async{
+  Future gen(Map ans) async{
     Random random = new Random();
-    int ran = random.nextInt(13);
-    String page = ran.toString() ;
+    String page;
+    int ran;
+    do {
+      ran = random.nextInt(13);
+      page = ran.toString() ;}
+    while(ans.containsKey('th' + page));
     randompage = page;
   }
 
-  Map ans;
-  think13(this.ans);
+
+  static const TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
 
-
       appBar: AppBar(
-        backgroundColor: Colors.blue,
         title: Text(
-          'think13',
-          style: TextStyle(color: Colors.white),
+          'Write',
+          style: optionStyle,
         ),
         centerTitle: true,
-        elevation: 0.2,
+        backgroundColor: Color(0xFF6397D2),
+        elevation: 0.0,
       ),
       body:
 
@@ -78,28 +82,42 @@ class think13 extends StatelessWidget {
   }
 
   Widget _buildButton(BuildContext context) {
+    final Map ans = ModalRoute.of(context).settings.arguments;
     return Padding(
       padding: EdgeInsets.all(16.0),
 
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Center(child: Container(
+            width: double.infinity,
+            height : 160,
+            alignment: Alignment.center,
+            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.only(left: 50, right: 50, top: 50, bottom: 20),
 
-            child: Text('진로에 대한 고민?',
+            decoration: BoxDecoration(
+              color: const Color(0xffCAE0F8),
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.3),
+                  spreadRadius: 2,
+                  blurRadius: 13,
+                  offset: Offset(4, 5), // changes position of shadow
+                ),
+              ],
+            ),
+            child:
+            Center(child: Text('진로에 대해 어떤 \n고민이 있으신가요?',
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 23,
-                color: Colors.blueAccent,
-                height:3.5,
+                fontSize: 26,
+                color: Color(0xff6397D2),
+                height:1.5,
               ),
-
             ),
-
-
-
-          ),
-
+            ),),
           ),
 
           SizedBox(
@@ -126,7 +144,7 @@ class think13 extends StatelessWidget {
               ),
 
               onSubmitted: (String str){
-
+                th13 = '진로에 대한 나의 고민: ';
                 th13 = th13 + str + "\n";
 
 
@@ -148,7 +166,7 @@ class think13 extends StatelessWidget {
               child: Text("확인"),
               onPressed: () {
                 ans['th13'] = th13;
-                gen();
+                gen(ans);
                 Navigator.pushNamed(context, randompage,
                 arguments: ans);
 

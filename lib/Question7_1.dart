@@ -5,14 +5,22 @@ import 'package:softwareEngineering/Question7_3.dart';
 import 'package:softwareEngineering/Question7_4.dart';
 import 'package:softwareEngineering/Question7_5.dart';
 import 'package:softwareEngineering/Question_end.dart';
+import 'dart:math';
+
 class Question7_1 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
   String q7_1 ='';
   Map ans;
+  String randompage='';
   Question7_1(this.ans);
   static const TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
-
+  Future gen() async{
+    Random random = new Random();
+    int ran = random.nextInt(13);
+    String page = ran.toString() ;
+    randompage = page;
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,24 +56,37 @@ class Question7_1 extends StatelessWidget {
       padding: EdgeInsets.all(16.0),
 
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Center(child: Container(
+            width: double.infinity,
+            height : 160,
+            alignment: Alignment.center,
+            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.only(left: 50, right: 50, top: 50, bottom: 20),
 
-            child: Text('내일 뭐 할거야?',
+            decoration: BoxDecoration(
+              color: const Color(0xffCAE0F8),
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.3),
+                  spreadRadius: 2,
+                  blurRadius: 13,
+                  offset: Offset(4, 5), // changes position of shadow
+                ),
+              ],
+            ),
+            child:
+            Center(child: Text('내일 뭐 할거야?',
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 37,
-                color: Colors.blueAccent,
-                height:3.5,
+                fontSize: 26,
+                color: Color(0xff6397D2),
+                height:1.5,
               ),
-
             ),
-
-
-
-          ),
-
+            ),),
           ),
 
           SizedBox(
@@ -219,27 +240,14 @@ class Question7_1 extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20)),
               child: Text("확인"),
               onPressed: () {
-                for(int i=2; i<6; i++) {
-                  String key = 'q7_' + i.toString();
-                  if (ans.containsKey(key)) {
-                    ans.remove(key);
-                  }
-                }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
                 ans['q7_1'] = q7_1;
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Question_end(ans)),
-                );
+                gen();
+                Navigator.pushNamed(context, randompage ,
+                    arguments: ans);
 
               },
             ),
           ),
-
-
-
-
-
-
 
         ],
       ),

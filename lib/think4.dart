@@ -42,33 +42,36 @@ import 'dart:math';
 class think4 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
-  String th4 ='내가 바라는 2년 뒤의 나의 모습: ';
+  String th4 ='';
   String randompage='';
 
-  Future gen() async{
+  Future gen(Map ans) async{
     Random random = new Random();
-    int ran = random.nextInt(13);
-    String page = ran.toString() ;
+    String page;
+    int ran;
+    do {
+      ran = random.nextInt(13);
+      page = ran.toString() ;}
+    while(ans.containsKey('th' + page));
     randompage = page;
   }
 
-  Map ans;
-  think4(this.ans);
+  static const TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
 
-
       appBar: AppBar(
-        backgroundColor: Colors.blue,
         title: Text(
-          'think4',
-          style: TextStyle(color: Colors.white),
+          'Write',
+          style: optionStyle,
         ),
         centerTitle: true,
-        elevation: 0.2,
+        backgroundColor: Color(0xFF6397D2),
+        elevation: 0.0,
       ),
       body:
 
@@ -78,28 +81,42 @@ class think4 extends StatelessWidget {
   }
 
   Widget _buildButton(BuildContext context) {
+    final Map ans = ModalRoute.of(context).settings.arguments;
     return Padding(
       padding: EdgeInsets.all(16.0),
 
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Center(child: Container(
+            width: double.infinity,
+            height : 160,
+            alignment: Alignment.center,
+            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.only(left: 50, right: 50, top: 50, bottom: 20),
 
-            child: Text('2년뒤 나는 어떤 모습이기를 바라나요?',
+            decoration: BoxDecoration(
+              color: const Color(0xffCAE0F8),
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.3),
+                  spreadRadius: 2,
+                  blurRadius: 13,
+                  offset: Offset(4, 5), // changes position of shadow
+                ),
+              ],
+            ),
+            child:
+            Center(child: Text('2년뒤 나는 어떤 \n모습이길 바라나요?',
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 23,
-                color: Colors.blueAccent,
-                height:3.5,
+                fontSize: 26,
+                color: Color(0xff6397D2),
+                height:1.5,
               ),
-
             ),
-
-
-
-          ),
-
+            ),),
           ),
 
           SizedBox(
@@ -126,7 +143,7 @@ class think4 extends StatelessWidget {
               ),
 
               onSubmitted: (String str){
-
+                th4 = '내가 바라는 2년 뒤의 나의 모습: ';
                 th4 = th4 + str + "\n";
 
 
@@ -148,7 +165,7 @@ class think4 extends StatelessWidget {
               child: Text("확인"),
               onPressed: () {
                 ans['th4'] = th4;
-                gen();
+                gen(ans);
                 Navigator.pushNamed(context, randompage,
                 arguments: ans);
 

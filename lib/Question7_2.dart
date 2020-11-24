@@ -2,6 +2,7 @@ import 'package:softwareEngineering/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:softwareEngineering/Question_end.dart';
 import 'dart:math';
+
 class Question7_2 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
@@ -54,24 +55,37 @@ class Question7_2 extends StatelessWidget {
       padding: EdgeInsets.all(16.0),
 
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Center(child: Container(
+            width: double.infinity,
+            height : 160,
+            alignment: Alignment.center,
+            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.only(left: 50, right: 50, top: 50, bottom: 20),
 
-            child: Text('어디서?',
+            decoration: BoxDecoration(
+              color: const Color(0xffCAE0F8),
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.3),
+                  spreadRadius: 2,
+                  blurRadius: 13,
+                  offset: Offset(4, 5), // changes position of shadow
+                ),
+              ],
+            ),
+            child:
+            Center(child: Text('어디서?',
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 41,
-                color: Colors.blueAccent,
-                height:3.5,
+                fontSize: 32,
+                color: Color(0xff6397D2),
+                height:1.5,
               ),
-
             ),
-
-
-
-          ),
-
+            ),),
           ),
 
           SizedBox(
@@ -124,7 +138,7 @@ class Question7_2 extends StatelessWidget {
               ans['q7_2'] = q7_2;
               gen();
               Navigator.pushNamed(context, randompage,
-              arguments: ans);
+                  arguments: ans);
             },
           ),
           SizedBox(
@@ -142,7 +156,7 @@ class Question7_2 extends StatelessWidget {
               ans['q7_2'] = q7_2;
               gen();
               Navigator.pushNamed(context, randompage,
-              arguments: ans);
+                  arguments: ans);
 
             },
           ),
@@ -162,7 +176,7 @@ class Question7_2 extends StatelessWidget {
               ans['q7_2'] = q7_2;
               gen();
               Navigator.pushNamed(context, randompage,
-              arguments: ans);
+                  arguments: ans);
 
             },
           ),
@@ -181,7 +195,7 @@ class Question7_2 extends StatelessWidget {
               ans['q7_2'] = q7_2;
               gen();
               Navigator.pushNamed(context, randompage,
-              arguments: ans);
+                  arguments: ans);
 
             },
           ),
@@ -196,7 +210,7 @@ class Question7_2 extends StatelessWidget {
                 ans['q7_2'] = q7_2;
                 gen();
                 Navigator.pushNamed(context, randompage,
-                arguments: ans);
+                    arguments: ans);
 
               },
             ),
