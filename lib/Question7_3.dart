@@ -135,7 +135,8 @@ class Question7_3 extends StatelessWidget {
               q7_3 = "집";
               ans['q7_3'] = q7_3;
               gen();
-              Navigator.pushNamed(context, randompage );
+              Navigator.pushNamed(context, randompage,
+                  arguments: ans );
             },
           ),
           SizedBox(
@@ -152,7 +153,8 @@ class Question7_3 extends StatelessWidget {
               q7_3 = "헬스장";
               ans['q7_3'] = q7_3;
               gen();
-              Navigator.pushNamed(context, randompage );
+              Navigator.pushNamed(context, randompage,
+                  arguments: ans );
 
             },
           ),
@@ -171,7 +173,8 @@ class Question7_3 extends StatelessWidget {
               q7_3 = "요가학원";
               ans['q7_3'] = q7_3;
               gen();
-              Navigator.pushNamed(context, randompage );
+              Navigator.pushNamed(context, randompage,
+                  arguments: ans );
 
             },
           ),
@@ -189,7 +192,8 @@ class Question7_3 extends StatelessWidget {
               q7_3 = "공원";
               ans['q7_3'] = q7_3;
               gen();
-              Navigator.pushNamed(context, randompage );
+              Navigator.pushNamed(context, randompage,
+                  arguments: ans );
 
             },
           ),
@@ -203,7 +207,8 @@ class Question7_3 extends StatelessWidget {
               onPressed: () {
                 ans['q7_3'] = q7_3;
                 gen();
-                Navigator.pushNamed(context, randompage );
+                Navigator.pushNamed(context, randompage,
+                    arguments: ans );
               },
             ),
           ),
