@@ -47,24 +47,37 @@ class Question1_2 extends StatelessWidget {
       padding: EdgeInsets.all(16.0),
 
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Center(child: Container(
+            width: double.infinity,
+            height : 160,
+            alignment: Alignment.center,
+            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.only(left: 50, right: 50, top: 50, bottom: 20),
 
-            child: Text('어디서 공부했어?',
+            decoration: BoxDecoration(
+              color: const Color(0xffCAE0F8),
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.3),
+                  spreadRadius: 2,
+                  blurRadius: 13,
+                  offset: Offset(4, 5), // changes position of shadow
+                ),
+              ],
+            ),
+            child:
+            Center(child: Text('어디서 \n공부했어?',
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 41,
-                color: Colors.blueAccent,
-                height:3.5,
+                fontSize: 32,
+                color: Color(0xff6397D2),
+                height:1.5,
               ),
-
             ),
-
-
-
-          ),
-
+            ),),
           ),
 
           SizedBox(

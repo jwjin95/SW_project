@@ -17,6 +17,7 @@ import 'package:softwareEngineering/think11.dart';
 import 'package:softwareEngineering/think12.dart';
 import 'package:softwareEngineering/think13.dart';
 import 'package:softwareEngineering/diary_end.dart';
+
 class writePage extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
 
@@ -49,52 +50,44 @@ class writePage extends StatelessWidget {
       padding: EdgeInsets.all(16.0),
 
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Center(child: Container(
+            width: double.infinity,
+            height : 160,
+            alignment: Alignment.center,
+            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 70),
 
-            child: Text('To Do',
+            decoration: BoxDecoration(
+              color: const Color(0xffCAE0F8),
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.3),
+                  spreadRadius: 2,
+                  blurRadius: 13,
+                  offset: Offset(4, 5), // changes position of shadow
+                ),
+              ],
+            ),
+            child:
+            Center(child: Text('오늘의 일기를 작성해볼까?',
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 41,
-                color: Colors.blueAccent,
-                height:3.5,
+                fontSize: 32,
+                color: Color(0xff6397D2),
+                height:1.5,
               ),
             ),
-          ),
-          ),
-
-          SizedBox(
-            height: 10.0,
+          ),),
           ),
 
-          SizedBox(
-            height: 10.0,
-          ),
-
-          MyButton(
-            text: Text(
-              '오늘의 일기 조회',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
-            ),
-            color: Colors.white,
-            radius: 4.0,
-            onPressed: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => 
-                todaydiaryView(DateTime.now(), 
-                CalendarPage2State.diary_list[DateTime(DateTime.now().year,DateTime.now().month,DateTime.now().day)])),
-              );
-            },
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
           MyButton(
             text: Text(
               '오늘의 일기 작성',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(0xff6397D2), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -108,13 +101,21 @@ class writePage extends StatelessWidget {
           SizedBox(
             height: 10.0,
           ),
-
-          SizedBox(
-            height: 10.0,
-          ),
-
-          SizedBox(
-            height: 10.0,
+          MyButton(
+            text: Text(
+              '오늘의 일기 조회',
+              style: TextStyle(color: Color(0xff6397D2), fontSize: 17, fontWeight: FontWeight.bold,),
+            ),
+            color: Colors.white,
+            radius: 4.0,
+            onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) =>
+                    todaydiaryView(DateTime.now(),
+                        CalendarPage2State.diary_list[DateTime(DateTime.now().year,DateTime.now().month,DateTime.now().day)])),
+              );
+            },
           ),
 
         ],
@@ -122,11 +123,14 @@ class writePage extends StatelessWidget {
     );
   }
 }
+
 class qna extends StatelessWidget {
   // This widget is the root of your application.
 
+
   @override
   Widget build(BuildContext context) {
+    Map ans;
     return MaterialApp(
 
       home: Question1_1(),
@@ -145,7 +149,7 @@ class qna extends StatelessWidget {
         '11' : (context) => think11(),
         '12' : (context) => think12(),
         '0' : (context) => think13(),
-        'diary': (context) => diary_end(),        
+        'diary': (context) => diary_end(),
       },
       theme: ThemeData(
 
@@ -157,5 +161,8 @@ class qna extends StatelessWidget {
     );
   }
 }
+
+
+
 
 

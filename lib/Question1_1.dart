@@ -39,7 +39,7 @@ class Question1_1 extends StatelessWidget {
         backgroundColor: Color(0xFF6397D2),
         elevation: 0.0,
       ),
-      
+
       // appBar: AppBar(
 
       //   backgroundColor: Colors.blue,
@@ -61,33 +61,42 @@ class Question1_1 extends StatelessWidget {
       padding: EdgeInsets.all(16.0),
 
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Center(child: Container(
+            width: double.infinity,
+            height : 160,
+            alignment: Alignment.center,
+            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 50),
 
-            child: Text('오늘뭐했어?',
+            decoration: BoxDecoration(
+              color: const Color(0xffCAE0F8),
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.3),
+                  spreadRadius: 2,
+                  blurRadius: 13,
+                  offset: Offset(4, 5), // changes position of shadow
+                ),
+              ],
+            ),
+            child:
+            Center(child: Text('오늘 뭐했어?',
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 41,
-                color: Colors.blueAccent,
-                height:3.5,
+                fontSize: 32,
+                color: Color(0xff6397D2),
+                height:1.5,
               ),
-
             ),
-
-
-
-          ),
-
-          ),
-
-          SizedBox(
-            height: 10.0,
+            ),),
           ),
           Container(
             alignment: Alignment(0.0, 0.0),
             height: 45,
-            margin: EdgeInsets.only(left: 30, right: 30, top: 15),
+            margin: EdgeInsets.only(left: 30, right: 30, top: 0),
             padding: EdgeInsets.only(left: 20, right: 20),
             decoration: new BoxDecoration(
                 color: Colors.white,

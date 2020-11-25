@@ -10,8 +10,8 @@ class Question7_5 extends StatelessWidget {
   Question7_5(this.ans);
 
   String randompage='';
-  Future gen() async{
 
+  Future gen() async{
     Random random = new Random();
     int ran = random.nextInt(13);
     String page = ran.toString() ;
@@ -33,15 +33,6 @@ class Question7_5 extends StatelessWidget {
         backgroundColor: Color(0xFF6397D2),
         elevation: 0.0,
       ),
-      // appBar: AppBar(
-      //   backgroundColor: Colors.blue,
-      //   title: Text(
-      //     'Question7_5',
-      //     style: TextStyle(color: Colors.white),
-      //   ),
-      //   centerTitle: true,
-      //   elevation: 0.2,
-      // ),
       body:
 
       _buildButton(context),
@@ -54,24 +45,37 @@ class Question7_5 extends StatelessWidget {
       padding: EdgeInsets.all(16.0),
 
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Center(child: Container(
+            width: double.infinity,
+            height : 160,
+            alignment: Alignment.center,
+            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.only(left: 50, right: 50, top: 50, bottom: 20),
 
-            child: Text('뭐하고 놀거야?',
+            decoration: BoxDecoration(
+              color: const Color(0xffCAE0F8),
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.3),
+                  spreadRadius: 2,
+                  blurRadius: 13,
+                  offset: Offset(4, 5), // changes position of shadow
+                ),
+              ],
+            ),
+            child:
+            Center(child: Text('뭐하고 놀거야?',
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 41,
-                color: Colors.blueAccent,
-                height:3.5,
+                fontSize: 32,
+                color: Color(0xff6397D2),
+                height:1.5,
               ),
-
             ),
-
-
-
-          ),
-
+            ),),
           ),
 
           SizedBox(
@@ -122,10 +126,9 @@ class Question7_5 extends StatelessWidget {
             onPressed: (){
               q7_5 = "PC방";
               ans['q7_5'] = q7_5;
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Question_end(ans)),
-              );
+              gen();
+              Navigator.pushNamed(context, randompage,
+                  arguments: ans );
             },
           ),
           SizedBox(
@@ -141,10 +144,9 @@ class Question7_5 extends StatelessWidget {
             onPressed: (){
               q7_5 = "카페";
               ans['q7_5'] = q7_5;
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Question_end(ans)),
-              );
+              gen();
+              Navigator.pushNamed(context, randompage,
+                  arguments: ans );
 
             },
           ),
@@ -162,10 +164,9 @@ class Question7_5 extends StatelessWidget {
             onPressed: (){
               q7_5 = "맛집 탐방";
               ans['q7_5'] = q7_5;
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Question_end(ans)),
-              );
+              gen();
+              Navigator.pushNamed(context, randompage,
+                  arguments: ans );
 
             },
           ),
@@ -182,10 +183,9 @@ class Question7_5 extends StatelessWidget {
             onPressed: (){
               q7_5 = "술 마시기";
               ans['q7_5'] = q7_5;
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Question_end(ans)),
-              );
+              gen();
+              Navigator.pushNamed(context, randompage,
+                  arguments: ans );
 
             },
           ),
@@ -198,10 +198,9 @@ class Question7_5 extends StatelessWidget {
               child: Text("확인"),
               onPressed: () {
                 ans['q7_5'] = q7_5;
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Question_end(ans)),
-                );
+                gen();
+                Navigator.pushNamed(context, randompage,
+                    arguments: ans );
 
               },
             ),
