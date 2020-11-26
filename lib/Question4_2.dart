@@ -116,13 +116,13 @@ class Question4_2 extends StatelessWidget {
 
           MyButton(
             text: Text(
-              '엄청 맛있었다.',
+              '엄청 맛있었어.',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
             radius: 4.0,
             onPressed: (){
-              q4_2 = "엄청 맛있었다.";
+              q4_2 = "엄청 맛있었어.";
               ans['q4_2'] = q4_2;
               Navigator.push(
                 context,
@@ -135,13 +135,13 @@ class Question4_2 extends StatelessWidget {
           ),
           MyButton(
             text: Text(
-              '꽤 괜찮았다.',
+              '꽤 괜찮았어.',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
             radius: 4.0,
             onPressed: (){
-              q4_2 = "꽤 괜찮았다.";
+              q4_2 = "꽤 괜찮았어.";
               ans['q4_2'] = q4_2;
               Navigator.push(
                 context,
@@ -156,13 +156,13 @@ class Question4_2 extends StatelessWidget {
 
           MyButton(
             text: Text(
-              '그냥 그랬다.',
+              '그냥 그랬어.',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
             radius: 4.0,
             onPressed: (){
-              q4_2 = "그냥 그랬다.";
+              q4_2 = "그냥 그랬어.";
               ans['q4_2'] = q4_2;
               Navigator.push(
                 context,
@@ -176,13 +176,13 @@ class Question4_2 extends StatelessWidget {
           ),
           MyButton(
             text: Text(
-              '좀 별로였다.',
+              '좀 별로였어.',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
             radius: 4.0,
             onPressed: (){
-              q4_2 = "좀 별로였다.";
+              q4_2 = "좀 별로였어.";
               ans['q4_2'] = q4_2;
               Navigator.push(
                 context,

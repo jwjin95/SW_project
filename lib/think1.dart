@@ -1,42 +1,5 @@
-import 'package:softwareEngineering/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:softwareEngineering/Question_end.dart';
-import 'package:softwareEngineering/main.dart';
-import 'package:softwareEngineering/Question1_2.dart';
-import 'package:softwareEngineering/Question1_3.dart';
-import 'package:softwareEngineering/Question1_4.dart';
-import 'package:softwareEngineering/Question1_4.dart';
-import 'package:softwareEngineering/Question1_5.dart';
-import 'package:softwareEngineering/Question2_1.dart';
-import 'package:softwareEngineering/Question2_2.dart';
-import 'package:softwareEngineering/Question3_1.dart';
-import 'package:softwareEngineering/Question3_2.dart';
-import 'package:softwareEngineering/Question4_1.dart';
-import 'package:softwareEngineering/Question4_2.dart';
-
-import 'package:softwareEngineering/Question5_1.dart';
-import 'package:softwareEngineering/Question5_2.dart';
-import 'package:softwareEngineering/Question6_1.dart';
-import 'package:softwareEngineering/Question7_1.dart';
-import 'package:softwareEngineering/Question7_2.dart';
-import 'package:softwareEngineering/Question7_3.dart';
-import 'package:softwareEngineering/Question7_4.dart';
-import 'package:softwareEngineering/diary.dart';
-
-import 'package:softwareEngineering/think1.dart';
-import 'package:softwareEngineering/think2.dart';
-import 'package:softwareEngineering/think3.dart';
-import 'package:softwareEngineering/think4.dart';
-import 'package:softwareEngineering/think5.dart';
-import 'package:softwareEngineering/think6.dart';
-import 'package:softwareEngineering/think7.dart';
-import 'package:softwareEngineering/think8.dart';
-import 'package:softwareEngineering/think9.dart';
-import 'package:softwareEngineering/think10.dart';
-import 'package:softwareEngineering/think11.dart';
-import 'package:softwareEngineering/think12.dart';
-import 'package:softwareEngineering/think13.dart';
-
 import 'dart:math';
 
 class think1 extends StatelessWidget {

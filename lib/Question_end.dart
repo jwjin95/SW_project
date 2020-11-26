@@ -284,6 +284,7 @@ class Question_end extends StatelessWidget {
         }
         break;
     } //Question 7
+    tmp += "\n\n";
     ret.add(tmp);
 
     String key;

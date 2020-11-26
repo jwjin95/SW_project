@@ -47,10 +47,14 @@ class todaydiaryView extends StatelessWidget {
   DateTime date;
   String content;
   var diary_list = Map();
+  TextEditingController _tec = TextEditingController();
   todaydiaryView(DateTime _date, String _content){
     this.date = _date;
-    this.content = _content;
+    this.content = _content != null ? _content : "쓰여진 일기가 없습니다.";
+    _tec = TextEditingController(text: content);
   }
+  static const TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
+
   @override
   Widget build(BuildContext context) {
 
@@ -60,8 +64,18 @@ class todaydiaryView extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Color(0xFF6397D2),
         elevation: 0.0,
+        actions: <Widget> [
+          new IconButton(
+            icon: new Text("수정"),
+            onPressed: () => {
+              CalendarPage2State.diary_list[date]=_tec.text,
+              showAlertDialog(context)
+              },
+          )
+        ]
       ),
-      body: Center( child : Column(
+      body: Center( child:SingleChildScrollView( 
+        child : Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget> [
           Column(
@@ -70,8 +84,12 @@ class todaydiaryView extends StatelessWidget {
               SizedBox(height: 25,),
               Container(
                 width : 300,
-                child : Text(
-                content != null ? content : "쓰여진 일기가 없습니다",
+                child : TextField(
+                  textAlignVertical: TextAlignVertical.top,
+                  controller: _tec,
+                  maxLines: null,
+                  decoration: InputDecoration(border: InputBorder.none,
+                  hintStyle: optionStyle),
                 style: TextStyle(
                   height: 2.0,
                 ),),),
@@ -79,7 +97,31 @@ class todaydiaryView extends StatelessWidget {
             ],
           )
         ],
-      ),),
+      ),),),
     );
   }
+
+  void showAlertDialog(BuildContext context) async {
+    String result = await showDialog(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Friendiary'),
+          content: Text("저장이 완료되었습니다."),
+          actions: <Widget>[
+            FlatButton(
+              child: Text('확인'),
+              onPressed: () {
+                Navigator.pop(context, "OK");
+              },
+            ),
+
+          ],
+        );
+      },
+    );
+  }
+
+
 }
