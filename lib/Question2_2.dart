@@ -33,9 +33,8 @@ class Question2_2 extends StatelessWidget {
       //   centerTitle: true,
       //   elevation: 0.2,
       // ),
-      body:
-
-      _buildButton(context),
+      body: SingleChildScrollView(
+      child: _buildButton(context),),
 
     );
   }

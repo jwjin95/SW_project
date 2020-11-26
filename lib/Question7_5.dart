@@ -33,9 +33,8 @@ class Question7_5 extends StatelessWidget {
         backgroundColor: Color(0xFF6397D2),
         elevation: 0.0,
       ),
-      body:
-
-      _buildButton(context),
+      body: SingleChildScrollView(
+      child: _buildButton(context),),
 
     );
   }

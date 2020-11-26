@@ -66,7 +66,7 @@ class todaydiaryView extends StatelessWidget {
         elevation: 0.0,
         actions: <Widget> [
           new IconButton(
-            icon: new Text("수정"),
+            icon: new Text("저장"),
             onPressed: () => {
               CalendarPage2State.diary_list[date]=_tec.text,
               showAlertDialog(context)
