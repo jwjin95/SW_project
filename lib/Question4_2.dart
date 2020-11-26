@@ -1,6 +1,8 @@
 import 'package:softwareEngineering/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:softwareEngineering/Question5_1.dart';
+import 'package:softwareEngineering/showAlertDialog.dart';
+
 class Question4_2 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
@@ -122,6 +124,8 @@ class Question4_2 extends StatelessWidget {
             onPressed: (){
               q4_2 = "엄청 맛있었어.";
               ans['q4_2'] = q4_2;
+              ans['a4']='맛집 발견 축하해!';
+              showAlertDialog(context, ans['a4']);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question5_1(ans)),
@@ -141,6 +145,8 @@ class Question4_2 extends StatelessWidget {
             onPressed: (){
               q4_2 = "꽤 괜찮았어.";
               ans['q4_2'] = q4_2;
+              ans['a4']='오~ 괜찮았다니 다행이야!';
+              showAlertDialog(context, ans['a4']);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question5_1(ans)),
@@ -162,6 +168,8 @@ class Question4_2 extends StatelessWidget {
             onPressed: (){
               q4_2 = "그냥 그랬어.";
               ans['q4_2'] = q4_2;
+              ans['a4']='무난무난 했네~';
+              showAlertDialog(context, ans['a4']);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question5_1(ans)),
@@ -182,6 +190,8 @@ class Question4_2 extends StatelessWidget {
             onPressed: (){
               q4_2 = "좀 별로였어.";
               ans['q4_2'] = q4_2;
+              ans['a4']='속상해.. 이제 거기 가지 말자';
+              showAlertDialog(context, ans['a4']);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question5_1(ans)),

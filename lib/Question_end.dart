@@ -1,6 +1,8 @@
 import 'package:softwareEngineering/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:softwareEngineering/diary.dart';
+import 'package:softwareEngineering/showAlertDialog.dart';
+
 class Question_end extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
@@ -201,7 +203,8 @@ class Question_end extends StatelessWidget {
         tmp = '나는 오늘 설렜다.';
         break;
     } //Question 3
-
+    print("ans q3_2");
+    print(ans['q3_2']);
     if (ans['q3_2']=='') {
       tmp+='이유는 말하기가 좀 그렇다..어쨌든';
       switch(ans['q3_1']){

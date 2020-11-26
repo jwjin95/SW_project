@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:softwareEngineering/Question7_1.dart';
+import 'package:softwareEngineering/showAlertDialog.dart';
+
 class Question6_1 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
@@ -101,7 +103,6 @@ class Question6_1 extends StatelessWidget {
               onSubmitted: (String str){
 
                 q6_1 = str;
-                ans['q6_1'] = q6_1;
 
 
               },
@@ -122,6 +123,11 @@ class Question6_1 extends StatelessWidget {
               child: Text("확인"),
               onPressed: () {
                 ans['q6_1'] = q6_1;
+                ans['a6']='대답해줘서 고마워!';
+                if (q6_1==''){
+                  ans['a6']='대답하지 않아도 괜찮아!';
+                }
+                showAlertDialog(context, ans['a6']);
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => Question7_1(ans)),
