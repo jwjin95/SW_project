@@ -2,6 +2,8 @@ import 'package:softwareEngineering/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:softwareEngineering/Question3_2.dart';
 import 'package:softwareEngineering/Question4_1.dart';
+import 'package:softwareEngineering/showAlertDialog.dart';
+
 class Question3_1 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
@@ -133,6 +135,8 @@ class Question3_1 extends StatelessWidget {
               }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
               q3_1 = "즐거움";
               ans['q3_1'] = q3_1;
+              ans['a3']='오늘이 즐거운 하루였다니! 정말 축하해~';
+              showAlertDialog(context, ans['a3']);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question3_2(ans)),
@@ -158,6 +162,8 @@ class Question3_1 extends StatelessWidget {
               }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
               q3_1 = "짜증";
               ans['q3_1'] = q3_1;
+              ans['a3']='누가 짜증나게 했어! 내가 대신 혼쭐내줄게! 얼른 기분이 풀리면 좋겠다 :)';
+              showAlertDialog(context, ans['a3']);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question3_2(ans)),
@@ -185,6 +191,8 @@ class Question3_1 extends StatelessWidget {
               }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
               q3_1 = "화남";
               ans['q3_1'] = q3_1;
+              ans['a3']='ㅠㅠ뭐야 속상해ㅜㅜ어서 기분이 나아졌으면 좋겠다..';
+              showAlertDialog(context, ans['a3']);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question3_2(ans)),
@@ -211,6 +219,8 @@ class Question3_1 extends StatelessWidget {
               }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
               q3_1 = "설렘";
               ans['q3_1'] = q3_1;
+              ans['a3']='설렘이라니...너무 소중한 기분이야!';
+              showAlertDialog(context, ans['a3']);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question3_2(ans)),
@@ -234,6 +244,8 @@ class Question3_1 extends StatelessWidget {
                   }
                 }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
                 ans['q3_1'] = q3_1;
+                ans['a3']='솔직하게 말해줘서 고마워!';
+                showAlertDialog(context, ans['a3']);
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => Question4_1(ans)),

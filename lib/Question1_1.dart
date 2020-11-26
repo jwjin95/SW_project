@@ -17,14 +17,20 @@ import 'package:softwareEngineering/Question7_2.dart';
 import 'package:softwareEngineering/Question7_3.dart';
 import 'package:softwareEngineering/Question7_4.dart';
 
+
+
 class Question1_1 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
   String q1_1 ='';
   var ans = Map();
+
+
   static const TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
 
   @override
+
+
   Widget build(BuildContext context) {
     return Scaffold(
       
@@ -143,6 +149,8 @@ class Question1_1 extends StatelessWidget {
               }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
               q1_1 = "공부";
               ans['q1_1'] = q1_1;
+              ans['a1']= '수고했어 오늘도 :)';
+              Navigator.pop(context);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question1_2(ans)),
@@ -168,6 +176,7 @@ class Question1_1 extends StatelessWidget {
               }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
               q1_1 = "운동";
               ans['q1_1'] = q1_1;
+              ans['a1']= '자기관리하는 모습 보기 좋다~!';
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question1_3(ans)),
@@ -195,6 +204,7 @@ class Question1_1 extends StatelessWidget {
               }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
               q1_1 = "휴식";
               ans['q1_1'] = q1_1;
+              ans['a1']= '잘했어! 푹 쉬고 리프레쉬하는 시간도 필요하지.';
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question1_4(ans)),
@@ -221,6 +231,7 @@ class Question1_1 extends StatelessWidget {
               }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
               q1_1 = "친구와 놀기";
               ans['q1_1'] = q1_1;
+              ans['a1']= '재밌었겠다! 좋은 추억이 될 거야!';
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question1_5(ans)),
@@ -247,6 +258,7 @@ class Question1_1 extends StatelessWidget {
                   }
                 }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
                 ans['q1_1'] = q1_1;
+                ans['a1']='오~그렇구나!';
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => Question2_1(ans)),
@@ -261,4 +273,6 @@ class Question1_1 extends StatelessWidget {
       ),
     );
   }
+
+
 }

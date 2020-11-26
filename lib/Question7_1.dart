@@ -5,6 +5,7 @@ import 'package:softwareEngineering/Question7_3.dart';
 import 'package:softwareEngineering/Question7_4.dart';
 import 'package:softwareEngineering/Question7_5.dart';
 import 'package:softwareEngineering/Question_end.dart';
+import 'package:softwareEngineering/showAlertDialog.dart';
 import 'dart:math';
 
 class Question7_1 extends StatelessWidget {
@@ -143,6 +144,7 @@ class Question7_1 extends StatelessWidget {
               }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
               q7_1 = "공부";
               ans['q7_1'] = q7_1;
+              ans['a7']='너의 목표대로 이루어지길..!';
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question7_2(ans)),
@@ -168,6 +170,7 @@ class Question7_1 extends StatelessWidget {
               }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
               q7_1 = "운동";
               ans['q7_1'] = q7_1;
+              ans['a7']='건강해지는 거야!';
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question7_3(ans)),
@@ -195,6 +198,7 @@ class Question7_1 extends StatelessWidget {
               }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
               q7_1 = "휴식";
               ans['q7_1'] = q7_1;
+              ans['a7']='좋아 내일 하루는 릴렉스';
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question7_4(ans)),
@@ -221,6 +225,7 @@ class Question7_1 extends StatelessWidget {
               }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
               q7_1 = "친구와 놀기";
               ans['q7_1'] = q7_1;
+              ans['a7']='내일 좋은 시간 보내!';
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question7_5(ans)),
@@ -241,6 +246,7 @@ class Question7_1 extends StatelessWidget {
               child: Text("확인"),
               onPressed: () {
                 ans['q7_1'] = q7_1;
+                ans['a7']='너의 목표대로 이루어지길..!';
                 gen();
                 Navigator.pushNamed(context, randompage ,
                     arguments: ans);

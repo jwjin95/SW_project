@@ -2,6 +2,8 @@ import 'package:softwareEngineering/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:softwareEngineering/Question_end.dart';
 import 'dart:math';
+import 'package:softwareEngineering/showAlertDialog.dart';
+
 class Question7_3 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
@@ -134,6 +136,7 @@ class Question7_3 extends StatelessWidget {
             onPressed: (){
               q7_3 = "집";
               ans['q7_3'] = q7_3;
+              showAlertDialog(context, ans['a7']);
               gen();
               Navigator.pushNamed(context, randompage,
                   arguments: ans );
@@ -152,6 +155,7 @@ class Question7_3 extends StatelessWidget {
             onPressed: (){
               q7_3 = "헬스장";
               ans['q7_3'] = q7_3;
+              showAlertDialog(context, ans['a7']);
               gen();
               Navigator.pushNamed(context, randompage,
                   arguments: ans );
@@ -172,6 +176,7 @@ class Question7_3 extends StatelessWidget {
             onPressed: (){
               q7_3 = "요가학원";
               ans['q7_3'] = q7_3;
+              showAlertDialog(context, ans['a7']);
               gen();
               Navigator.pushNamed(context, randompage,
                   arguments: ans );
@@ -191,6 +196,7 @@ class Question7_3 extends StatelessWidget {
             onPressed: (){
               q7_3 = "공원";
               ans['q7_3'] = q7_3;
+              showAlertDialog(context, ans['a7']);
               gen();
               Navigator.pushNamed(context, randompage,
                   arguments: ans );
@@ -207,6 +213,7 @@ class Question7_3 extends StatelessWidget {
               onPressed: () {
                 ans['q7_3'] = q7_3;
                 gen();
+                showAlertDialog(context, ans['a7']);
                 Navigator.pushNamed(context, randompage,
                     arguments: ans );
               },

@@ -1,6 +1,8 @@
 import 'package:softwareEngineering/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:softwareEngineering/Question3_1.dart';
+import 'package:softwareEngineering/showAlertDialog.dart';
+
 
 class Question2_2 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
@@ -126,6 +128,8 @@ class Question2_2 extends StatelessWidget {
 
               q2_2 = "마음이 편안해져";
               ans['q2_2'] = q2_2;
+              ans['a2']='역시 편안한 음악으론 ${ans['q2_1']}이 최고지';
+              showAlertDialog(context, ans['a2']);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question3_1(ans)),
@@ -146,6 +150,8 @@ class Question2_2 extends StatelessWidget {
 
               q2_2 = "스트레스가 풀려";
               ans['q2_2'] = q2_2;
+              ans['a2']='맞아. ${ans['q2_1']}들으면 스트레스가 풀리는 기분이야';
+              showAlertDialog(context, ans['a2']);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question3_1(ans)),
@@ -168,6 +174,8 @@ class Question2_2 extends StatelessWidget {
 
               q2_2 = "들으면 신나";
               ans['q2_2'] = q2_2;
+              ans['a2']='${ans['q2_1']} 너무 신나~~';
+              showAlertDialog(context, ans['a2']);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question3_1(ans)),
@@ -189,6 +197,8 @@ class Question2_2 extends StatelessWidget {
 
               q2_2 = "덕질하려고";
               ans['q2_2'] = q2_2;
+              ans['a2']='우와~ 두가지를 동시에!';
+              showAlertDialog(context, ans['a2']);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question3_1(ans)),
@@ -207,6 +217,8 @@ class Question2_2 extends StatelessWidget {
               onPressed: () {
 
                 ans['q2_2'] = q2_2;
+                ans['a2']='음악은 언제 들어도 좋은 것 같아~';
+                showAlertDialog(context, ans['a2']);
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => Question3_1(ans)),
