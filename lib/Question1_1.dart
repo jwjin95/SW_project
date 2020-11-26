@@ -16,6 +16,9 @@ import 'package:softwareEngineering/Question7_1.dart';
 import 'package:softwareEngineering/Question7_2.dart';
 import 'package:softwareEngineering/Question7_3.dart';
 import 'package:softwareEngineering/Question7_4.dart';
+import 'package:speech_bubble/speech_bubble.dart';
+import 'package:bubble/bubble.dart';
+
 
 class Question1_1 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
@@ -63,45 +66,46 @@ class Question1_1 extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Center(child: Container(
-            width: double.infinity,
-            height : 160,
-            alignment: Alignment.center,
-            padding: const EdgeInsets.all(20),
-            margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 50),
-
-            decoration: BoxDecoration(
+            width: 500,
+            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+            child : Bubble(
+            nip : BubbleNip.leftTop,
+            style : BubbleStyle(
               color: const Color(0xffCAE0F8),
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.3),
-                  spreadRadius: 2,
-                  blurRadius: 13,
-                  offset: Offset(4, 5), // changes position of shadow
+              margin: BubbleEdges.only(top: 10),
+              padding: BubbleEdges.all(20),
+              alignment: Alignment.center,
+            ),
+            child : Center(child: Row(
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(4.0),
+                ),
+                Center(child : Text(
+                  '오늘 뭐했어?',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 22,
+                    color: Color(0xff6397D2),
+                    height:1.5,
+                    ),
+                ),
                 ),
               ],
             ),
-            child:
-            Center(child: Text('오늘 뭐했어?',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 32,
-                color: Color(0xff6397D2),
-                height:1.5,
-              ),
-            ),
-            ),),
+          ),),),
           ),
           Container(
             alignment: Alignment(0.0, 0.0),
             height: 45,
-            margin: EdgeInsets.only(left: 30, right: 30, top: 0),
             padding: EdgeInsets.only(left: 20, right: 20),
             decoration: new BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                border: Border.all(width: 1, color: Colors.black12)),
+                borderRadius: BorderRadius.all(Radius.circular(30)),
+                border: Border.all(width: 3, color: Color(0xff99C1DE))),
+
 
             child: TextField(
               controller: _tec,
@@ -229,16 +233,18 @@ class Question1_1 extends StatelessWidget {
             },
           ),
           SizedBox(
-            height: 10.0,
+            height: 30.0,
           ),
 
           Align(
             alignment: Alignment.centerRight,
             child: OutlineButton(
-              color: Colors.orange,
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              child: Text("확인"),
+                  borderRadius: BorderRadius.circular(30),
+                  side: BorderSide(color: Color(0xff99C1DE),width: 3),
+              ),
+
+              child: Text("다음"),
               onPressed: () {
                 for(int i=2; i<6; i++) {
                   String key = 'q1_' + i.toString();
