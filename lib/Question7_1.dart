@@ -97,12 +97,12 @@ class Question7_1 extends StatelessWidget {
           Container(
             alignment: Alignment(0.0, 0.0),
             height: 45,
-            margin: EdgeInsets.only(left: 30, right: 30, top: 15),
             padding: EdgeInsets.only(left: 20, right: 20),
             decoration: new BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                border: Border.all(width: 1, color: Colors.black12)),
+                borderRadius: BorderRadius.all(Radius.circular(30)),
+                border: Border.all(width: 3, color: Color(0xff99C1DE))),
+
 
             child: TextField(
               controller: _tec,
@@ -113,7 +113,6 @@ class Question7_1 extends StatelessWidget {
                 hintStyle: TextStyle(color: Colors.grey[300]),
 
               ),
-
               onSubmitted: (String str){
 
                 q7_1 = str;
@@ -235,7 +234,7 @@ class Question7_1 extends StatelessWidget {
             },
           ),
           SizedBox(
-            height: 10.0,
+            height: 20.0,
           ),
 
           Align(
@@ -244,7 +243,7 @@ class Question7_1 extends StatelessWidget {
               color: Colors.orange,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
-              child: Text("확인"),
+              child: Text("넘어가기"),
               onPressed: () {
                 ans['q7_1'] = q7_1;
                 ans['a7']='너의 목표대로 이루어지길..!';

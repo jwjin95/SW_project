@@ -124,12 +124,8 @@ class Question1_1 extends StatelessWidget {
                 hintStyle: TextStyle(color: Colors.grey[300]),
 
               ),
-
               onSubmitted: (String str){
-
                 q1_1 = str;
-
-
               },
             ),
           ),
@@ -246,7 +242,7 @@ class Question1_1 extends StatelessWidget {
             },
           ),
           SizedBox(
-            height: 30.0,
+            height: 20.0,
           ),
 
           Align(

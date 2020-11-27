@@ -1,6 +1,7 @@
 import 'package:softwareEngineering/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:softwareEngineering/Question_end.dart';
+import 'package:softwareEngineering/Bubble.dart';
 import 'package:softwareEngineering/main.dart';
 import 'package:softwareEngineering/Question1_2.dart';
 import 'package:softwareEngineering/Question1_3.dart';
@@ -88,37 +89,38 @@ class think13 extends StatelessWidget {
 
       child: Column(
         children: <Widget>[
-          Center(child: Container(
-            width: double.infinity,
-            height : 160,
-            alignment: Alignment.center,
-            padding: const EdgeInsets.all(20),
-            margin: const EdgeInsets.only(left: 50, right: 50, top: 50, bottom: 20),
-
-            decoration: BoxDecoration(
-              color: const Color(0xffCAE0F8),
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.3),
-                  spreadRadius: 2,
-                  blurRadius: 13,
-                  offset: Offset(4, 5), // changes position of shadow
-                ),
-              ],
-            ),
-            child:
-            Center(child: Text('진로에 대해 어떤 \n고민이 있으신가요?',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 26,
-                color: Color(0xff6397D2),
-                height:1.5,
-              ),
-            ),
-            ),),
-          ),
+          // Center(child: Container(
+          //   width: double.infinity,
+          //   height : 160,
+          //   alignment: Alignment.center,
+          //   padding: const EdgeInsets.all(20),
+          //   margin: const EdgeInsets.only(left: 50, right: 50, top: 50, bottom: 20),
+          //
+          //   decoration: BoxDecoration(
+          //     color: const Color(0xffCAE0F8),
+          //     borderRadius: BorderRadius.circular(12),
+          //     boxShadow: [
+          //       BoxShadow(
+          //         color: Colors.grey.withOpacity(0.3),
+          //         spreadRadius: 2,
+          //         blurRadius: 13,
+          //         offset: Offset(4, 5), // changes position of shadow
+          //       ),
+          //     ],
+          //   ),
+          //   child:
+          //   Center(child: Text('진로에 대해 어떤 \n고민이 있으신가요?',
+          //     textAlign: TextAlign.center,
+          //     style: TextStyle(
+          //       fontWeight: FontWeight.bold,
+          //       fontSize: 26,
+          //       color: Color(0xff6397D2),
+          //       height:1.5,
+          //     ),
+          //   ),
+          //   ),),
+          // ),
+          bubble(text : "진로에 대해 어떤 고민 \n있어?"),
 
           SizedBox(
             height: 10.0,
@@ -126,12 +128,11 @@ class think13 extends StatelessWidget {
           Container(
             alignment: Alignment(0.0, 0.0),
             height: 45,
-            margin: EdgeInsets.only(left: 30, right: 30, top: 15),
             padding: EdgeInsets.only(left: 20, right: 20),
             decoration: new BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                border: Border.all(width: 1, color: Colors.black12)),
+                borderRadius: BorderRadius.all(Radius.circular(30)),
+                border: Border.all(width: 3, color: Color(0xff99C1DE))),
 
             child: TextField(
               controller: _tec,
@@ -157,38 +158,35 @@ class think13 extends StatelessWidget {
           ),
 
 
-          Align(
-            alignment: Alignment.centerRight,
-            child: OutlineButton(
-              color: Colors.orange,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              child: Text("확인"),
-              onPressed: () {
-                ans['th13'] = th13;
-                gen(ans);
-                Navigator.pushNamed(context, randompage,
-                arguments: ans);
-
-              },
-            ),
-          ),
-
-          Align(
-            alignment: Alignment.centerLeft,
-            child: OutlineButton(
-              color: Colors.orange,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              child: Text("그만"),
-              onPressed: () {
-                ans['th13'] = th13;
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Question_end(ans)),
-                );
-              },
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              OutlineButton(
+                color: Colors.orange,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                child: Text("그만두기"),
+                onPressed: () {
+                  ans['th13'] = th13;
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Question_end(ans)),
+                  );
+                },
+              ),
+              OutlineButton(
+                color: Colors.orange,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                child: Text("넘어가기"),
+                onPressed: () {
+                  ans['th13'] = th13;
+                  gen(ans);
+                  Navigator.pushNamed(context, randompage,
+                      arguments: ans);
+                },
+              ),
+            ],
           ),
 
         ],
