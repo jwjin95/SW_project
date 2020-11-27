@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
   MyButton({ this.text, this.color, this.radius, this.onPressed});
-
-
-
   final Widget text;
   final Color color;
   final double radius;

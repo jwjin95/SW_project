@@ -2,6 +2,7 @@ import 'package:softwareEngineering/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:softwareEngineering/diary.dart';
 import 'package:softwareEngineering/showAlertDialog.dart';
+import 'package:softwareEngineering/Bubble.dart';
 
 class Question_end extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
@@ -46,23 +47,23 @@ class Question_end extends StatelessWidget {
       padding: EdgeInsets.all(16.0),
 
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Center(child: Container(
-
-            child: Text('끝!!',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 41,
-                color: Colors.blueAccent,
-                height:3.5,
-              ),
-
-            ),
-
-          ),
-
-          ),
+          // Center(child: Container(
+          //
+          //   child: Text('끝!!',
+          //     style: TextStyle(
+          //       fontWeight: FontWeight.bold,
+          //       fontSize: 41,
+          //       color: Colors.blueAccent,
+          //       height:3.5,
+          //     ),
+          //
+          //   ),
+          //
+          // ),
+          //
+          // ),
+          bubble(text: "오늘도 찾아와서 너의 \n이야기해줘서 고마워!"),
 
           SizedBox(
             height: 10.0,

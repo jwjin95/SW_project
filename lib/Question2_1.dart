@@ -4,6 +4,7 @@ import 'package:softwareEngineering/Question2_2.dart';
 import 'package:softwareEngineering/Question2_3.dart';
 import 'package:softwareEngineering/Question3_1.dart';
 import 'package:softwareEngineering/showAlertDialog.dart';
+import 'package:softwareEngineering/Bubble.dart';
 
 
 class Question2_1 extends StatelessWidget {
@@ -49,37 +50,38 @@ class Question2_1 extends StatelessWidget {
 
       child: Column(
         children: <Widget>[
-          Center(child: Container(
-            width: double.infinity,
-            height : 160,
-            alignment: Alignment.center,
-            padding: const EdgeInsets.all(20),
-            margin: const EdgeInsets.only(left: 50, right: 50, top: 50, bottom: 20),
-
-            decoration: BoxDecoration(
-              color: const Color(0xffCAE0F8),
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.3),
-                  spreadRadius: 2,
-                  blurRadius: 13,
-                  offset: Offset(4, 5), // changes position of shadow
-                ),
-              ],
-            ),
-            child:
-            Center(child: Text('오늘 무슨 음악 들었어?',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 32,
-                color: Color(0xff6397D2),
-                height:1.5,
-              ),
-            ),
-            ),),
-          ),
+          // Center(child: Container(
+          //   width: double.infinity,
+          //   height : 160,
+          //   alignment: Alignment.center,
+          //   padding: const EdgeInsets.all(20),
+          //   margin: const EdgeInsets.only(left: 50, right: 50, top: 50, bottom: 20),
+          //
+          //   decoration: BoxDecoration(
+          //     color: const Color(0xffCAE0F8),
+          //     borderRadius: BorderRadius.circular(12),
+          //     boxShadow: [
+          //       BoxShadow(
+          //         color: Colors.grey.withOpacity(0.3),
+          //         spreadRadius: 2,
+          //         blurRadius: 13,
+          //         offset: Offset(4, 5), // changes position of shadow
+          //       ),
+          //     ],
+          //   ),
+          //   child:
+          //   Center(child: Text('오늘 무슨 음악 들었어?',
+          //     textAlign: TextAlign.center,
+          //     style: TextStyle(
+          //       fontWeight: FontWeight.bold,
+          //       fontSize: 32,
+          //       color: Color(0xff6397D2),
+          //       height:1.5,
+          //     ),
+          //   ),
+          //   ),),
+          // ),
+          bubble(text : "오늘 무슨 음악 들었어?"),
 
           SizedBox(
             height: 10.0,

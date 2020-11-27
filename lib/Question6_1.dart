@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:softwareEngineering/Question7_1.dart';
 import 'package:softwareEngineering/showAlertDialog.dart';
+import 'package:softwareEngineering/Bubble.dart';
 
 class Question6_1 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
@@ -45,37 +46,38 @@ class Question6_1 extends StatelessWidget {
 
       child: Column(
         children: <Widget>[
-          Center(child: Container(
-            width: double.infinity,
-            height : 160,
-            alignment: Alignment.center,
-            padding: const EdgeInsets.all(20),
-            margin: const EdgeInsets.only(left: 50, right: 50, top: 50, bottom: 20),
-
-            decoration: BoxDecoration(
-              color: const Color(0xffCAE0F8),
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.3),
-                  spreadRadius: 2,
-                  blurRadius: 13,
-                  offset: Offset(4, 5), // changes position of shadow
-                ),
-              ],
-            ),
-            child:
-            Center(child: Text('오늘 하루를 한 문장으로 평가한다면?',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 24,
-                color: Color(0xff6397D2),
-                height:1.5,
-              ),
-            ),
-            ),),
-          ),
+          // Center(child: Container(
+          //   width: double.infinity,
+          //   height : 160,
+          //   alignment: Alignment.center,
+          //   padding: const EdgeInsets.all(20),
+          //   margin: const EdgeInsets.only(left: 50, right: 50, top: 50, bottom: 20),
+          //
+          //   decoration: BoxDecoration(
+          //     color: const Color(0xffCAE0F8),
+          //     borderRadius: BorderRadius.circular(12),
+          //     boxShadow: [
+          //       BoxShadow(
+          //         color: Colors.grey.withOpacity(0.3),
+          //         spreadRadius: 2,
+          //         blurRadius: 13,
+          //         offset: Offset(4, 5), // changes position of shadow
+          //       ),
+          //     ],
+          //   ),
+          //   child:
+          //   Center(child: Text('오늘 하루를 한 문장으로 평가한다면?',
+          //     textAlign: TextAlign.center,
+          //     style: TextStyle(
+          //       fontWeight: FontWeight.bold,
+          //       fontSize: 24,
+          //       color: Color(0xff6397D2),
+          //       height:1.5,
+          //     ),
+          //   ),
+          //   ),),
+          // ),
+          bubble(text : "오늘 하루를 한 문장으로 \n평가한다면?"),
 
           SizedBox(
             height: 10.0,
