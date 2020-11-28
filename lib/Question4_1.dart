@@ -4,11 +4,12 @@ import 'package:softwareEngineering/Question4_2.dart';
 import 'package:softwareEngineering/Question5_1.dart';
 import 'package:softwareEngineering/showAlertDialog.dart';
 import 'package:softwareEngineering/Bubble.dart';
-
+import 'package:softwareEngineering/foodAlertDialog.dart';
 class Question4_1 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
   String q4_1 ='';
+  String buffer='';
   Map ans;
   Question4_1(this.ans);
   static const TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
@@ -149,20 +150,28 @@ class Question4_1 extends StatelessWidget {
 
           MyButton(
             text: Text(
-              '삼겹살',
+              '한식',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
             radius: 4.0,
-            onPressed: (){
+            onPressed: () async {
               for(int i=2; i<3; i++) {
                 String key = 'q4_' + i.toString();
                 if (ans.containsKey(key)) {
                   ans.remove(key);
                 }
               }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
-              q4_1 = "삼겹살";
+              q4_1 = "한식";
+              buffer=await foodAlertDialog(context, q4_1);
               ans['q4_1'] = q4_1;
+
+              if (buffer !=''){
+                ans['q4_1'] += ' 중에서 '+buffer;
+              }
+              else{
+                ans['q4_1']+='을';
+              }
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question4_2(ans)),
@@ -174,20 +183,28 @@ class Question4_1 extends StatelessWidget {
           ),
           MyButton(
             text: Text(
-              '치킨',
+              '중식',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
             radius: 4.0,
-            onPressed: (){
+            onPressed: () async {
               for(int i=2; i<3; i++) {
                 String key = 'q4_' + i.toString();
                 if (ans.containsKey(key)) {
                   ans.remove(key);
                 }
               }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
-              q4_1 = "치킨";
+              q4_1 = "중식";
+              buffer=await foodAlertDialog(context, q4_1);
               ans['q4_1'] = q4_1;
+
+              if (buffer !=''){
+                ans['q4_1'] += ' 중에서 '+buffer;
+              }
+              else{
+                ans['q4_1']+='을';
+              }
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question4_2(ans)),
@@ -201,20 +218,28 @@ class Question4_1 extends StatelessWidget {
 
           MyButton(
             text: Text(
-              '초밥',
+              '일식',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
             radius: 4.0,
-            onPressed: (){
+            onPressed: () async {
               for(int i=2; i<3; i++) {
                 String key = 'q4_' + i.toString();
                 if (ans.containsKey(key)) {
                   ans.remove(key);
                 }
               }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
-              q4_1 = "초밥";
+              q4_1 = "일식";
+              buffer=await foodAlertDialog(context, q4_1);
               ans['q4_1'] = q4_1;
+
+              if (buffer !=''){
+                ans['q4_1'] += ' 중에서 '+buffer;
+              }
+              else{
+                ans['q4_1']+='을';
+              }
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question4_2(ans)),
@@ -227,20 +252,62 @@ class Question4_1 extends StatelessWidget {
           ),
           MyButton(
             text: Text(
-              '파스타',
+              '양식',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
             radius: 4.0,
-            onPressed: (){
+            onPressed: () async {
               for(int i=2; i<3; i++) {
                 String key = 'q4_' + i.toString();
                 if (ans.containsKey(key)) {
                   ans.remove(key);
                 }
               }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
-              q4_1 = "파스타";
+              q4_1 = "양식";
+              buffer=await foodAlertDialog(context, q4_1);
               ans['q4_1'] = q4_1;
+
+              if (buffer !=''){
+                ans['q4_1'] += ' 중에서 '+buffer;
+              }
+              else{
+                ans['q4_1']+='을';
+              }
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Question4_2(ans)),
+              );
+
+            },
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+          MyButton(
+            text: Text(
+              '분식',
+              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+            ),
+            color: Colors.white,
+            radius: 4.0,
+            onPressed: () async{
+              for(int i=2; i<3; i++) {
+                String key = 'q4_' + i.toString();
+                if (ans.containsKey(key)) {
+                  ans.remove(key);
+                }
+              }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
+              q4_1 = "분식";
+              buffer=await foodAlertDialog(context, q4_1);
+              ans['q4_1'] = q4_1;
+
+              if (buffer !=''){
+                ans['q4_1'] += ' 중에서 '+buffer;
+              }
+              else{
+                ans['q4_1']+='을';
+              }
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question4_2(ans)),

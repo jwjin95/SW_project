@@ -229,7 +229,7 @@ class Question_end extends StatelessWidget {
     ret.add(tmp);
 
     tmp = '';
-    tmp = '식사로는 ${ans['q4_1']}을 먹었는데, ${ans['q4_2']}'; //Question 4
+    tmp = '식사로는 ${ans['q4_1']} 먹었는데, ${ans['q4_2']}'; //Question 4
 
     ret.add(tmp);
 
