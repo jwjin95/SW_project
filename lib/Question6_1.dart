@@ -126,7 +126,7 @@ class Question6_1 extends StatelessWidget {
                 ans['q6_1'] = q6_1;
                 ans['a6']='대답해줘서 고마워!';
                 if (q6_1==''){
-                  ans['a6']='대답하지 않아도 괜찮아!';
+                  ans['a6']='한문장으로 쓰기가 좀 어렵긴 하지..!';
                 }
                 showAlertDialog(context, ans['a6']);
                 Navigator.push(

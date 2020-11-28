@@ -251,7 +251,8 @@ class Question_end extends StatelessWidget {
         tmp = '오늘은 ${ans['q5_1']} 날 이었다.';
         break;
     } //Question 5
-    tmp = tmp + ' 내가 ${ans['q5_2']}하는 날씨이다. 왜냐하면 ${ans['q5_3']}이다.';
+    tmp = tmp + ' 내가 ${ans['q5_2']}하는 날씨이다.';
+    if (ans['q5_3']!=''){tmp=tmp+'왜냐하면 ${ans['q5_3']}이다.';}
     ret.add(tmp);
 
     tmp = '';

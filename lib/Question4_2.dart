@@ -123,7 +123,7 @@ class Question4_2 extends StatelessWidget {
             color: Colors.white,
             radius: 4.0,
             onPressed: (){
-              q4_2 = "엄청 맛있었어.";
+              q4_2 = "엄청 맛있었다.";
               ans['q4_2'] = q4_2;
               ans['a4']='맛집 발견 축하해!';
               showAlertDialog(context, ans['a4']);
@@ -144,7 +144,7 @@ class Question4_2 extends StatelessWidget {
             color: Colors.white,
             radius: 4.0,
             onPressed: (){
-              q4_2 = "꽤 괜찮았어.";
+              q4_2 = "꽤 괜찮았다.";
               ans['q4_2'] = q4_2;
               ans['a4']='오~ 괜찮았다니 다행이야!';
               showAlertDialog(context, ans['a4']);
@@ -167,7 +167,7 @@ class Question4_2 extends StatelessWidget {
             color: Colors.white,
             radius: 4.0,
             onPressed: (){
-              q4_2 = "그냥 그랬어.";
+              q4_2 = "그냥 그랬다.";
               ans['q4_2'] = q4_2;
               ans['a4']='무난무난 했네~';
               showAlertDialog(context, ans['a4']);
@@ -189,7 +189,7 @@ class Question4_2 extends StatelessWidget {
             color: Colors.white,
             radius: 4.0,
             onPressed: (){
-              q4_2 = "좀 별로였어.";
+              q4_2 = "좀 별로였다.";
               ans['q4_2'] = q4_2;
               ans['a4']='속상해.. 이제 거기 가지 말자';
               showAlertDialog(context, ans['a4']);
