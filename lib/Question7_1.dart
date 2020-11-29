@@ -237,22 +237,48 @@ class Question7_1 extends StatelessWidget {
             height: 20.0,
           ),
 
-          Align(
-            alignment: Alignment.centerRight,
-            child: OutlineButton(
-              color: Colors.orange,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              child: Text("넘어가기"),
-              onPressed: () {
-                ans['q7_1'] = q7_1;
-                ans['a7']='너의 목표대로 이루어지길..!';
-                gen();
-                Navigator.pushNamed(context, randompage ,
-                    arguments: ans);
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget> [
+              OutlineButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  side: BorderSide(color: Color(0xff99C1DE),width: 3),
+                ),
 
-              },
-            ),
+                child: Text("이전질문"),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+              OutlineButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  side: BorderSide(color: Color(0xff99C1DE),width: 3),
+                ),
+
+                child: Text("홈으로"),
+                onPressed: () {
+                  Navigator.pushNamed(context, 'main');
+                },
+              ),
+              OutlineButton(
+                color: Colors.orange,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                child: Text("넘어가기"),
+                onPressed: () {
+                  ans['q7_1'] = q7_1;
+                  ans['a7']='너의 목표대로 이루어지길..!';
+                  gen();
+                  Navigator.pushNamed(context, randompage ,
+                      arguments: ans);
+
+                },
+              ),
+            ],
+
           ),
 
         ],

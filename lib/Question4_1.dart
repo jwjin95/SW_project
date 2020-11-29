@@ -13,7 +13,9 @@ class Question4_1 extends StatelessWidget {
   Map ans;
   Question4_1(this.ans);
   static const TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
-
+  int tmp() {
+    return 1;
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,6 +92,7 @@ class Question4_1 extends StatelessWidget {
               new Radio(
                 value: 0,
                 groupValue:0,
+                onChanged: (value) => {},
               ),
               new Text(
                 '아침',
@@ -318,28 +321,66 @@ class Question4_1 extends StatelessWidget {
           SizedBox(
             height: 20.0,
           ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: OutlineButton(
-              color: Colors.orange,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              child: Text("넘어가기"),
-              onPressed: () {
-                for(int i=2; i<3; i++) {
-                  String key = 'q4_' + i.toString();
-                  if (ans.containsKey(key)) {
-                    ans.remove(key);
-                  }
-                }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
-                ans['q4_1'] = q4_1;
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Question5_1(ans)),
-                );
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget> [
+              OutlineButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  side: BorderSide(color: Color(0xff99C1DE),width: 3),
+                ),
 
-              },
-            ),
+                child: Text("이전질문"),
+                onPressed: () {
+                  for(int i=2; i<6; i++) {
+                    String key = 'q1_' + i.toString();
+                    if (ans.containsKey(key)) {
+                      ans.remove(key);
+                    }
+                  }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
+                  Navigator.pop(context);
+                },
+              ),
+              OutlineButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  side: BorderSide(color: Color(0xff99C1DE),width: 3),
+                ),
+
+                child: Text("홈으로"),
+                onPressed: () {
+                  for(int i=2; i<6; i++) {
+                    String key = 'q1_' + i.toString();
+                    if (ans.containsKey(key)) {
+                      ans.remove(key);
+                    }
+                  }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
+                  Navigator.pushNamed(context, 'main');
+                },
+              ),
+              OutlineButton(
+                color: Colors.orange,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                child: Text("넘어가기"),
+                onPressed: () {
+                  for(int i=2; i<3; i++) {
+                    String key = 'q4_' + i.toString();
+                    if (ans.containsKey(key)) {
+                      ans.remove(key);
+                    }
+                  }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
+                  ans['q4_1'] = q4_1;
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Question5_1(ans)),
+                  );
+
+                },
+              ),
+            ],
+
           ),
 
         ],

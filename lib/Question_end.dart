@@ -105,15 +105,13 @@ class Question_end extends StatelessWidget {
           ),
           MyButton(
             text: Text(
-              '편집',
+              '홈으로',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
             radius: 4.0,
             onPressed: (){
-              print(make_diary(ans));
-
-
+              Navigator.pushNamed(context, 'main');
             },
           ),
           SizedBox(

@@ -174,6 +174,15 @@ class think10 extends StatelessWidget {
                 },
               ),
               OutlineButton(
+                color: Colors.orange,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                child: Text("홈으로"),
+                onPressed: () {
+                  Navigator.pushNamed(context, 'main');
+                },
+              ),
+              OutlineButton(
                   color: Colors.orange,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),

@@ -210,25 +210,51 @@ class Question2_2 extends StatelessWidget {
           SizedBox(
             height: 20.0,
           ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: OutlineButton(
-              color: Colors.orange,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              child: Text("넘어가기"),
-              onPressed: () {
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget> [
+              OutlineButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  side: BorderSide(color: Color(0xff99C1DE),width: 3),
+                ),
 
-                ans['q2_2'] = q2_2;
-                ans['a2']='음악은 언제 들어도 좋은 것 같아~';
-                showAlertDialog(context, ans['a2']);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Question3_1(ans)),
-                );
+                child: Text("이전질문"),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+              OutlineButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  side: BorderSide(color: Color(0xff99C1DE),width: 3),
+                ),
 
-              },
-            ),
+                child: Text("홈으로"),
+                onPressed: () {
+                  Navigator.pushNamed(context, 'main');
+                },
+              ),
+              OutlineButton(
+                color: Colors.orange,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                child: Text("넘어가기"),
+                onPressed: () {
+
+                  ans['q2_2'] = q2_2;
+                  ans['a2']='음악은 언제 들어도 좋은 것 같아~';
+                  showAlertDialog(context, ans['a2']);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Question3_1(ans)),
+                  );
+
+                },
+              ),
+            ],
+
           ),
 
         ],
