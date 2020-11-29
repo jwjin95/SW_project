@@ -34,7 +34,7 @@ void _initNotiSetting() async {
 
 }//알림 셋팅 initialize
 
-Future _dailyAtTimeNotification(hour, min, sec) async {
+Future _dailyAtTimeNotification(hour, min) async {
   final notiTitle = 'FrienDiary';
   final notiDesc = '일기를 작성해보세요!';
 
@@ -55,7 +55,7 @@ Future _dailyAtTimeNotification(hour, min, sec) async {
     0,
     notiTitle,
     notiDesc,
-    _setNotiTime(hour, min, sec),
+    _setNotiTime(hour, min),
     detail,
     androidAllowWhileIdle: true,
     uiLocalNotificationDateInterpretation:
@@ -65,12 +65,12 @@ Future _dailyAtTimeNotification(hour, min, sec) async {
 
 } //매일 같은 시간 알림 보내는 역할
 
-tz.TZDateTime _setNotiTime(hour, min, sec) {
+tz.TZDateTime _setNotiTime(hour, min) {
   tz.initializeTimeZones();
   tz.setLocalLocation(tz.getLocation('Asia/Seoul'));
   final now = tz.TZDateTime.now(tz.local);
   var scheduledDate = tz.TZDateTime(tz.local, now.year, now.month, now.day,
-      hour, min, sec);
+      hour, min);
 
   return scheduledDate;
 } //시간 설정 함수
@@ -112,7 +112,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   var _selected_hour;
   var _selected_min;
-  var _selected_sec;
   var _cur_alert_time;
   SharedPreferences _alertTime_prefs;
 
@@ -139,18 +138,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   String _getCurAlertTime() {
     var ret = '';
-    var cur;
     var hour;
     var min;
-    var sec;
     if (_cur_alert_time == null) {
       ret = '현재 설정된 알림이 없습니다.';
     } else {
       var times = _cur_alert_time.split(':');
       hour = int.parse(times[0]);
       min = int.parse(times[1]);
-      sec = int.parse(times[2]);
-      ret = '현재 설정된 시간: ${hour}:${min}:${sec}';
+      ret = '현재 설정된 시간: ${hour}:${min}';
     }
     return ret;
   }
@@ -160,7 +156,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     var cur = DateTime.now();
     var hour = cur.hour;
     var min = cur.minute;
-    var sec = cur.second;
 
     int parseInt(String s) {
       return int.parse(s);
@@ -169,14 +164,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     if (_cur_alert_time == null) {
       ret['hour'] = hour;
       ret['min'] = min;
-      ret['sec'] = sec;
     } else {
       var times = _cur_alert_time.split(':');
       ret['hour'] = parseInt(times[0]);
       ret['min'] = parseInt(times[1]);
-      ret['sec'] = parseInt(times[2]);
     }
-    return Duration(hours: ret['hour'], minutes: ret['min'], seconds: ret['sec']);
+    return Duration(hours: ret['hour'], minutes: ret['min']);
   }
 
 
@@ -184,7 +177,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   void initState() {
     _selected_hour = DateTime.now().hour;
     _selected_min = DateTime.now().minute;
-    _selected_sec = DateTime.now().second;
+
     _loadAlertTime();
     super.initState();
   }
@@ -251,7 +244,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                                             child: Text('설정'),
                                             onPressed: () {
                                               _dailyAtTimeNotification(_selected_hour, _selected_min
-                                                  ,_selected_sec);
+                                                  );
                                               Navigator.of(context).pop(false);
                                               showDialog(
                                                   context: context,
@@ -280,17 +273,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                                       color: Colors.white,
                                       child: CupertinoTimerPicker(
                                         alignment: Alignment.center,
-                                        mode: CupertinoTimerPickerMode.hms,
+                                        mode: CupertinoTimerPickerMode.hm,
                                         minuteInterval: 1,
-                                        secondInterval: 1,
                                         initialTimerDuration: _makeDuration(),
                                         onTimerDurationChanged: (Duration changedtimer) {
                                           setState(() {
                                             _selected_hour = changedtimer.inHours;
                                             _selected_min = changedtimer.inMinutes.remainder(60);
-                                            _selected_sec = changedtimer.inSeconds.remainder(60);
-                                            _cur_alert_time = '${_selected_hour}:${_selected_min}:'
-                                                '${_selected_sec}';
+                                            _cur_alert_time = '${_selected_hour}:${_selected_min}:';
                                             _alertTime_prefs.setString('_cur_alertTime', _cur_alert_time);
                                           });
                                         },
