@@ -130,6 +130,9 @@ class Question2_2 extends StatelessWidget {
               q2_2 = "마음이 편안해져";
               ans['q2_2'] = q2_2;
               ans['a2']='역시 편안한 음악으론 ${ans['q2_1']}이 최고지';
+              if (ans['q2_1']=='JAZZ' ){
+                ans['a2']='역시 편안한 음악으론 ${ans['q2_1']}가 최고지';
+              }
               showAlertDialog(context, ans['a2']);
               Navigator.push(
                 context,
@@ -151,7 +154,7 @@ class Question2_2 extends StatelessWidget {
 
               q2_2 = "스트레스가 풀려";
               ans['q2_2'] = q2_2;
-              ans['a2']='맞아. ${ans['q2_1']}들으면 스트레스가 풀리는 기분이야';
+              ans['a2']='맞아. ${ans['q2_1']} 들으면 스트레스가 풀리는 기분이야';
               showAlertDialog(context, ans['a2']);
               Navigator.push(
                 context,
