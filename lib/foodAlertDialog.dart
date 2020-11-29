@@ -24,7 +24,7 @@ Future<String> foodAlertDialog(BuildContext context, text) async {
   foodMap['분식']=foods[4];
   return await showDialog(
     context: context,
-    barrierDismissible: false,
+    barrierDismissible: true,
     builder: (BuildContext context) {
       return AlertDialog(
         title: Text(text),

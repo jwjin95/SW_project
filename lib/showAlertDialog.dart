@@ -8,7 +8,7 @@ void showAlertDialog(BuildContext context, text) async {
     barrierDismissible: false, // user must tap button!
     builder: (BuildContext context) {
 
-      Future.delayed(Duration(seconds: 2), (){
+      Future.delayed(Duration(milliseconds: 1500), (){
         Navigator.pop(context);
       });
       return AlertDialog(

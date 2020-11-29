@@ -170,7 +170,7 @@ class Question4_1 extends StatelessWidget {
               ans['q4_1'] = q4_1;
 
               if (buffer !=''){
-                ans['q4_1'] += ' 중에서 '+buffer;
+                ans['q4_1'] =buffer;
               }
               else{
                 ans['q4_1']+='을';
@@ -203,7 +203,7 @@ class Question4_1 extends StatelessWidget {
               ans['q4_1'] = q4_1;
 
               if (buffer !=''){
-                ans['q4_1'] += ' 중에서 '+buffer;
+                ans['q4_1'] =buffer;
               }
               else{
                 ans['q4_1']+='을';
@@ -238,7 +238,7 @@ class Question4_1 extends StatelessWidget {
               ans['q4_1'] = q4_1;
 
               if (buffer !=''){
-                ans['q4_1'] += ' 중에서 '+buffer;
+                ans['q4_1'] =buffer;
               }
               else{
                 ans['q4_1']+='을';
@@ -272,7 +272,7 @@ class Question4_1 extends StatelessWidget {
               ans['q4_1'] = q4_1;
 
               if (buffer !=''){
-                ans['q4_1'] += ' 중에서 '+buffer;
+                ans['q4_1'] =buffer;
               }
               else{
                 ans['q4_1']+='을';
@@ -306,7 +306,7 @@ class Question4_1 extends StatelessWidget {
               ans['q4_1'] = q4_1;
 
               if (buffer !=''){
-                ans['q4_1'] += ' 중에서 '+buffer;
+                ans['q4_1'] =buffer;
               }
               else{
                 ans['q4_1']+='을';

@@ -78,7 +78,7 @@ class CalendarPage2State extends State<CalendarPage2> {
         );}
     }
     _calendarCarouselNoHeader = CalendarCarousel<Event>(
-      height: cHeight * 0.5,
+      height: cHeight * 0.52,
       // weekendTextStyle: TextStyle(
       //   color: Colors.black,
       // ),

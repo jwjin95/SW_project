@@ -81,7 +81,7 @@ class todaydiaryView extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Container(
-                width : 500,
+                width : 400,
                 padding: EdgeInsets.all(20),
                 child : TextField(
                   // textAlignVertical: TextAlignVertical.top,
