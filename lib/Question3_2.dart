@@ -118,24 +118,50 @@ class Question3_2 extends StatelessWidget {
           ),
 
 
-          Align(
-            alignment: Alignment.centerRight,
-            child: OutlineButton(
-              color: Colors.orange,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              child: Text("넘어가기"),
-              onPressed: () {
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget> [
+              OutlineButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  side: BorderSide(color: Color(0xff99C1DE),width: 3),
+                ),
 
-                ans['q3_2'] = q3_2;
+                child: Text("이전질문"),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+              OutlineButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  side: BorderSide(color: Color(0xff99C1DE),width: 3),
+                ),
 
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Question4_1(ans)),
-                );
+                child: Text("홈으로"),
+                onPressed: () {
+                  Navigator.pushNamed(context, 'main');
+                },
+              ),
+              OutlineButton(
+                color: Colors.orange,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                child: Text("넘어가기"),
+                onPressed: () {
 
-              },
-            ),
+                  ans['q3_2'] = q3_2;
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Question4_1(ans)),
+                  );
+
+                },
+              ),
+            ],
+
           ),
 
 

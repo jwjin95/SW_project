@@ -115,27 +115,53 @@ class Question6_1 extends StatelessWidget {
           ),
 
 
-          Align(
-            alignment: Alignment.centerRight,
-            child: OutlineButton(
-              color: Colors.orange,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              child: Text("넘어가기"),
-              onPressed: () {
-                ans['q6_1'] = q6_1;
-                ans['a6']='대답해줘서 고마워!';
-                if (q6_1==''){
-                  ans['a6']='한 문장으로 표현하는 게 어렵긴 하지..!';
-                }
-                showAlertDialog(context, ans['a6']);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Question7_1(ans)),
-                );
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget> [
+              OutlineButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  side: BorderSide(color: Color(0xff99C1DE),width: 3),
+                ),
 
-              },
-            ),
+                child: Text("이전질문"),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+              OutlineButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  side: BorderSide(color: Color(0xff99C1DE),width: 3),
+                ),
+
+                child: Text("홈으로"),
+                onPressed: () {
+                  Navigator.pushNamed(context, 'main');
+                },
+              ),
+              OutlineButton(
+                color: Colors.orange,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                child: Text("넘어가기"),
+                onPressed: () {
+                  ans['q6_1'] = q6_1;
+                  ans['a6']='대답해줘서 고마워!';
+                  if (q6_1==''){
+                    ans['a6']='한 문장으로 표현하는 게 어렵긴 하지..!';
+                  }
+                  showAlertDialog(context, ans['a6']);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Question7_1(ans)),
+                  );
+
+                },
+              ),
+            ],
+
           ),
 
         ],

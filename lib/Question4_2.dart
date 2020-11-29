@@ -203,22 +203,60 @@ class Question4_2 extends StatelessWidget {
           SizedBox(
             height: 20.0,
           ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: OutlineButton(
-              color: Colors.orange,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              child: Text("넘어가기"),
-              onPressed: () {
-                ans['q4_2'] = q4_2;
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Question5_1(ans)),
-                );
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget> [
+              OutlineButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  side: BorderSide(color: Color(0xff99C1DE),width: 3),
+                ),
 
-              },
-            ),
+                child: Text("이전질문"),
+                onPressed: () {
+                  for(int i=2; i<6; i++) {
+                    String key = 'q1_' + i.toString();
+                    if (ans.containsKey(key)) {
+                      ans.remove(key);
+                    }
+                  }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
+                  Navigator.pop(context);
+                },
+              ),
+              OutlineButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  side: BorderSide(color: Color(0xff99C1DE),width: 3),
+                ),
+
+                child: Text("홈으로"),
+                onPressed: () {
+                  for(int i=2; i<6; i++) {
+                    String key = 'q1_' + i.toString();
+                    if (ans.containsKey(key)) {
+                      ans.remove(key);
+                    }
+                  }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
+                  Navigator.pushNamed(context, 'main');
+                },
+              ),
+              OutlineButton(
+                color: Colors.orange,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                child: Text("넘어가기"),
+                onPressed: () {
+                  ans['q4_2'] = q4_2;
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Question5_1(ans)),
+                  );
+
+                },
+              ),
+            ],
+
           ),
 
         ],

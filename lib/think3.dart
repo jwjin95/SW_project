@@ -176,6 +176,15 @@ class think3 extends StatelessWidget {
                 color: Colors.orange,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
+                child: Text("홈으로"),
+                onPressed: () {
+                  Navigator.pushNamed(context, 'main');
+                },
+              ),
+              OutlineButton(
+                color: Colors.orange,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
                 child: Text("넘어가기"),
                 onPressed: () {
                   ans['th3'] = th3;
