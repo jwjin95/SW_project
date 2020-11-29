@@ -17,6 +17,7 @@ import 'package:softwareEngineering/think11.dart';
 import 'package:softwareEngineering/think12.dart';
 import 'package:softwareEngineering/think13.dart';
 import 'package:softwareEngineering/diary_end.dart';
+import 'package:softwareEngineering/Bubble.dart';
 
 class writePage extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
@@ -52,37 +53,39 @@ class writePage extends StatelessWidget {
       child: Column(
         // mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Center(child: Container(
-            width: double.infinity,
-            height : 160,
-            alignment: Alignment.center,
-            padding: const EdgeInsets.all(20),
-            margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 70),
+          // Center(child: Container(
+          //   width: double.infinity,
+          //   height : 160,
+          //   alignment: Alignment.center,
+          //   padding: const EdgeInsets.all(20),
+          //   margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 70),
+          //
+          //   decoration: BoxDecoration(
+          //     color: const Color(0xffCAE0F8),
+          //     borderRadius: BorderRadius.circular(12),
+          //     boxShadow: [
+          //       BoxShadow(
+          //         color: Colors.grey.withOpacity(0.3),
+          //         spreadRadius: 2,
+          //         blurRadius: 13,
+          //         offset: Offset(4, 5), // changes position of shadow
+          //       ),
+          //     ],
+          //   ),
+          //   child:
+          //   Center(child: Text('오늘의 일기를 작성해볼까?',
+          //     textAlign: TextAlign.center,
+          //     style: TextStyle(
+          //       fontWeight: FontWeight.bold,
+          //       fontSize: 32,
+          //       color: Color(0xff6397D2),
+          //       height:1.5,
+          //     ),
+          //   ),
+          // ),),
+          // ),
+          bubble(text : "오늘의 일기를 작성해볼까?"),
 
-            decoration: BoxDecoration(
-              color: const Color(0xffCAE0F8),
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.3),
-                  spreadRadius: 2,
-                  blurRadius: 13,
-                  offset: Offset(4, 5), // changes position of shadow
-                ),
-              ],
-            ),
-            child:
-            Center(child: Text('오늘의 일기를 작성해볼까?',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 32,
-                color: Color(0xff6397D2),
-                height:1.5,
-              ),
-            ),
-          ),),
-          ),
 
           MyButton(
             text: Text(

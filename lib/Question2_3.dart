@@ -2,6 +2,7 @@ import 'package:softwareEngineering/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:softwareEngineering/Question2_2.dart';
 import 'package:softwareEngineering/showAlertDialog.dart';
+import 'package:softwareEngineering/Bubble.dart';
 
 class Question2_3 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
@@ -50,54 +51,55 @@ class Question2_3 extends StatelessWidget {
       padding: EdgeInsets.all(16),
       child: Column(
         children: <Widget>[
-          Center(child: Container(
-            width: double.infinity,
-            height : 160,
-            alignment: Alignment.center,
-            padding: const EdgeInsets.all(20),
-            margin: const EdgeInsets.only(left: 50, right: 50, top: 20, bottom: 10),
-
-            decoration: BoxDecoration(
-              color: const Color(0xffCAE0F8),
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.3),
-                  spreadRadius: 2,
-                  blurRadius: 13,
-                  offset: Offset(4, 5), // changes position of shadow
-                ),
-              ],
-            ),
-            child:
-            Center(child: Text('뭐 하면서\n 듣게 된거야?',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 32,
-                color: Color(0xff6397D2),
-                height:1.5,
-              ),
-            ),
-            ),),
-          ),
+          // Center(child: Container(
+          //   width: double.infinity,
+          //   height : 160,
+          //   alignment: Alignment.center,
+          //   padding: const EdgeInsets.all(20),
+          //   margin: const EdgeInsets.only(left: 50, right: 50, top: 20, bottom: 10),
+          //
+          //   decoration: BoxDecoration(
+          //     color: const Color(0xffCAE0F8),
+          //     borderRadius: BorderRadius.circular(12),
+          //     boxShadow: [
+          //       BoxShadow(
+          //         color: Colors.grey.withOpacity(0.3),
+          //         spreadRadius: 2,
+          //         blurRadius: 13,
+          //         offset: Offset(4, 5), // changes position of shadow
+          //       ),
+          //     ],
+          //   ),
+          //   child:
+          //   Center(child: Text('뭐 하면서\n 듣게 된거야?',
+          //     textAlign: TextAlign.center,
+          //     style: TextStyle(
+          //       fontWeight: FontWeight.bold,
+          //       fontSize: 32,
+          //       color: Color(0xff6397D2),
+          //       height:1.5,
+          //     ),
+          //   ),
+          //   ),),
+          // ),
+          bubble(text : "뭐 하면서 듣게 된거야?"),
 
           Container(
             alignment: Alignment(0.0, 0.0),
             height: 45,
-            margin: EdgeInsets.only(left: 30, right: 30, top: 15),
             padding: EdgeInsets.only(left: 20, right: 20),
             decoration: new BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                border: Border.all(width: 1, color: Colors.black12)),
+                borderRadius: BorderRadius.all(Radius.circular(30)),
+                border: Border.all(width: 3, color: Color(0xff99C1DE))),
+
 
             child: TextField(
               controller: _tec,
               style: TextStyle(color: Colors.black),
               decoration: InputDecoration(
                 border: InputBorder.none,
-                hintText: '직접입력 ("~하면서" 로 입력해주세요 :) )',
+                hintText: '직접입력',
                 hintStyle: TextStyle(color: Colors.grey[300]),
 
               ),
@@ -254,13 +256,16 @@ class Question2_3 extends StatelessWidget {
 
             },
           ),
+          SizedBox(
+            height: 20.0,
+          ),
           Align(
             alignment: Alignment.centerRight,
             child: OutlineButton(
               color: Colors.orange,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
-              child: Text("확인"),
+              child: Text("넘어가기"),
               onPressed: () {
 
                 ans['q2_3'] = q2_3;

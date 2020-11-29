@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:softwareEngineering/Question4_2.dart';
 import 'package:softwareEngineering/Question5_1.dart';
 import 'package:softwareEngineering/showAlertDialog.dart';
-
+import 'package:softwareEngineering/Bubble.dart';
+import 'package:softwareEngineering/foodAlertDialog.dart';
 class Question4_1 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
   String q4_1 ='';
+  String buffer='';
   Map ans;
   Question4_1(this.ans);
   static const TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
@@ -47,37 +49,38 @@ class Question4_1 extends StatelessWidget {
 
       child: Column(
         children: <Widget>[
-          Center(child: Container(
-            width: double.infinity,
-            height : 160,
-            alignment: Alignment.center,
-            padding: const EdgeInsets.all(20),
-            margin: const EdgeInsets.only(left: 50, right: 50, top: 50, bottom: 20),
-
-            decoration: BoxDecoration(
-              color: const Color(0xffCAE0F8),
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.3),
-                  spreadRadius: 2,
-                  blurRadius: 13,
-                  offset: Offset(4, 5), // changes position of shadow
-                ),
-              ],
-            ),
-            child:
-            Center(child: Text('오늘 뭐 먹었어?',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 32,
-                color: Color(0xff6397D2),
-                height:1.5,
-              ),
-            ),
-            ),),
-          ),
+          // Center(child: Container(
+          //   width: double.infinity,
+          //   height : 160,
+          //   alignment: Alignment.center,
+          //   padding: const EdgeInsets.all(20),
+          //   margin: const EdgeInsets.only(left: 50, right: 50, top: 50, bottom: 20),
+          //
+          //   decoration: BoxDecoration(
+          //     color: const Color(0xffCAE0F8),
+          //     borderRadius: BorderRadius.circular(12),
+          //     boxShadow: [
+          //       BoxShadow(
+          //         color: Colors.grey.withOpacity(0.3),
+          //         spreadRadius: 2,
+          //         blurRadius: 13,
+          //         offset: Offset(4, 5), // changes position of shadow
+          //       ),
+          //     ],
+          //   ),
+          //   child:
+          //   Center(child: Text('오늘 뭐 먹었어?',
+          //     textAlign: TextAlign.center,
+          //     style: TextStyle(
+          //       fontWeight: FontWeight.bold,
+          //       fontSize: 32,
+          //       color: Color(0xff6397D2),
+          //       height:1.5,
+          //     ),
+          //   ),
+          //   ),),
+          // ),
+          bubble(text : "오늘 뭐 먹었어?"),
           SizedBox(
             height: 10.0,
           ),
@@ -115,12 +118,12 @@ class Question4_1 extends StatelessWidget {
           Container(
             alignment: Alignment(0.0, 0.0),
             height: 45,
-            margin: EdgeInsets.only(left: 30, right: 30, top: 15),
             padding: EdgeInsets.only(left: 20, right: 20),
             decoration: new BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                border: Border.all(width: 1, color: Colors.black12)),
+                borderRadius: BorderRadius.all(Radius.circular(30)),
+                border: Border.all(width: 3, color: Color(0xff99C1DE))),
+
 
             child: TextField(
               controller: _tec,
@@ -131,7 +134,6 @@ class Question4_1 extends StatelessWidget {
                 hintStyle: TextStyle(color: Colors.grey[300]),
 
               ),
-
               onSubmitted: (String str){
 
                 q4_1 = str;
@@ -148,20 +150,28 @@ class Question4_1 extends StatelessWidget {
 
           MyButton(
             text: Text(
-              '삼겹살',
+              '한식',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
             radius: 4.0,
-            onPressed: (){
+            onPressed: () async {
               for(int i=2; i<3; i++) {
                 String key = 'q4_' + i.toString();
                 if (ans.containsKey(key)) {
                   ans.remove(key);
                 }
               }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
-              q4_1 = "삼겹살";
+              q4_1 = "한식";
+              buffer=await foodAlertDialog(context, q4_1);
               ans['q4_1'] = q4_1;
+
+              if (buffer !=''){
+                ans['q4_1'] += ' 중에서 '+buffer;
+              }
+              else{
+                ans['q4_1']+='을';
+              }
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question4_2(ans)),
@@ -173,20 +183,28 @@ class Question4_1 extends StatelessWidget {
           ),
           MyButton(
             text: Text(
-              '치킨',
+              '중식',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
             radius: 4.0,
-            onPressed: (){
+            onPressed: () async {
               for(int i=2; i<3; i++) {
                 String key = 'q4_' + i.toString();
                 if (ans.containsKey(key)) {
                   ans.remove(key);
                 }
               }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
-              q4_1 = "치킨";
+              q4_1 = "중식";
+              buffer=await foodAlertDialog(context, q4_1);
               ans['q4_1'] = q4_1;
+
+              if (buffer !=''){
+                ans['q4_1'] += ' 중에서 '+buffer;
+              }
+              else{
+                ans['q4_1']+='을';
+              }
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question4_2(ans)),
@@ -200,20 +218,28 @@ class Question4_1 extends StatelessWidget {
 
           MyButton(
             text: Text(
-              '초밥',
+              '일식',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
             radius: 4.0,
-            onPressed: (){
+            onPressed: () async {
               for(int i=2; i<3; i++) {
                 String key = 'q4_' + i.toString();
                 if (ans.containsKey(key)) {
                   ans.remove(key);
                 }
               }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
-              q4_1 = "초밥";
+              q4_1 = "일식";
+              buffer=await foodAlertDialog(context, q4_1);
               ans['q4_1'] = q4_1;
+
+              if (buffer !=''){
+                ans['q4_1'] += ' 중에서 '+buffer;
+              }
+              else{
+                ans['q4_1']+='을';
+              }
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question4_2(ans)),
@@ -226,20 +252,28 @@ class Question4_1 extends StatelessWidget {
           ),
           MyButton(
             text: Text(
-              '파스타',
+              '양식',
               style: TextStyle(color: Colors.black87, fontSize: 15.0),
             ),
             color: Colors.white,
             radius: 4.0,
-            onPressed: (){
+            onPressed: () async {
               for(int i=2; i<3; i++) {
                 String key = 'q4_' + i.toString();
                 if (ans.containsKey(key)) {
                   ans.remove(key);
                 }
               }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
-              q4_1 = "파스타";
+              q4_1 = "양식";
+              buffer=await foodAlertDialog(context, q4_1);
               ans['q4_1'] = q4_1;
+
+              if (buffer !=''){
+                ans['q4_1'] += ' 중에서 '+buffer;
+              }
+              else{
+                ans['q4_1']+='을';
+              }
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Question4_2(ans)),
@@ -247,14 +281,50 @@ class Question4_1 extends StatelessWidget {
 
             },
           ),
+          SizedBox(
+            height: 10.0,
+          ),
+          MyButton(
+            text: Text(
+              '분식',
+              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+            ),
+            color: Colors.white,
+            radius: 4.0,
+            onPressed: () async{
+              for(int i=2; i<3; i++) {
+                String key = 'q4_' + i.toString();
+                if (ans.containsKey(key)) {
+                  ans.remove(key);
+                }
+              }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
+              q4_1 = "분식";
+              buffer=await foodAlertDialog(context, q4_1);
+              ans['q4_1'] = q4_1;
 
+              if (buffer !=''){
+                ans['q4_1'] += ' 중에서 '+buffer;
+              }
+              else{
+                ans['q4_1']+='을';
+              }
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Question4_2(ans)),
+              );
+
+            },
+          ),
+          SizedBox(
+            height: 20.0,
+          ),
           Align(
             alignment: Alignment.centerRight,
             child: OutlineButton(
               color: Colors.orange,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
-              child: Text("확인"),
+              child: Text("넘어가기"),
               onPressed: () {
                 for(int i=2; i<3; i++) {
                   String key = 'q4_' + i.toString();

@@ -2,6 +2,7 @@ import 'package:softwareEngineering/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:softwareEngineering/diary.dart';
 import 'package:softwareEngineering/showAlertDialog.dart';
+import 'package:softwareEngineering/Bubble.dart';
 
 class Question_end extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
@@ -46,23 +47,23 @@ class Question_end extends StatelessWidget {
       padding: EdgeInsets.all(16.0),
 
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Center(child: Container(
-
-            child: Text('끝!!',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 41,
-                color: Colors.blueAccent,
-                height:3.5,
-              ),
-
-            ),
-
-          ),
-
-          ),
+          // Center(child: Container(
+          //
+          //   child: Text('끝!!',
+          //     style: TextStyle(
+          //       fontWeight: FontWeight.bold,
+          //       fontSize: 41,
+          //       color: Colors.blueAccent,
+          //       height:3.5,
+          //     ),
+          //
+          //   ),
+          //
+          // ),
+          //
+          // ),
+          bubble(text: "오늘도 찾아와서 너의 \n이야기해줘서 고마워!"),
 
           SizedBox(
             height: 10.0,
@@ -228,7 +229,7 @@ class Question_end extends StatelessWidget {
     ret.add(tmp);
 
     tmp = '';
-    tmp = '식사로는 ${ans['q4_1']}을 먹었는데, ${ans['q4_2']}'; //Question 4
+    tmp = '식사로는 ${ans['q4_1']} 먹었는데, ${ans['q4_2']}'; //Question 4
 
     ret.add(tmp);
 
@@ -250,7 +251,8 @@ class Question_end extends StatelessWidget {
         tmp = '오늘은 ${ans['q5_1']} 날 이었다.';
         break;
     } //Question 5
-    tmp = tmp + ' 내가 ${ans['q5_2']}하는 날씨이다. 왜냐하면 ${ans['q5_3']}이다.';
+    tmp = tmp + ' 내가 ${ans['q5_2']}하는 날씨이다.';
+    if (ans['q5_3']!=''){tmp=tmp+'왜냐하면 ${ans['q5_3']}이다.';}
     ret.add(tmp);
 
     tmp = '';

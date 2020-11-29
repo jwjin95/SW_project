@@ -1,4 +1,5 @@
 import 'package:softwareEngineering/my_button.dart';
+import 'package:softwareEngineering/Bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:softwareEngineering/main.dart';
 import 'package:softwareEngineering/Question1_2.dart';
@@ -71,38 +72,39 @@ class Question1_1 extends StatelessWidget {
 
       child: Column(
         children: <Widget>[
-          Center(child: Container(
-            width: 500,
-            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
-            child : Bubble(
-            nip : BubbleNip.leftTop,
-            style : BubbleStyle(
-              color: const Color(0xffCAE0F8),
-              margin: BubbleEdges.only(top: 10),
-              padding: BubbleEdges.all(20),
-              alignment: Alignment.center,
-            ),
-            child : Center(child: Row(
-              mainAxisSize: MainAxisSize.max,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(4.0),
-                ),
-                Center(child : Text(
-                  '오늘 뭐했어?',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 22,
-                    color: Color(0xff6397D2),
-                    height:1.5,
-                    ),
-                ),
-                ),
-              ],
-            ),
-          ),),),
-          ),
+          // Center(child: Container(
+          //   width: 500,
+          //   margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+          //   child : Bubble(
+          //   nip : BubbleNip.leftTop,
+          //   style : BubbleStyle(
+          //     color: const Color(0xffCAE0F8),
+          //     margin: BubbleEdges.only(top: 10),
+          //     padding: BubbleEdges.all(20),
+          //     alignment: Alignment.center,
+          //   ),
+          //   child : Center(child: Row(
+          //     mainAxisSize: MainAxisSize.max,
+          //     children: <Widget>[
+          //       Padding(
+          //         padding: const EdgeInsets.all(4.0),
+          //       ),
+          //       Center(child : Text(
+          //         '오늘 뭐했어?',
+          //           textAlign: TextAlign.center,
+          //           style: TextStyle(
+          //           fontWeight: FontWeight.bold,
+          //           fontSize: 22,
+          //           color: Color(0xff6397D2),
+          //           height:1.5,
+          //           ),
+          //       ),
+          //       ),
+          //     ],
+          //   ),
+          // ),),),
+          // ),
+          bubble(text : "오늘 뭐했어?"),
           Container(
             alignment: Alignment(0.0, 0.0),
             height: 45,
@@ -122,12 +124,8 @@ class Question1_1 extends StatelessWidget {
                 hintStyle: TextStyle(color: Colors.grey[300]),
 
               ),
-
               onSubmitted: (String str){
-
                 q1_1 = str;
-
-
               },
             ),
           ),
@@ -244,7 +242,7 @@ class Question1_1 extends StatelessWidget {
             },
           ),
           SizedBox(
-            height: 30.0,
+            height: 20.0,
           ),
 
           Align(
@@ -255,7 +253,7 @@ class Question1_1 extends StatelessWidget {
                   side: BorderSide(color: Color(0xff99C1DE),width: 3),
               ),
 
-              child: Text("다음"),
+              child: Text("넘어가기"),
               onPressed: () {
                 for(int i=2; i<6; i++) {
                   String key = 'q1_' + i.toString();
