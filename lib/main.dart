@@ -280,7 +280,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                                           setState(() {
                                             _selected_hour = changedtimer.inHours;
                                             _selected_min = changedtimer.inMinutes.remainder(60);
-                                            _cur_alert_time = '${_selected_hour}:${_selected_min}:';
+                                            _cur_alert_time = '${_selected_hour}:${_selected_min}';
                                             _alertTime_prefs.setString('_cur_alertTime', _cur_alert_time);
                                           });
                                         },
