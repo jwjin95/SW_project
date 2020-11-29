@@ -33,7 +33,6 @@ class diaryView extends StatelessWidget {
                 style: TextStyle(
                   height: 2.0,
                 ),),),
-              
             ],
           )
         ],
@@ -50,7 +49,7 @@ class todaydiaryView extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   todaydiaryView(DateTime _date, String _content){
     this.date = _date;
-    this.content = _content != null ? _content : "쓰여진 일기가 없습니다.";
+    this.content = _content != null ? _content : "작성된 일기가 없습니다.";
     _tec = TextEditingController(text: content);
   }
   static const TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
@@ -64,28 +63,28 @@ class todaydiaryView extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Color(0xFF6397D2),
         elevation: 0.0,
+
         actions: <Widget> [
-          new IconButton(
-            icon: new Text("저장"),
+          new Padding(
+              padding: EdgeInsets.only(right : 10),
+              child : IconButton(
+            icon: new Text("저장", style: TextStyle(fontWeight: FontWeight.w700),),
             onPressed: () => {
               CalendarPage2State.diary_list[date]=_tec.text,
               showAlertDialog(context)
               },
-          )
+          )),
         ]
       ),
-      body: Center( child:SingleChildScrollView( 
+      body: SingleChildScrollView(
         child : Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget> [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              SizedBox(height: 25,),
               Container(
                 width : 300,
+                padding: EdgeInsets.all(20),
                 child : TextField(
-                  textAlignVertical: TextAlignVertical.top,
+                  // textAlignVertical: TextAlignVertical.top,
                   controller: _tec,
                   maxLines: null,
                   decoration: InputDecoration(border: InputBorder.none,
@@ -96,8 +95,7 @@ class todaydiaryView extends StatelessWidget {
               
             ],
           )
-        ],
-      ),),),
+      ),
     );
   }
 
@@ -111,7 +109,7 @@ class todaydiaryView extends StatelessWidget {
           content: Text("저장이 완료되었습니다."),
           actions: <Widget>[
             FlatButton(
-              child: Text('확인'),
+              child: Text('확인', style: TextStyle(color: Color(0xff6397D2), fontWeight: FontWeight.w700),),
               onPressed: () {
                 Navigator.pop(context, "OK");
               },

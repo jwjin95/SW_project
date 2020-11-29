@@ -15,16 +15,11 @@ class CalendarPage2 extends StatefulWidget {
   CalendarPage2State createState() => new CalendarPage2State();
 }
 
-List<DateTime> presentDates = [
-  DateTime(2020, 11, 9),
-  DateTime(2020, 11, 10),
-];
-// List<DateTime> absentDates = [
-//   DateTime(2020, 11, 11),
-//   DateTime(2020, 11, 12),
-// ];
+List<DateTime> presentDates = [];
 
 class CalendarPage2State extends State<CalendarPage2> {
+
+
 
   var ans_list = [];
   static var diary_list = Map();
@@ -63,37 +58,25 @@ class CalendarPage2State extends State<CalendarPage2> {
 
   CalendarCarousel _calendarCarouselNoHeader;
 
-  var len = 2;
   double cHeight;
 
   @override
   Widget build(BuildContext context) {
     cHeight = MediaQuery.of(context).size.height;
-    for (int i = 0; i < len; i++) {
-      _markedDateMap.add(
-        presentDates[i],
-        new Event(
-          date: presentDates[i],
-          title: 'Event 5',
-          icon: _presentIcon(
-            presentDates[i].day.toString(),
-          ),
-        ),
-      );
-    }
 
-    // for (int i = 0; i < len; i++) {
-    //   _markedDateMap.add(
-    //     absentDates[i],
-    //     new Event(
-    //       date: absentDates[i],
-    //       title: 'Event 5',
-    //       icon: _absentIcon(
-    //         absentDates[i].day.toString(),
-    //       ),
-    //     ),
-    //   );
-    // }
+    var lastdate = DateTime(_currentDate.year,_currentDate.month+1,0).day;
+
+    for (int i = 1; i < lastdate+1; i++) {
+      if(diary_list[ DateTime(_currentDate.year, _currentDate.month, i)] != null){
+          _markedDateMap.add(
+          DateTime(_currentDate.year, _currentDate.month, i),
+          new Event(
+            date: DateTime(_currentDate.year, _currentDate.month, i),
+            title: 'Event 5',
+            icon: _presentIcon(i.toString()),
+          ),
+        );}
+    }
     _calendarCarouselNoHeader = CalendarCarousel<Event>(
       height: cHeight * 0.5,
       // weekendTextStyle: TextStyle(
@@ -164,7 +147,7 @@ class CalendarPage2State extends State<CalendarPage2> {
                 }),
               ],
             ),),
-            new Text(diary_list[_currentDate]!=null ? diary_list[_currentDate] : "쓰여진 일기가 없습니다.")
+            new Text(diary_list[_currentDate]!=null ? diary_list[_currentDate] : "작성된 일기가 없습니다.")
           ],
         ),
       ),
