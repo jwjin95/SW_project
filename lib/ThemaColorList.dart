@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-var mainThema='카페';
+var mainThema='레트로';
+
 final themaCafe={'배경색': 0xFFFAF8F5, '어플상하단색': 0xFFD1BEA5,
   '어플상하단글씨':0xFF4C3825, '아이콘':0xFF4C3825,
   '달력상단':0xFF4C3825, '달력요일글씨':0xFF4C3825,
@@ -23,10 +24,10 @@ final themaRetro={'배경색': 0xFFFFFDF2, '어플상하단색': 0xFFFFDB0A,
   '어플상하단글씨':0xFF537C24, '아이콘':0xFF537C24,
   '달력상단':0xFF7A3815, '달력요일글씨':0xFF7A3815,
   'SELECTED':0xFF537C24,'TODAY':0xFF537C24,
-  '달력일기쓴날':0xFFFFDB0A, '달력하단날짜':0xFFFFDB0A,
-  '상세보기':0xFFFFDB0A, '대화창말풍선':0xFFD1BEA5,
-  '대화창글씨':0xFF4C3825, '버튼글씨':0xFF4C3825,
-  '버튼테두리':0xFFD1BEA5, '버튼배경색':0xFFFAF8F5
+  '달력일기쓴날':0xFFFFDB0A, '달력하단날짜':0xFF537C24,
+  '상세보기':0xFF7A3815, '대화창말풍선':0xFF537C24,
+  '대화창글씨':0xFFFFDB0A, '버튼글씨':0xFF537C24,
+  '버튼테두리':0xFF7A3815, '버튼배경색':0xFFFFFDF2
 };
 final themaMono={'배경색': 0xFFFFFDF2, '어플상하단색': 0xFFFFDB0A,
   '어플상하단글씨':0xFF537C24, '아이콘':0xFF537C24,

@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:softwareEngineering/diary.dart';
 import 'package:softwareEngineering/showAlertDialog.dart';
 import 'package:softwareEngineering/Bubble.dart';
+import 'package:softwareEngineering/ThemaColorList.dart';
 
 class Question_end extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
   Map ans;
   Question_end(this.ans);
-  static const TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
+  static TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(themaColorList[mainThema]['어플상하단글씨']), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class Question_end extends StatelessWidget {
           style: optionStyle,
         ),
         centerTitle: true,
-        backgroundColor: Color(0xFF6397D2),
+        backgroundColor: Color(themaColorList[mainThema]['어플상하단색']),
         elevation: 0.0,
       ),
       // appBar: AppBar(

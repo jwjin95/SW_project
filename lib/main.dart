@@ -97,7 +97,7 @@ class MyApp extends StatelessWidget {
         child:MaterialApp(
         title: _title,
         home: MyStatefulWidget(),
-        theme: ThemeData(fontFamily: "Maplestory OTF Light",)
+        theme: ThemeData(fontFamily: "Maplestory OTF Light", backgroundColor: Color(themaColorList[mainThema]['배경색']))
     ),);
   }
 }
@@ -121,7 +121,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   SharedPreferences _alertTime_prefs;
 
 
-  static TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(themaColorList[mainThema]['달력상단']), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
+  static TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(themaColorList[mainThema]['어플상하단글씨']), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
   static List<Widget> _widgetOptions = <Widget>[
     Text(
       'Calendar',
@@ -197,10 +197,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:Color(themaColorList[mainThema]['배경색']),
       appBar: AppBar(
         title: _widgetOptions.elementAt(_selectedIndex),
         centerTitle: true,
-        backgroundColor: Color(0xFF6397D2),
+        backgroundColor: Color(themaColorList[mainThema]['어플상하단색']),
         elevation: 0.0,
           actions: <Widget>[
             new IconButton(
@@ -382,7 +383,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ],
       ),
       body: Center(
-        child: _pages[_selectedIndex],
+        child: Container(
+      decoration : BoxDecoration(color: Color(themaColorList[mainThema]['배경색']) ),
+      child : _pages[_selectedIndex],),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -396,8 +399,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
         ],
         currentIndex: _selectedIndex,
-        backgroundColor: Color(0xFF6397D2),
-        selectedItemColor: Color(0xFFFFFFFF),
+        backgroundColor: Color(themaColorList[mainThema]['어플상하단색']),
+        selectedItemColor: Color(themaColorList[mainThema]['SELECTED']),
         onTap: _onItemTapped,
       ),
     );

@@ -8,6 +8,7 @@ import 'package:flutter_calendar_carousel/classes/event_list.dart';
 import 'package:intl/intl.dart';
 
 import 'Question_end.dart';
+import 'package:softwareEngineering/ThemaColorList.dart';
 
 class CalendarPage2 extends StatefulWidget {
 
@@ -27,11 +28,13 @@ class CalendarPage2State extends State<CalendarPage2> {
   DateTime _currentDate = DateTime.now();
   DateTime _targetDate = DateTime.now();
   static Widget _presentIcon(String day) => Container(
+
+    decoration : BoxDecoration(color: Color(themaColorList[mainThema]['배경색']) ),
     child: Center(
       child: Text(
         day,
         style: TextStyle(
-          color: Color(0xff153F85),
+          color: Color(themaColorList[mainThema]['달력일기쓴날']),
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -98,17 +101,17 @@ class CalendarPage2State extends State<CalendarPage2> {
             _targetDate = DateTime(_targetDate.year+1, _targetDate.month - 11);
           }
         });},
-      headerTextStyle: TextStyle(fontSize: 22.0, color: Color(0xFF4D70AA), fontWeight: FontWeight.w900),
+      headerTextStyle: TextStyle(fontSize: 22.0, color: Color(themaColorList[mainThema]['달력상단']), fontWeight: FontWeight.w900),
       headerText: DateFormat('y.MM').format(_targetDate),
-      iconColor: Color(0xFF4D70AA),
+      iconColor: Color(themaColorList[mainThema]['달력상단']),
       selectedDateTime: _currentDate,
-      weekdayTextStyle: TextStyle( fontSize: 15.0, color: Color(0xFF4D70AA)),
-      todayButtonColor: Colors.white,
-      todayBorderColor: Color(0xFF6397D2),
-      todayTextStyle: TextStyle(color: Color(0xFF6397D2)),
-      selectedDayButtonColor: Color(0xFF6397D2),
-      selectedDayBorderColor: Color(0xFFFFFFFF),
-      selectedDayTextStyle: TextStyle(color: Colors.white),
+      weekdayTextStyle: TextStyle( fontSize: 15.0, color: Color(themaColorList[mainThema]['달력요일글씨'])),
+      todayButtonColor: Color(themaColorList[mainThema]['배경색']),
+      todayBorderColor: Color(themaColorList[mainThema]['TODAY']),
+      todayTextStyle: TextStyle(color: Color(themaColorList[mainThema]['TODAY'])),
+      selectedDayButtonColor: Color(themaColorList[mainThema]['SELECTED']),
+      selectedDayBorderColor: Color(themaColorList[mainThema]['배경색']),
+      selectedDayTextStyle: TextStyle(color: Color(themaColorList[mainThema]['배경색'])),
       daysHaveCircularBorder: true,
       markedDatesMap: _markedDateMap,
       markedDateShowIcon: true,
@@ -124,6 +127,7 @@ class CalendarPage2State extends State<CalendarPage2> {
     );
 
     return new Scaffold(
+      backgroundColor:Color(themaColorList[mainThema]['배경색']),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -132,12 +136,13 @@ class CalendarPage2State extends State<CalendarPage2> {
             // Container(width: 400, height: 1, color: Color(0xFFBCD4E6),),
             // Container(height: 3,),
             Container(
+              decoration : BoxDecoration(color: Color(themaColorList[mainThema]['배경색']) ),
               margin: EdgeInsets.only(left: 13, bottom: 5,),
               child : Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                new Text(DateFormat('yyyy.MM.dd').format(_currentDate), style: TextStyle(color: Color(0xFF06397D2)),),
-                new FlatButton(child:const Text("상세보기", style: TextStyle(color: Color(0xFF6397D2),),), onPressed: ()=>{
+                new Text(DateFormat('yyyy.MM.dd').format(_currentDate), style: TextStyle(color: Color(themaColorList[mainThema]['달력하단날짜'])),),
+                new FlatButton(child: Text("상세보기", style: TextStyle(color: Color(themaColorList[mainThema]['상세보기']),),), onPressed: ()=>{
                   Navigator.push(
                     context,
                     MaterialPageRoute(
