@@ -22,6 +22,7 @@ class Question_end extends StatelessWidget {
     final mainThema curThema=Provider.of<mainThema>(context);
     TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(curThema.getThemaList()['어플상하단글씨']), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
     return Scaffold(
+      backgroundColor: Color(themaColorList[mainThema]['배경색']),
       resizeToAvoidBottomPadding: false,
 
       appBar: AppBar(
