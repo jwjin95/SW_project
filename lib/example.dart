@@ -6,8 +6,12 @@ import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart'
 import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/classes/event_list.dart';
 import 'package:intl/intl.dart';
-
 import 'Question_end.dart';
+import 'package:softwareEngineering/ThemaColorList.dart';
+import 'package:softwareEngineering/ThemaFont.dart';
+import 'package:flutter/foundation.dart';
+import 'package:provider/provider.dart';
+
 
 class CalendarPage2 extends StatefulWidget {
 
@@ -26,17 +30,17 @@ class CalendarPage2State extends State<CalendarPage2> {
 
   DateTime _currentDate = DateTime.now();
   DateTime _targetDate = DateTime.now();
-  static Widget _presentIcon(String day) => Container(
-    child: Center(
-      child: Text(
-        day,
-        style: TextStyle(
-          color: Color(0xff153F85),
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ),
-  );
+  // static Widget _presentIcon(String day) => Container(
+  //   child: Center(
+  //     child: Text(
+  //       day,
+  //       style: TextStyle(
+  //         color: Color(0xff153F85),
+  //         fontWeight: FontWeight.bold,
+  //       ),
+  //     ),
+  //   ),
+  // );
 
 
   void refresh(DateTime date){
@@ -45,6 +49,7 @@ class CalendarPage2State extends State<CalendarPage2> {
   }
 
   static Widget _absentIcon(String day) => Container(
+
     child: Center(
       child: Text(
         day,
@@ -62,6 +67,22 @@ class CalendarPage2State extends State<CalendarPage2> {
 
   @override
   Widget build(BuildContext context) {
+    final curFont=Provider.of<themaFont>(context);
+    final curThema=Provider.of<mainThema>(context);
+
+    Widget _presentIcon(String day) => Container(
+      color: Color(curThema.getThemaList()['배경색']),
+      child: Center(
+        child: Text(
+          day,
+          style: TextStyle(
+            color: Color(curThema.getThemaList()['달력상단']),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
+
     cHeight = MediaQuery.of(context).size.height;
 
     var lastdate = DateTime(_currentDate.year,_currentDate.month+1,0).day;
@@ -98,15 +119,16 @@ class CalendarPage2State extends State<CalendarPage2> {
             _targetDate = DateTime(_targetDate.year+1, _targetDate.month - 11);
           }
         });},
-      headerTextStyle: TextStyle(fontSize: 22.0, color: Color(0xFF4D70AA), fontWeight: FontWeight.w900),
+      weekDayBackgroundColor: Color(curThema.getThemaList()['배경색']),
+      headerTextStyle: TextStyle(fontSize: 22.0, color: Color(curThema.getThemaList()['달력상단']), fontWeight: FontWeight.w900),
       headerText: DateFormat('y.MM').format(_targetDate),
-      iconColor: Color(0xFF4D70AA),
+      iconColor: Color(curThema.getThemaList()['달력상단']),
       selectedDateTime: _currentDate,
-      weekdayTextStyle: TextStyle( fontSize: 15.0, color: Color(0xFF4D70AA)),
+      weekdayTextStyle: TextStyle( fontSize: 15.0, color: Color(curThema.getThemaList()['달력요일글씨'])),
       todayButtonColor: Colors.white,
-      todayBorderColor: Color(0xFF6397D2),
-      todayTextStyle: TextStyle(color: Color(0xFF6397D2)),
-      selectedDayButtonColor: Color(0xFF6397D2),
+      todayBorderColor: Color(curThema.getThemaList()['TODAY']),
+      todayTextStyle: TextStyle(color: Color(curThema.getThemaList()['TODAY'])),
+      selectedDayButtonColor: Color(curThema.getThemaList()['SELECTED']),
       selectedDayBorderColor: Color(0xFFFFFFFF),
       selectedDayTextStyle: TextStyle(color: Colors.white),
       daysHaveCircularBorder: true,
@@ -132,12 +154,13 @@ class CalendarPage2State extends State<CalendarPage2> {
             // Container(width: 400, height: 1, color: Color(0xFFBCD4E6),),
             // Container(height: 3,),
             Container(
+              color: Color(curThema.getThemaList()['배경색']),
               margin: EdgeInsets.only(left: 13, bottom: 5,),
               child : Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                new Text(DateFormat('yyyy.MM.dd').format(_currentDate), style: TextStyle(color: Color(0xFF06397D2)),),
-                new FlatButton(child:const Text("상세보기", style: TextStyle(color: Color(0xFF6397D2),),), onPressed: ()=>{
+                new Text(DateFormat('yyyy.MM.dd').format(_currentDate), style: TextStyle(color: Color(curThema.getThemaList()['달력하단날짜'])),),
+                new FlatButton(child: Text("상세보기", style: TextStyle(color: Color(curThema.getThemaList()['상세보기']),),), onPressed: ()=>{
                   Navigator.push(
                     context,
                     MaterialPageRoute(

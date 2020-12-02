@@ -1,6 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
+import 'package:provider/provider.dart';
 
-var mainThema='카페';
+final themaList = [
+  '카페','산토리니','레트로','파스텔 팝','모노톤'
+];
+class mainThema with ChangeNotifier {
+  String _mainThema = '카페';
+  var _colorList = themaCafe;
+  String getThema() => _mainThema;
+  Map getThemaList()=>_colorList;
+  void ChangeThema(String value) {
+    _mainThema= value;
+    switch(_mainThema){
+      case '카페':
+        _colorList=themaCafe;
+        break;
+      case '산토리니':
+        _colorList=themaSantorini;
+        break;
+      case '레트로':
+        _colorList=themaRetro;
+        break;
+      case '파스텔 팝':
+        _colorList=themaPop;
+        break;
+      case '모노톤':
+        _colorList=themaMono;
+        break;
+    }
+    notifyListeners(); //must be inserted
+  }
+}
+
 final themaCafe={'배경색': 0xFFFAF8F5, '어플상하단색': 0xFFD1BEA5,
   '어플상하단글씨':0xFF4C3825, '아이콘':0xFF4C3825,
   '달력상단':0xFF4C3825, '달력요일글씨':0xFF4C3825,
@@ -10,6 +42,7 @@ final themaCafe={'배경색': 0xFFFAF8F5, '어플상하단색': 0xFFD1BEA5,
   '대화창글씨':0xFF4C3825, '버튼글씨':0xFF4C3825,
   '버튼테두리':0xFFD1BEA5, '버튼배경색':0xFFFAF8F5
 };
+
 final themaSantorini={'배경색': 0xFFFFFFFF, '어플상하단색': 0xFFD1BEA5,
   '어플상하단글씨':0xFF4C3825, '아이콘':0xFF4C3825,
   '달력상단':0xFF4C3825, '달력요일글씨':0xFF4C3825,
@@ -54,12 +87,4 @@ final themaColorList = <String,Map>{
   '파스텔 팝':themaPop
 };
 
-// final List colorList = [
-//
-//   ['#FFFDF2','#D1BEA5','#7A3815','#4C3825'],
-//   ['#FFFDF2','#FFDB0A','#537C24','#7A3815'],
-//   ['#FFFFFF','#B6C7F2','#597CD0'],
-//   ['#E1E1E1','#6E6E6E','#9D1E14','#000000'],
-//   ['#FCF7D9','#FCE0D9','#DCF5F7','#361E10','#ED585F','#58DEED']
-// ] ;
 
