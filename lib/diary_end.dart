@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:softwareEngineering/ThemaColorList.dart';
+import 'main.dart';
 class diary_end extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
@@ -39,7 +40,7 @@ class diary_end extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 41,
-                color: Colors.blueAccent,
+                color: Color(themaColorList[mainThema]['대화창말풍선']),
                 height:3.5,
               ),
 

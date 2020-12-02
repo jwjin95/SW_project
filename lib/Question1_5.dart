@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:softwareEngineering/Question2_1.dart';
 import 'package:softwareEngineering/showAlertDialog.dart';
 import 'package:softwareEngineering/Bubble.dart';
-
+import 'package:softwareEngineering/ThemaColorList.dart';
+import 'main.dart';
 
 class Question1_5 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();

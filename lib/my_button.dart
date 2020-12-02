@@ -1,5 +1,8 @@
 import 'package:softwareEngineering/Question1_1.dart';
 import 'package:flutter/material.dart';
+import 'package:softwareEngineering/ThemaColorList.dart';
+import 'main.dart';
+
 
 class MyButton extends StatelessWidget {
   MyButton({ this.text, this.color, this.radius, this.onPressed});
@@ -20,7 +23,7 @@ class MyButton extends StatelessWidget {
 
           ],
         ),
-        color: Color(0xffFAFAFA),
+        color: Color(themaColorList[mainThema]['버튼배경색']),
         onPressed: onPressed,
 
       ),
@@ -29,7 +32,7 @@ class MyButton extends StatelessWidget {
         borderRadius: BorderRadius.all(
           Radius.circular(30),
         ),
-        side: BorderSide(color: Color(0xff99C1DE),width: 3),
+        side: BorderSide(color: Color(themaColorList[mainThema]['버튼테두리']),width: 3),
       ),
     );
   }

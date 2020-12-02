@@ -1,7 +1,8 @@
 import 'package:softwareEngineering/Question1_1.dart';
 import 'package:flutter/material.dart';
 import 'package:bubble/bubble.dart';
-
+import 'package:softwareEngineering/ThemaColorList.dart';
+import 'main.dart';
 class bubble extends StatelessWidget {
   bubble({this.text});
   final String text;
@@ -13,7 +14,7 @@ class bubble extends StatelessWidget {
       child : Flexible(child : Bubble(
         nip : BubbleNip.leftTop,
         style : BubbleStyle(
-          color: const Color(0xffCAE0F8),
+          color: Color(themaColorList[mainThema]['대화창말풍선']),
           margin: BubbleEdges.only(top: 10),
           padding: BubbleEdges.all(20),
           alignment: Alignment.center,
@@ -33,7 +34,7 @@ class bubble extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 22,
-                color: Color(0xff6397D2),
+                color: Color(themaColorList[mainThema]['대화창글씨']),
                 height:1.5,
               ),
             ),

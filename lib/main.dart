@@ -9,7 +9,9 @@ import 'main_diary.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
+import 'package:softwareEngineering/ThemaColorList.dart';
 
+String mainThema='카페';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   _initNotiSetting();
@@ -90,11 +92,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: _title,
-      home: MyStatefulWidget(),
-      theme: ThemeData(fontFamily: "Maplestory OTF Light")
-    );
+    return Container(
+        decoration:BoxDecoration(color: Color(themaColorList[mainThema]['배경색'])),
+        child:MaterialApp(
+        title: _title,
+        home: MyStatefulWidget(),
+        theme: ThemeData(fontFamily: "Maplestory OTF Light",)
+    ),);
   }
 }
 
@@ -117,8 +121,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   SharedPreferences _alertTime_prefs;
 
 
-  static const TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
-  static const List<Widget> _widgetOptions = <Widget>[
+  static TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(themaColorList[mainThema]['달력상단']), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
+  static List<Widget> _widgetOptions = <Widget>[
     Text(
       'Calendar',
       style: optionStyle,
