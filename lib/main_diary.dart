@@ -24,7 +24,7 @@ class writePage extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
 
   var ans = Map();
-  static const TextStyle optionStyle = TextStyle(color: Color(0xff6397D2), fontSize: 17, fontWeight: FontWeight.bold, fontFamily: 'Cafe24Shiningstar');
+  static const TextStyle optionStyle = TextStyle(color: Color(0xff6397D2), fontSize: 17, fontWeight: FontWeight.bold, fontFamily: 'NanumBarunGothic');
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +109,7 @@ class writePage extends StatelessWidget {
           MyButton(
             text: Text(
               '오늘의 일기 조회',
-              style: TextStyle(color: Color(0xff6397D2), fontSize: 17, fontWeight: FontWeight.bold, fontFamily: 'NanumBarunGothic'),
+              style: optionStyle,
             ),
             color: Colors.white,
             radius: 4.0,

@@ -104,3 +104,7 @@ flutter:
       fonts:
         - asset: fonts/NanumBarunGothic.ttf
 
+    - family: MaruBuri-Regular
+      fonts:
+        - asset: fonts/MaruBuri-Regular.ttf
+
