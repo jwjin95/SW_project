@@ -163,7 +163,7 @@ class Question5_2 extends StatelessWidget {
             color: Colors.white,
             radius: 4.0,
             onPressed: (){
-              q5_2 = "좋아하지도 싫어하지도 않아";
+              q5_2 = "좋아하지도 싫어하지도 않아 ";
               ans['q5_2'] = q5_2;
               Navigator.push(
                 context,

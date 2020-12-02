@@ -169,14 +169,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       ret['hour'] = parseInt(times[0]);
       ret['min'] = parseInt(times[1]);
     }
+    _selected_hour = ret['hour'];
+    _selected_min = ret['min'];
     return Duration(hours: ret['hour'], minutes: ret['min']);
   }
 
 
   @override
   void initState() {
-    _selected_hour = DateTime.now().hour;
-    _selected_min = DateTime.now().minute;
 
     _loadAlertTime();
     super.initState();
@@ -243,6 +243,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                                           CupertinoButton(
                                             child: Text('설정'),
                                             onPressed: () {
+                                              if(_cur_alert_time == null) {
+                                                _cur_alert_time = '${_selected_hour}:${_selected_min}';
+                                                _alertTime_prefs.setString('_cur_alertTime', _cur_alert_time);
+                                              }
                                               _dailyAtTimeNotification(_selected_hour, _selected_min
                                                   );
                                               Navigator.of(context).pop(false);
