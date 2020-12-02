@@ -88,3 +88,19 @@ flutter:
       fonts:
         - asset: fonts/Shrikhand-Regular.ttf
 
+    - family: Cafe24Danjunghae
+      fonts:
+        - asset: fonts/Cafe24Danjunghae.ttf
+
+    - family: Cafe24Dongdong
+      fonts:
+        - asset: fonts/Cafe24Dongdong.ttf
+
+    - family: Cafe24Oneprettynight
+      fonts:
+        - asset: fonts/Cafe24Oneprettynight.ttf
+
+    - family: NanumBarunGothic
+      fonts:
+        - asset: fonts/NanumBarunGothic.ttf
+
