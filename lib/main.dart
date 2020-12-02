@@ -11,7 +11,7 @@ import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 import 'package:softwareEngineering/ThemaColorList.dart';
 
-String mainThema='카페';
+
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   _initNotiSetting();

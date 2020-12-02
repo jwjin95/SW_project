@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:bubble/bubble.dart';
 import 'package:softwareEngineering/ThemaColorList.dart';
 import 'main.dart';
+
 class bubble extends StatelessWidget {
   bubble({this.text});
   final String text;
