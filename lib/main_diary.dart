@@ -20,18 +20,24 @@ import 'package:softwareEngineering/think13.dart';
 import 'package:softwareEngineering/diary_end.dart';
 import 'package:softwareEngineering/Bubble.dart';
 import 'package:softwareEngineering/ThemaColorList.dart';
+import 'package:softwareEngineering/ThemaFont.dart';
+import 'package:flutter/foundation.dart';
+import 'package:provider/provider.dart';
 
 class writePage extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
 
   var ans = Map();
-  static TextStyle optionStyle = TextStyle(color: Color(themaColorList[mainThema]['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,);
 
   @override
   Widget build(BuildContext context) {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
+    TextStyle optionStyle = TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,);
+
     return Scaffold(
 
-      backgroundColor: Color(themaColorList[mainThema]['배경색']),
+      backgroundColor: Color(curThema.getThemaList()['배경색']),
         resizeToAvoidBottomPadding: false,
       body:
       _buildButton(context),
@@ -40,6 +46,10 @@ class writePage extends StatelessWidget {
   }
 
   Widget _buildButton(BuildContext context) {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
+    TextStyle optionStyle = TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,);
+
     return Padding(
       padding: EdgeInsets.all(16.0),
 
@@ -92,9 +102,12 @@ class qna extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
+
     Map ans;
     return Container(
-      decoration: BoxDecoration(color: Color(themaColorList[mainThema]['배경색'])),
+      decoration: BoxDecoration(color: Color(curThema.getThemaList()['배경색'])),
       child : MaterialApp(
       home: Question1_1(),
       title: 'Question',
@@ -116,7 +129,7 @@ class qna extends StatelessWidget {
         'diary': (context) => diary_end(),
       },
       theme: ThemeData(
-        fontFamily: "Maplestory OTF Light", backgroundColor: Color(themaColorList[mainThema]['배경색']),
+        fontFamily: "Maplestory OTF Light", backgroundColor: Color(curThema.getThemaList()['배경색']),
         primarySwatch: Colors.blue,
 
         visualDensity: VisualDensity.adaptivePlatformDensity,

@@ -12,12 +12,14 @@ class bubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final curFont=Provider.of<themaFont>(context);
+    final curThema=Provider.of<mainThema>(context);
     return Center(child: Container(
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
       child : Flexible(child : Bubble(
         nip : BubbleNip.leftTop,
         style : BubbleStyle(
-          color: Color(themaColorList[mainThema]['대화창말풍선']),
+          color: Color(curThema.getThemaList()['대화창말풍선']),
           margin: BubbleEdges.only(top: 10),
           padding: BubbleEdges.all(20),
           alignment: Alignment.center,
@@ -37,7 +39,7 @@ class bubble extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 22,
-                color: Color(themaColorList[mainThema]['대화창글씨']),
+                color: Color(curThema.getThemaList()['대화창글씨']),
                 height:1.5,
               ),
             ),

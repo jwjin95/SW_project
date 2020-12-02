@@ -31,19 +31,6 @@ class CalendarPage2State extends State<CalendarPage2> {
 
   DateTime _currentDate = DateTime.now();
   DateTime _targetDate = DateTime.now();
-  static Widget _presentIcon(String day) => Container(
-
-    decoration : BoxDecoration(color: Color(themaColorList[mainThema]['배경색']) ),
-    child: Center(
-      child: Text(
-        day,
-        style: TextStyle(
-          color: Color(themaColorList[mainThema]['달력일기쓴날']),
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ),
-  );
 
 
   void refresh(DateTime date){
@@ -73,12 +60,12 @@ class CalendarPage2State extends State<CalendarPage2> {
     final curThema=Provider.of<mainThema>(context);
 
     Widget _presentIcon(String day) => Container(
-      color: Color(curThema.getThemaList()['배경색']),
+      //color: Color(curThema.getThemaList()['배경색']),
       child: Center(
         child: Text(
           day,
           style: TextStyle(
-            color: Color(curThema.getThemaList()['달력상단']),
+            color: Color(curThema.getThemaList()['달력일기쓴날']),
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -124,16 +111,15 @@ class CalendarPage2State extends State<CalendarPage2> {
       weekDayBackgroundColor: Color(curThema.getThemaList()['배경색']),
       headerTextStyle: TextStyle(fontSize: 22.0, color: Color(curThema.getThemaList()['달력상단']), fontWeight: FontWeight.w900),
       headerText: DateFormat('y.MM').format(_targetDate),
-      iconColor: Color(themaColorList[mainThema]['달력상단']),
       iconColor: Color(curThema.getThemaList()['달력상단']),
       selectedDateTime: _currentDate,
-      weekdayTextStyle: TextStyle( fontSize: 15.0, color: Color(themaColorList[mainThema]['달력요일글씨'])),
-      todayButtonColor: Color(themaColorList[mainThema]['배경색']),
-      todayBorderColor: Color(themaColorList[mainThema]['TODAY']),
-      todayTextStyle: TextStyle(color: Color(themaColorList[mainThema]['TODAY'])),
-      selectedDayButtonColor: Color(themaColorList[mainThema]['SELECTED']),
-      selectedDayBorderColor: Color(themaColorList[mainThema]['배경색']),
-      selectedDayTextStyle: TextStyle(color: Color(themaColorList[mainThema]['배경색'])),
+      weekdayTextStyle: TextStyle( fontSize: 15.0, color: Color(curThema.getThemaList()['달력요일글씨'])),
+      todayButtonColor: Color(curThema.getThemaList()['배경색']),
+      todayBorderColor: Color(curThema.getThemaList()['TODAY']),
+      todayTextStyle: TextStyle(color: Color(curThema.getThemaList()['TODAY'])),
+      selectedDayButtonColor: Color(curThema.getThemaList()['SELECTED']),
+      selectedDayBorderColor: Color(curThema.getThemaList()['배경색']),
+      selectedDayTextStyle: TextStyle(color: Color(curThema.getThemaList()['배경색'])),
       daysHaveCircularBorder: true,
       markedDatesMap: _markedDateMap,
       markedDateShowIcon: true,
@@ -149,7 +135,7 @@ class CalendarPage2State extends State<CalendarPage2> {
     );
 
     return new Scaffold(
-      backgroundColor:Color(themaColorList[mainThema]['배경색']),
+      backgroundColor:Color(curThema.getThemaList()['배경색']),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -163,11 +149,9 @@ class CalendarPage2State extends State<CalendarPage2> {
               child : Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                new Text(DateFormat('yyyy.MM.dd').format(_currentDate), style: TextStyle(color: Color(themaColorList[mainThema]['달력하단날짜'])),),
-                new FlatButton(child: Text("상세보기", style: TextStyle(color: Color(themaColorList[mainThema]['상세보기']),),), onPressed: ()=>{
                 new Text(DateFormat('yyyy.MM.dd').format(_currentDate), style: TextStyle(color: Color(curThema.getThemaList()['달력하단날짜'])),),
                 new FlatButton(child: Text("상세보기", style: TextStyle(color: Color(curThema.getThemaList()['상세보기']),),), onPressed: ()=>{
-                  Navigator.push(
+                    Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => todaydiaryView(_currentDate, diary_list[_currentDate])
