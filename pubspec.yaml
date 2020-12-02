@@ -108,3 +108,7 @@ flutter:
       fonts:
         - asset: fonts/MaruBuri-Regular.ttf
 
+    - family: Maplestory OTF Light
+      fonts:
+        - asset: fonts/Maplestory OTF Light.otf
+
