@@ -93,6 +93,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: _title,
       home: MyStatefulWidget(),
+      theme: ThemeData(fontFamily: "Maplestory OTF Light")
     );
   }
 }
