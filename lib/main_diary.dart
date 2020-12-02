@@ -24,7 +24,7 @@ class writePage extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
 
   var ans = Map();
-  static const TextStyle optionStyle = TextStyle(color: Color(0xff6397D2), fontSize: 17, fontWeight: FontWeight.bold, fontFamily: 'Maplestory OTF Light');
+  static const TextStyle optionStyle = TextStyle(color: Color(0xff6397D2), fontSize: 17, fontWeight: FontWeight.bold,);
 
   @override
   Widget build(BuildContext context) {
