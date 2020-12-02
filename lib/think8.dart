@@ -2,6 +2,7 @@ import 'package:softwareEngineering/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:softwareEngineering/Question_end.dart';
 import 'package:softwareEngineering/Bubble.dart';
+import 'package:softwareEngineering/ThemaColorList.dart';
 import 'package:softwareEngineering/main.dart';
 import 'package:softwareEngineering/Question1_2.dart';
 import 'package:softwareEngineering/Question1_3.dart';
@@ -58,12 +59,18 @@ class think8 extends StatelessWidget {
   }
 
 
-  static const TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
-
-
+  static TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(themaColorList[mainThema]['어플상하단글씨']), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
+  int tmp() {
+    return 1;
+  }
   @override
+
+
   Widget build(BuildContext context) {
+
     return Scaffold(
+      backgroundColor: Color(themaColorList[mainThema]['배경색']),
+
       resizeToAvoidBottomPadding: false,
 
       appBar: AppBar(
@@ -72,72 +79,38 @@ class think8 extends StatelessWidget {
           style: optionStyle,
         ),
         centerTitle: true,
-        backgroundColor: Color(0xFF6397D2),
+        backgroundColor: Color(themaColorList[mainThema]['어플상하단색']),
         elevation: 0.0,
       ),
-      body:
-
-      _buildButton(context),
+      body: SingleChildScrollView(
+        child: _buildButton(context),),
 
     );
   }
 
   Widget _buildButton(BuildContext context) {
-    final Map ans = ModalRoute.of(context).settings.arguments;
 
+
+    final Map ans = ModalRoute.of(context).settings.arguments;
     return Padding(
       padding: EdgeInsets.all(16.0),
 
       child: Column(
         children: <Widget>[
-          // Center(child: Container(
-          //   width: double.infinity,
-          //   height : 160,
-          //   alignment: Alignment.center,
-          //   padding: const EdgeInsets.all(20),
-          //   margin: const EdgeInsets.only(left: 50, right: 50, top: 50, bottom: 20),
-          //
-          //   decoration: BoxDecoration(
-          //     color: const Color(0xffCAE0F8),
-          //     borderRadius: BorderRadius.circular(12),
-          //     boxShadow: [
-          //       BoxShadow(
-          //         color: Colors.grey.withOpacity(0.3),
-          //         spreadRadius: 2,
-          //         blurRadius: 13,
-          //         offset: Offset(4, 5), // changes position of shadow
-          //       ),
-          //     ],
-          //   ),
-          //   child:
-          //   Center(child: Text('현재 가장 큰 \n걱정거리는 \n무엇인가요?',
-          //     textAlign: TextAlign.center,
-          //     style: TextStyle(
-          //       fontWeight: FontWeight.bold,
-          //       fontSize: 24,
-          //       color: Color(0xff6397D2),
-          //       height:1.5,
-          //     ),
-          //   ),
-          //   ),),
-          // ),
-          bubble(text: "현재 가장 큰 걱정거리는 \n뭐야?"),
-
-          SizedBox(
-            height: 10.0,
-          ),
+          bubble(text : "현재 가장 큰 걱정거리는 \n뭐야?"),
           Container(
             alignment: Alignment(0.0, 0.0),
             height: 45,
             padding: EdgeInsets.only(left: 20, right: 20),
             decoration: new BoxDecoration(
-                color: Colors.white,
+                color: Color(themaColorList[mainThema]['배경색']),
                 borderRadius: BorderRadius.all(Radius.circular(30)),
-                border: Border.all(width: 3, color: Color(0xff99C1DE))),
+                border: Border.all(width: 3, color: Color(themaColorList[mainThema]['버튼테두리']))),
+
 
             child: TextField(
               controller: _tec,
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(color: Color(themaColorList[mainThema]['버튼글씨'])),
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: '직접입력',

@@ -19,29 +19,20 @@ import 'package:softwareEngineering/think12.dart';
 import 'package:softwareEngineering/think13.dart';
 import 'package:softwareEngineering/diary_end.dart';
 import 'package:softwareEngineering/Bubble.dart';
+import 'package:softwareEngineering/ThemaColorList.dart';
 
 class writePage extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
 
   var ans = Map();
-  static const TextStyle optionStyle = TextStyle(color: Color(0xff6397D2), fontSize: 17, fontWeight: FontWeight.bold,);
+  static TextStyle optionStyle = TextStyle(color: Color(themaColorList[mainThema]['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
+      backgroundColor: Color(themaColorList[mainThema]['배경색']),
         resizeToAvoidBottomPadding: false,
-
-      // appBar: AppBar(
-
-      //   backgroundColor: Colors.blue,
-      //   title: Text(
-      //     'Question1_1',
-      //     style: TextStyle(color: Colors.white),
-      //   ),
-      //   centerTitle: true,
-      //   elevation: 0.2,
-      // ),
       body:
       _buildButton(context),
 
@@ -53,39 +44,7 @@ class writePage extends StatelessWidget {
       padding: EdgeInsets.all(16.0),
 
       child: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          // Center(child: Container(
-          //   width: double.infinity,
-          //   height : 160,
-          //   alignment: Alignment.center,
-          //   padding: const EdgeInsets.all(20),
-          //   margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 70),
-          //
-          //   decoration: BoxDecoration(
-          //     color: const Color(0xffCAE0F8),
-          //     borderRadius: BorderRadius.circular(12),
-          //     boxShadow: [
-          //       BoxShadow(
-          //         color: Colors.grey.withOpacity(0.3),
-          //         spreadRadius: 2,
-          //         blurRadius: 13,
-          //         offset: Offset(4, 5), // changes position of shadow
-          //       ),
-          //     ],
-          //   ),
-          //   child:
-          //   Center(child: Text('오늘의 일기를 작성해볼까?',
-          //     textAlign: TextAlign.center,
-          //     style: TextStyle(
-          //       fontWeight: FontWeight.bold,
-          //       fontSize: 32,
-          //       color: Color(0xff6397D2),
-          //       height:1.5,
-          //     ),
-          //   ),
-          // ),),
-          // ),
           bubble(text : "오늘의 일기를 작성해볼까?"),
 
 
@@ -94,7 +53,6 @@ class writePage extends StatelessWidget {
               '오늘의 일기 작성',
               style: optionStyle,
             ),
-            color: Colors.white,
             radius: 4.0,
             onPressed: (){
               Navigator.push(
@@ -111,7 +69,6 @@ class writePage extends StatelessWidget {
               '오늘의 일기 조회',
               style: optionStyle,
             ),
-            color: Colors.white,
             radius: 4.0,
             onPressed: (){
               Navigator.push(
@@ -136,8 +93,9 @@ class qna extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Map ans;
-    return MaterialApp(
-
+    return Container(
+      decoration: BoxDecoration(color: Color(themaColorList[mainThema]['배경색'])),
+      child : MaterialApp(
       home: Question1_1(),
       title: 'Question',
       routes: {
@@ -158,13 +116,13 @@ class qna extends StatelessWidget {
         'diary': (context) => diary_end(),
       },
       theme: ThemeData(
-
+        fontFamily: "Maplestory OTF Light", backgroundColor: Color(themaColorList[mainThema]['배경색']),
         primarySwatch: Colors.blue,
 
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
 
-    );
+    ),);
   }
 }
 

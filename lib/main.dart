@@ -112,7 +112,7 @@ class MyApp  extends StatelessWidget with ChangeNotifier{
     final themaFont curFont=Provider.of<themaFont>(context);
     final mainThema curThema=Provider.of<mainThema>(context);
     return Container(
-        decoration:BoxDecoration(color: Color(curThema.getThemaList()['배경색'])),
+        decoration:BoxDecoration(color: Color(themaColorList[mainThema]['배경색'])),
         child:MaterialApp(
         title: _title,
         home: MyStatefulWidget(),
@@ -254,8 +254,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> with ChangeNotifier
         centerTitle: true,
         backgroundColor: Color(curThema.getThemaList()['어플상하단색']), //
         elevation: 0.0,
-
-
           actions: <Widget>[
             new IconButton(
               icon: new Icon(Icons.add_alert),
@@ -677,7 +675,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> with ChangeNotifier
           ],
       ),
       body: Center(
-        child: _pages[_selectedIndex],
+        child: Container(
+      decoration : BoxDecoration(color: Color(themaColorList[mainThema]['배경색']) ),
+      child : _pages[_selectedIndex],),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[

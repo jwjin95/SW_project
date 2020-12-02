@@ -21,10 +21,11 @@ class diaryView extends StatelessWidget {
 
 
     return Scaffold(
+      backgroundColor: Color(themaColorList[mainThema]['배경색']),
       appBar:AppBar(
-        title: Text(DateFormat('yyyy.MM.dd').format(DateTime.now()), style: TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand'),),
+        title: Text(DateFormat('yyyy.MM.dd').format(DateTime.now()), style: TextStyle(fontSize: 25, color: Color(themaColorList[mainThema]['어플상하단글씨']), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand'),),
         centerTitle: true,
-        backgroundColor: Color(0xFF6397D2),
+        backgroundColor: Color(themaColorList[mainThema]['어플상하단색']),
         elevation: 0.0,
       ),
       body: Center( child : Column(
@@ -60,23 +61,24 @@ class todaydiaryView extends StatelessWidget {
     this.content = _content != null ? _content : "작성된 일기가 없습니다.";
     _tec = TextEditingController(text: content);
   }
-  static const TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
+  static TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(themaColorList[mainThema]['어플상하단글씨']), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
 
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
+      backgroundColor: Color(themaColorList[mainThema]['배경색']),
       appBar:AppBar(
-        title: Text(DateFormat('yyyy.MM.dd').format(date), style: TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand'),),
+        title: Text(DateFormat('yyyy.MM.dd').format(date), style: TextStyle(fontSize: 25, color: Color(themaColorList[mainThema]['어플상하단글씨']), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand'),),
         centerTitle: true,
-        backgroundColor: Color(0xFF6397D2),
+        backgroundColor: Color(themaColorList[mainThema]['어플상하단색']),
         elevation: 0.0,
 
         actions: <Widget> [
           new Padding(
               padding: EdgeInsets.only(right : 10),
               child : IconButton(
-            icon: new Text("저장", style: TextStyle(fontWeight: FontWeight.w700),),
+            icon: new Text("저장", style: TextStyle(fontWeight: FontWeight.w700, color: Color(themaColorList[mainThema]['어플상하단글씨'])), ),
             onPressed: () => {
               CalendarPage2State.diary_list[date]=_tec.text,
               showAlertDialog(context)

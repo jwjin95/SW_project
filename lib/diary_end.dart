@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:softwareEngineering/ThemaColorList.dart';
 import 'main.dart';
+import 'package:softwareEngineering/ThemaColorList.dart';
 class diary_end extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
@@ -12,7 +13,7 @@ class diary_end extends StatelessWidget {
 
 
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(themaColorList[mainThema]['배경색']),
         title: Text(
           'diary',
           style: TextStyle(color: Colors.white),
