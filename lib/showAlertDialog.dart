@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
 
-
+Timer t;
 @override
 void showAlertDialog(BuildContext context, text) async {
   String result = await showDialog(
     context: context,
-    barrierDismissible: false, // user must tap button!
+    barrierDismissible: true, // user must tap button!
     builder: (BuildContext context) {
-
-      Future.delayed(Duration(milliseconds: 1500), (){
-        Navigator.pop(context);
+      t = Timer(Duration(milliseconds: 1500), () {
+        Navigator.of(context).pop();
       });
       return AlertDialog(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.0)
         ),
         content: Text(text),
+
         // actions: <Widget>[
         //
           // FlatButton(
@@ -38,5 +39,9 @@ void showAlertDialog(BuildContext context, text) async {
 
 }
 
+@override
+void dispose() {
+  t.cancel();
+}
 
 

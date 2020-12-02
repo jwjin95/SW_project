@@ -6,8 +6,8 @@ class diaryView extends StatelessWidget {
   String tmpStr = '오늘은 다현이와 점심을 먹었다. 강남역에 가서 엽떡을 먹었는데 조금 멀어서 귀찮았지만 맛은 있었다. 오늘 하루는 행복한 하루였다.아주아주아주';
   var ans_list = [];
   diaryView(this.ans_list){
-    CalendarPage2State.diary_list[DateTime(2020,11,20)]=ans_list.join(' ');
-    CalendarPage2State.diary_list[DateTime(DateTime.now().year,DateTime.now().month,DateTime.now().day)]=ans_list.join(' ');
+    CalendarPage2State.diary_list[DateTime(2020,11,20)]=ans_list.join('');
+    CalendarPage2State.diary_list[DateTime(DateTime.now().year,DateTime.now().month,DateTime.now().day)]=ans_list.join('');
   }
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class diaryView extends StatelessWidget {
               Container(
                 width : 300,
                 child : Text(
-                this.ans_list.join(" "),
+                this.ans_list.join(""),
                 style: TextStyle(
                   height: 2.0,
                 ),),),

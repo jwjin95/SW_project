@@ -92,7 +92,6 @@ class Question4_1 extends StatelessWidget {
               new Radio(
                 value: 0,
                 groupValue:0,
-                onChanged: (value) => {},
               ),
               new Text(
                 '아침',
@@ -168,8 +167,7 @@ class Question4_1 extends StatelessWidget {
               q4_1 = "한식";
               buffer=await foodAlertDialog(context, q4_1);
               ans['q4_1'] = q4_1;
-
-              if (buffer !=''){
+              if (buffer !=null){
                 ans['q4_1'] =buffer;
               }
               else{
@@ -202,7 +200,7 @@ class Question4_1 extends StatelessWidget {
               buffer=await foodAlertDialog(context, q4_1);
               ans['q4_1'] = q4_1;
 
-              if (buffer !=''){
+              if (buffer !=null){
                 ans['q4_1'] =buffer;
               }
               else{
@@ -237,7 +235,7 @@ class Question4_1 extends StatelessWidget {
               buffer=await foodAlertDialog(context, q4_1);
               ans['q4_1'] = q4_1;
 
-              if (buffer !=''){
+              if (buffer !=null){
                 ans['q4_1'] =buffer;
               }
               else{
@@ -271,7 +269,7 @@ class Question4_1 extends StatelessWidget {
               buffer=await foodAlertDialog(context, q4_1);
               ans['q4_1'] = q4_1;
 
-              if (buffer !=''){
+              if (buffer !=null){
                 ans['q4_1'] =buffer;
               }
               else{
@@ -305,7 +303,7 @@ class Question4_1 extends StatelessWidget {
               buffer=await foodAlertDialog(context, q4_1);
               ans['q4_1'] = q4_1;
 
-              if (buffer !=''){
+              if (buffer !=null){
                 ans['q4_1'] =buffer;
               }
               else{
