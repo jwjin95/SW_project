@@ -91,7 +91,7 @@ class Question3_1 extends StatelessWidget {
           MyButton(
             text: Text(
               '즐거움',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -118,7 +118,7 @@ class Question3_1 extends StatelessWidget {
           MyButton(
             text: Text(
               '짜증',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -147,7 +147,7 @@ class Question3_1 extends StatelessWidget {
           MyButton(
             text: Text(
               '화남',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -160,7 +160,7 @@ class Question3_1 extends StatelessWidget {
               }//이전화면으로 돌아가 다시 선택하는 경우 dict에서 key를 제거
               q3_1 = "화남";
               ans['q3_1'] = q3_1;
-              ans['a3']='ㅠㅠ뭐야 속상해ㅜㅜ어서 기분이 나아졌으면 좋겠다..';
+              ans['a3']='어서 기분이 나아졌으면 좋겠다..';
               showAlertDialog(context, ans['a3']);
               Navigator.push(
                 context,
@@ -175,7 +175,7 @@ class Question3_1 extends StatelessWidget {
           MyButton(
             text: Text(
               '설렘',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,

@@ -234,7 +234,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> with ChangeNotifier
 
 
     TextStyle optionStyle = TextStyle(fontSize: 25,
-        color: Color(curThema.getThemaList()['달력상단']),
+        color: Color(curThema.getThemaList()['어플상하단글씨']),
         fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
     List<Widget> _widgetOptions = <Widget>[
       Text(
@@ -440,11 +440,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> with ChangeNotifier
                   builder: (context){
                     return CupertinoAlertDialog(
                       title: new Text("테마/폰트 설정", style: TextStyle(fontSize: 23, fontFamily: curFont.getFont())),
-                      content: new Text("현재 폰트: ${curFont.getFont()} 현재 테마: ${curThema.getThema()}",style: TextStyle(fontSize: 15, fontFamily: curFont.getFont())),
+                      content: new Text("현재 폰트: ${curFont.getFont()} \n현재 테마: ${curThema.getThema()}",style: TextStyle(fontSize: 15, fontFamily: curFont.getFont())),
                         actions: <Widget>[
                           CupertinoDialogAction(
                               isDefaultAction: false,
-                              child: Text("폰트 설정"),
+                              child: Text("폰트 설정",style: TextStyle(fontFamily: curFont.getFont(),),),
                               onPressed: (){
                                 Navigator.of(context).pop(false);
                                 showCupertinoModalPopup(
@@ -467,7 +467,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> with ChangeNotifier
                                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                 children: <Widget>[
                                                   CupertinoButton(
-                                                    child: Text('취소'),
+                                                    child: Text('취소',style: TextStyle(fontFamily: curFont.getFont(),),),
                                                     onPressed: () {Navigator.pop(context);},
                                                     padding: const EdgeInsets.symmetric(
                                                       horizontal: 16.0,
@@ -475,7 +475,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> with ChangeNotifier
                                                     ),
                                                   ),
                                                   CupertinoButton(
-                                                    child: Text('설정'),
+                                                    child: Text('설정',style: TextStyle(fontFamily: curFont.getFont(),),),
                                                     onPressed: () {
                                                       curFont.ChangeFont(newFont);
 
@@ -483,11 +483,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> with ChangeNotifier
                                                       showDialog(
                                                           context: context,
                                                           builder: (BuildContext context) => CupertinoAlertDialog(
-                                                            title: new Text("폰트 설정 완료!"),
-                                                            content: new Text('폰트가 ${curFont.getFont()} 로 설정되었습니다.'),
+                                                            title: new Text("폰트 설정 완료!",style: TextStyle(fontFamily: curFont.getFont(),),),
+                                                            content: new Text('폰트가 ${curFont.getFont()} 로 \n설정되었습니다.',style: TextStyle(fontFamily: curFont.getFont(),),),
                                                             actions: <Widget>[
                                                               CupertinoDialogAction(
-                                                                child: Text("확인"),
+                                                                child: Text("확인",style: TextStyle(fontFamily: curFont.getFont(),),),
                                                                 onPressed:() => Navigator.of(context).pop(false),
                                                               ),
                                                             ],
@@ -600,7 +600,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> with ChangeNotifier
                                               ),
                                             ),
                                             CupertinoButton(
-                                              child: Text('설정'),
+                                              child: Text('설정',style: TextStyle(fontFamily: curFont.getFont(),),),
                                               onPressed: (){
                                                 curThema.ChangeThema(newThema);
                                                 Navigator.of(context).pop(false);
@@ -608,10 +608,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> with ChangeNotifier
                                                   context: context,
                                                   builder: (BuildContext context)=>CupertinoAlertDialog(
                                                     title: new Text("테마 설정 완료!", style: TextStyle(fontFamily: curFont.getFont())),
-                                                    content: new Text("테마가 ${curThema.getThema()}로 설정되었습니다."),
+                                                    content: new Text("테마가 ${curThema.getThema()}로 설정되었습니다.",style: TextStyle(fontFamily: curFont.getFont(),),),
                                                     actions: <Widget>[
                                                       CupertinoDialogAction(
-                                                        child: Text("확인"),
+                                                        child: Text("확인",style: TextStyle(fontFamily: curFont.getFont(),),),
                                                         onPressed: ()=>Navigator.of(context).pop(false),
                                                       ),
                                                     ],
@@ -692,7 +692,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> with ChangeNotifier
         ],
         currentIndex: _selectedIndex,
         backgroundColor: Color(curThema.getThemaList()['어플상하단색']),
-        selectedItemColor: Color(curThema.getThemaList()['SELECTED']),
+        selectedItemColor: Color(curThema.getThemaList()['아이콘']),
         onTap: _onItemTapped,
       ),
     );

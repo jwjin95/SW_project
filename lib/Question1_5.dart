@@ -92,7 +92,7 @@ class Question1_5 extends StatelessWidget {
           MyButton(
             text: Text(
               'PC방',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -113,7 +113,7 @@ class Question1_5 extends StatelessWidget {
           MyButton(
             text: Text(
               '카페',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -136,7 +136,7 @@ class Question1_5 extends StatelessWidget {
           MyButton(
             text: Text(
               '맛집 탐방',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -158,7 +158,7 @@ class Question1_5 extends StatelessWidget {
           MyButton(
             text: Text(
               '술 마시기',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,

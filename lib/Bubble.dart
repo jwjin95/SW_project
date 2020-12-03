@@ -38,7 +38,7 @@ class bubble extends StatelessWidget {
               maxLines : 2,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 22,
+                fontSize: 20,
                 color: Color(curThema.getThemaList()['대화창글씨']),
                 height:1.5,
               ),

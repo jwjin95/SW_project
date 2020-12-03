@@ -91,7 +91,7 @@ class Question4_2 extends StatelessWidget {
           MyButton(
             text: Text(
               '엄청 맛있었어.',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -112,7 +112,7 @@ class Question4_2 extends StatelessWidget {
           MyButton(
             text: Text(
               '꽤 괜찮았어.',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -135,7 +135,7 @@ class Question4_2 extends StatelessWidget {
           MyButton(
             text: Text(
               '그냥 그랬어.',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -157,14 +157,14 @@ class Question4_2 extends StatelessWidget {
           MyButton(
             text: Text(
               '좀 별로였어.',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
             onPressed: (){
               q4_2 = "좀 별로였다.";
               ans['q4_2'] = q4_2;
-              ans['a4']='속상해.. 이제 거기 가지 말자';
+              ans['a4']='아이쿠.. 이제 거기 가지 말자';
               showAlertDialog(context, ans['a4']);
               Navigator.push(
                 context,

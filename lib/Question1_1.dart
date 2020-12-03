@@ -108,7 +108,7 @@ class Question1_1 extends StatelessWidget {
           MyButton(
             text: Text(
               '공부',
-              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -134,7 +134,7 @@ class Question1_1 extends StatelessWidget {
           MyButton(
             text: Text(
               '운동',
-              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 15.0),
+              style:TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -162,7 +162,7 @@ class Question1_1 extends StatelessWidget {
           MyButton(
             text: Text(
               '휴식',
-              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -189,7 +189,7 @@ class Question1_1 extends StatelessWidget {
           MyButton(
             text: Text(
               '친구와 놀기',
-              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,

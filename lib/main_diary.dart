@@ -129,7 +129,7 @@ class qna extends StatelessWidget {
         'diary': (context) => diary_end(),
       },
       theme: ThemeData(
-        fontFamily: "Maplestory OTF Light", backgroundColor: Color(curThema.getThemaList()['배경색']),
+        fontFamily: curFont.getFont(), backgroundColor: Color(curThema.getThemaList()['배경색']),
         primarySwatch: Colors.blue,
 
         visualDensity: VisualDensity.adaptivePlatformDensity,

@@ -90,7 +90,7 @@ class Question2_2 extends StatelessWidget {
           MyButton(
             text: Text(
               '마음이 편안해져',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -115,7 +115,7 @@ class Question2_2 extends StatelessWidget {
           MyButton(
             text: Text(
               '스트레스가 풀려',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -139,7 +139,7 @@ class Question2_2 extends StatelessWidget {
           MyButton(
             text: Text(
               '들으면 신나',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -162,7 +162,7 @@ class Question2_2 extends StatelessWidget {
           MyButton(
             text: Text(
               '덕질하려고',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,

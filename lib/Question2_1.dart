@@ -93,7 +93,7 @@ class Question2_1 extends StatelessWidget {
           MyButton(
             text: Text(
               'K-POP',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -118,7 +118,7 @@ class Question2_1 extends StatelessWidget {
           MyButton(
             text: Text(
               'POP',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -145,7 +145,7 @@ class Question2_1 extends StatelessWidget {
           MyButton(
             text: Text(
               'JAZZ',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -171,7 +171,7 @@ class Question2_1 extends StatelessWidget {
           MyButton(
             text: Text(
               'CLASSIC',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
