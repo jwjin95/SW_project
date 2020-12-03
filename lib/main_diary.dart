@@ -76,7 +76,7 @@ class writePage extends StatelessWidget {
           ),
           MyButton(
             text: Text(
-              '오늘의 일기 조회',
+              '오늘의 일기 조회 / 사진 첨부',
               style: optionStyle,
             ),
             radius: 4.0,

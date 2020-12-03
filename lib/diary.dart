@@ -131,13 +131,12 @@ class viewerState extends State<todaydiaryView> {
                 width:300,
                 height: 300,
                 padding: EdgeInsets.all(20),
-                child : CalendarPage2State.image_list[date] == null ? Text("qq") : Image.file(File(CalendarPage2State.image_list[date].path)), 
+                child : CalendarPage2State.image_list[date] == null ? null : Image.file(File(CalendarPage2State.image_list[date].path)), 
               ),
-              CalendarPage2State.image_list[date] == null ? Text("qq") : Image.file(File(CalendarPage2State.image_list[date].path)),
             ],
           )
       ),
-      floatingActionButton: _buildFloatingActionButton(),
+      floatingActionButton: _buildFloatingActionButton(Color(curThema.getThemaList()['어플상하단색'])),
     );
   }
 
@@ -162,10 +161,10 @@ class viewerState extends State<todaydiaryView> {
       },
     );
   }
-  Widget _buildFloatingActionButton() {
+  Widget _buildFloatingActionButton(Color color) {
     return FloatingActionButton(
       child: Icon(Icons.add_a_photo),
-      backgroundColor: Colors.blue,
+      backgroundColor: color,
       onPressed: () {
         _getImage();
       },
