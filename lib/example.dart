@@ -24,6 +24,7 @@ class CalendarPage2State extends State<CalendarPage2> {
 
   var ans_list = [];
   static var diary_list = Map();
+  static var image_list = Map();
 
   DateTime _currentDate = DateTime.now();
   DateTime _targetDate = DateTime.now();
