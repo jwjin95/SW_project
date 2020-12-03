@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:softwareEngineering/ThemaColorList.dart';
 import 'main.dart';
 import 'package:softwareEngineering/ThemaColorList.dart';
+import 'package:softwareEngineering/ThemaFont.dart';
+import 'package:flutter/foundation.dart';
+import 'package:provider/provider.dart';
 
 
 class MyButton extends StatelessWidget {
@@ -14,6 +17,10 @@ class MyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
+
     return ButtonTheme(
       height: 45.0,
       child: RaisedButton(
@@ -24,7 +31,7 @@ class MyButton extends StatelessWidget {
 
           ],
         ),
-        color: Color(themaColorList[mainThema]['버튼배경색']),
+        color: Color(curThema.getThemaList()['버튼배경색']),
         onPressed: onPressed,
 
       ),
@@ -33,7 +40,7 @@ class MyButton extends StatelessWidget {
         borderRadius: BorderRadius.all(
           Radius.circular(30),
         ),
-        side: BorderSide(color: Color(themaColorList[mainThema]['버튼테두리']),width: 3),
+        side: BorderSide(color: Color(curThema.getThemaList()['버튼테두리']),width: 3),
       ),
     );
   }

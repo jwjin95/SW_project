@@ -5,6 +5,10 @@ import 'package:softwareEngineering/ThemaColorList.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:async';
 import 'dart:io';
+import 'package:softwareEngineering/ThemaFont.dart';
+import 'package:flutter/foundation.dart';
+import 'package:provider/provider.dart';
+
 
 class diaryView extends StatelessWidget {
   String tmpStr = '오늘은 다현이와 점심을 먹었다. 강남역에 가서 엽떡을 먹었는데 조금 멀어서 귀찮았지만 맛은 있었다. 오늘 하루는 행복한 하루였다.아주아주아주';
@@ -15,13 +19,16 @@ class diaryView extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
+    final curFont=Provider.of<themaFont>(context);
+    final curThema=Provider.of<mainThema>(context);
+
 
     return Scaffold(
-      backgroundColor: Color(themaColorList[mainThema]['배경색']),
+      backgroundColor: Color(curThema.getThemaList()['배경색']),
       appBar:AppBar(
-        title: Text(DateFormat('yyyy.MM.dd').format(DateTime.now()), style: TextStyle(fontSize: 25, color: Color(themaColorList[mainThema]['어플상하단글씨']), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand'),),
+        title: Text(DateFormat('yyyy.MM.dd').format(DateTime.now()), style: TextStyle(fontSize: 25, color: Color(curThema.getThemaList()['어플상하단글씨']), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand'),),
         centerTitle: true,
-        backgroundColor: Color(themaColorList[mainThema]['어플상하단색']),
+        backgroundColor: Color(curThema.getThemaList()['어플상하단색']),
         elevation: 0.0,
       ),
       body: Center( child : Column(
@@ -73,24 +80,27 @@ class viewerState extends State<todaydiaryView> {
     this.content = _content != null ? _content : "작성된 일기가 없습니다.";
     _tec = TextEditingController(text: content);
   }
-  static TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(themaColorList[mainThema]['어플상하단글씨']), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
 
   @override
   Widget build(BuildContext context) {
+    final curFont=Provider.of<themaFont>(context);
+    final curThema=Provider.of<mainThema>(context);
+
+    TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(curThema.getThemaList()['어플상하단글씨']), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
 
     return Scaffold(
-      backgroundColor: Color(themaColorList[mainThema]['배경색']),
+      backgroundColor: Color(curThema.getThemaList()['배경색']),
       appBar:AppBar(
-        title: Text(DateFormat('yyyy.MM.dd').format(date), style: TextStyle(fontSize: 25, color: Color(themaColorList[mainThema]['어플상하단글씨']), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand'),),
+        title: Text(DateFormat('yyyy.MM.dd').format(date), style: TextStyle(fontSize: 25, color: Color(curThema.getThemaList()['어플상하단글씨']), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand'),),
         centerTitle: true,
-        backgroundColor: Color(themaColorList[mainThema]['어플상하단색']),
+        backgroundColor: Color(curThema.getThemaList()['어플상하단색']),
         elevation: 0.0,
 
         actions: <Widget> [
           new Padding(
               padding: EdgeInsets.only(right : 10),
               child : IconButton(
-            icon: new Text("저장", style: TextStyle(fontWeight: FontWeight.w700, color: Color(themaColorList[mainThema]['어플상하단글씨'])), ),
+            icon: new Text("저장", style: TextStyle(fontWeight: FontWeight.w700, color: Color(curThema.getThemaList()['어플상하단글씨'])), ),
             onPressed: () => {
               CalendarPage2State.diary_list[date]=_tec.text,
               showAlertDialog(context)

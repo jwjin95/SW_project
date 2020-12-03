@@ -37,6 +37,7 @@ dependencies:
   speech_bubble: ^0.0.5
   bubble: ^1.1.9+1
   image_picker: ^0.6.7+4
+  provider: ^3.0.0+1
 
 dev_dependencies:
   flutter_test:

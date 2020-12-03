@@ -4,6 +4,9 @@ import 'package:softwareEngineering/Question5_2.dart';
 import 'package:softwareEngineering/showAlertDialog.dart';
 import 'package:softwareEngineering/Bubble.dart';
 import 'package:softwareEngineering/ThemaColorList.dart';
+import 'package:softwareEngineering/ThemaFont.dart';
+import 'package:flutter/foundation.dart';
+import 'package:provider/provider.dart';   
 
 class Question5_1 extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
@@ -11,7 +14,7 @@ class Question5_1 extends StatelessWidget {
   String q5_1 ='';
   Map ans;
   Question5_1(this.ans);
-  static TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(themaColorList[mainThema]['어플상하단글씨']), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
+  
   int tmp() {
     return 1;
   }
@@ -19,8 +22,11 @@ class Question5_1 extends StatelessWidget {
 
 
   Widget build(BuildContext context) {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
+    TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(curThema.getThemaList()['어플상하단글씨']), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
     return Scaffold(
-      backgroundColor: Color(themaColorList[mainThema]['배경색']),
+      backgroundColor: Color(curThema.getThemaList()['배경색']),
 
       resizeToAvoidBottomPadding: false,
 
@@ -30,7 +36,7 @@ class Question5_1 extends StatelessWidget {
           style: optionStyle,
         ),
         centerTitle: true,
-        backgroundColor: Color(themaColorList[mainThema]['어플상하단색']),
+        backgroundColor: Color(curThema.getThemaList()['어플상하단색']),
         elevation: 0.0,
       ),
       body: SingleChildScrollView(
@@ -40,6 +46,8 @@ class Question5_1 extends StatelessWidget {
   }
 
   Widget _buildButton(BuildContext context) {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
     return Padding(
       padding: EdgeInsets.all(16.0),
 
@@ -51,14 +59,14 @@ class Question5_1 extends StatelessWidget {
             height: 45,
             padding: EdgeInsets.only(left: 20, right: 20),
             decoration: new BoxDecoration(
-                color: Color(themaColorList[mainThema]['배경색']),
+                color: Color(curThema.getThemaList()['배경색']),
                 borderRadius: BorderRadius.all(Radius.circular(30)),
-                border: Border.all(width: 3, color: Color(themaColorList[mainThema]['버튼테두리']))),
+                border: Border.all(width: 3, color: Color(curThema.getThemaList()['버튼테두리']))),
 
 
             child: TextField(
               controller: _tec,
-              style: TextStyle(color: Color(themaColorList[mainThema]['버튼글씨'])),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨'])),
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: '직접입력',
@@ -83,7 +91,7 @@ class Question5_1 extends StatelessWidget {
           MyButton(
             text: Text(
               '맑음',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -103,7 +111,7 @@ class Question5_1 extends StatelessWidget {
           MyButton(
             text: Text(
               '흐림',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -125,7 +133,7 @@ class Question5_1 extends StatelessWidget {
           MyButton(
             text: Text(
               '비',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
@@ -146,7 +154,7 @@ class Question5_1 extends StatelessWidget {
           MyButton(
             text: Text(
               '눈',
-              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨']), fontSize: 17, fontWeight: FontWeight.bold,),
             ),
             color: Colors.white,
             radius: 4.0,
