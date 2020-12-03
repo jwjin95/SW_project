@@ -1,19 +1,25 @@
 import 'package:softwareEngineering/Question1_1.dart';
 import 'package:flutter/material.dart';
 import 'package:bubble/bubble.dart';
-
+import 'package:softwareEngineering/ThemaColorList.dart';
+import 'main.dart';
+import 'package:flutter/foundation.dart';
+import 'package:provider/provider.dart';
+import 'package:softwareEngineering/ThemaFont.dart';
 class bubble extends StatelessWidget {
   bubble({this.text});
   final String text;
 
   @override
   Widget build(BuildContext context) {
+    final curFont=Provider.of<themaFont>(context);
+    final curThema=Provider.of<mainThema>(context);
     return Center(child: Container(
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
       child : Flexible(child : Bubble(
         nip : BubbleNip.leftTop,
         style : BubbleStyle(
-          color: const Color(0xffCAE0F8),
+          color: Color(curThema.getThemaList()['대화창말풍선']),
           margin: BubbleEdges.only(top: 10),
           padding: BubbleEdges.all(20),
           alignment: Alignment.center,
@@ -32,8 +38,8 @@ class bubble extends StatelessWidget {
               maxLines : 2,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 22,
-                color: Color(0xff6397D2),
+                fontSize: 20,
+                color: Color(curThema.getThemaList()['대화창글씨']),
                 height:1.5,
               ),
             ),

@@ -8,6 +8,11 @@ import 'package:flutter_calendar_carousel/classes/event_list.dart';
 import 'package:intl/intl.dart';
 
 import 'Question_end.dart';
+import 'package:softwareEngineering/ThemaColorList.dart';
+import 'package:softwareEngineering/ThemaFont.dart';
+import 'package:flutter/foundation.dart';
+import 'package:provider/provider.dart';
+
 
 class CalendarPage2 extends StatefulWidget {
 
@@ -15,33 +20,18 @@ class CalendarPage2 extends StatefulWidget {
   CalendarPage2State createState() => new CalendarPage2State();
 }
 
-List<DateTime> presentDates = [
-  DateTime(2020, 11, 9),
-  DateTime(2020, 11, 10),
-];
-// List<DateTime> absentDates = [
-//   DateTime(2020, 11, 11),
-//   DateTime(2020, 11, 12),
-// ];
+List<DateTime> presentDates = [];
 
 class CalendarPage2State extends State<CalendarPage2> {
 
+
+
   var ans_list = [];
   static var diary_list = Map();
+  static var image_list = Map();
 
   DateTime _currentDate = DateTime.now();
   DateTime _targetDate = DateTime.now();
-  static Widget _presentIcon(String day) => Container(
-    child: Center(
-      child: Text(
-        day,
-        style: TextStyle(
-          color: Color(0xff153F85),
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ),
-  );
 
 
   void refresh(DateTime date){
@@ -63,39 +53,43 @@ class CalendarPage2State extends State<CalendarPage2> {
 
   CalendarCarousel _calendarCarouselNoHeader;
 
-  var len = 2;
   double cHeight;
 
   @override
   Widget build(BuildContext context) {
-    cHeight = MediaQuery.of(context).size.height;
-    for (int i = 0; i < len; i++) {
-      _markedDateMap.add(
-        presentDates[i],
-        new Event(
-          date: presentDates[i],
-          title: 'Event 5',
-          icon: _presentIcon(
-            presentDates[i].day.toString(),
+    final curFont=Provider.of<themaFont>(context);
+    final curThema=Provider.of<mainThema>(context);
+
+    Widget _presentIcon(String day) => Container(
+      //color: Color(curThema.getThemaList()['배경색']),
+      child: Center(
+        child: Text(
+          day,
+          style: TextStyle(
+            color: Color(curThema.getThemaList()['달력일기쓴날']),
+            fontWeight: FontWeight.bold,
           ),
         ),
-      );
-    }
+      ),
+    );
 
-    // for (int i = 0; i < len; i++) {
-    //   _markedDateMap.add(
-    //     absentDates[i],
-    //     new Event(
-    //       date: absentDates[i],
-    //       title: 'Event 5',
-    //       icon: _absentIcon(
-    //         absentDates[i].day.toString(),
-    //       ),
-    //     ),
-    //   );
-    // }
+    cHeight = MediaQuery.of(context).size.height;
+
+    var lastdate = DateTime(_currentDate.year,_currentDate.month+1,0).day;
+
+    for (int i = 1; i < lastdate+1; i++) {
+      if(diary_list[ DateTime(_currentDate.year, _currentDate.month, i)] != null){
+          _markedDateMap.add(
+          DateTime(_currentDate.year, _currentDate.month, i),
+          new Event(
+            date: DateTime(_currentDate.year, _currentDate.month, i),
+            title: 'Event 5',
+            icon: _presentIcon(i.toString()),
+          ),
+        );}
+    }
     _calendarCarouselNoHeader = CalendarCarousel<Event>(
-      height: cHeight * 0.5,
+      height: cHeight * 0.52,
       // weekendTextStyle: TextStyle(
       //   color: Colors.black,
       // ),
@@ -115,17 +109,19 @@ class CalendarPage2State extends State<CalendarPage2> {
             _targetDate = DateTime(_targetDate.year+1, _targetDate.month - 11);
           }
         });},
-      headerTextStyle: TextStyle(fontSize: 22.0, color: Color(0xFF4D70AA), fontWeight: FontWeight.w900),
+      weekDayBackgroundColor: Color(curThema.getThemaList()['배경색']),
+      headerTextStyle: TextStyle(fontSize: 22.0, color: Color(curThema.getThemaList()['달력상단']), fontWeight: FontWeight.w900,fontFamily: curFont.getFont(),),
       headerText: DateFormat('y.MM').format(_targetDate),
-      iconColor: Color(0xFF4D70AA),
+      iconColor: Color(curThema.getThemaList()['달력상단']),
       selectedDateTime: _currentDate,
-      weekdayTextStyle: TextStyle( fontSize: 15.0, color: Color(0xFF4D70AA)),
-      todayButtonColor: Colors.white,
-      todayBorderColor: Color(0xFF6397D2),
-      todayTextStyle: TextStyle(color: Color(0xFF6397D2)),
-      selectedDayButtonColor: Color(0xFF6397D2),
-      selectedDayBorderColor: Color(0xFFFFFFFF),
-      selectedDayTextStyle: TextStyle(color: Colors.white),
+      weekdayTextStyle: TextStyle( fontSize: 15.0, color: Color(curThema.getThemaList()['달력요일글씨']),fontFamily: curFont.getFont(),),
+      todayButtonColor: Color(curThema.getThemaList()['배경색']),
+      todayBorderColor: Color(curThema.getThemaList()['TODAY']),
+      todayTextStyle: TextStyle(color: Color(curThema.getThemaList()['TODAY']),fontFamily: curFont.getFont(),),
+      selectedDayButtonColor: Color(curThema.getThemaList()['SELECTED']),
+      selectedDayBorderColor: Color(curThema.getThemaList()['배경색']),
+      daysTextStyle: TextStyle(color: Colors.black, fontFamily: curFont.getFont(),),
+      selectedDayTextStyle: TextStyle(color: Color(curThema.getThemaList()['선택글씨']),fontFamily: curFont.getFont(),),
       daysHaveCircularBorder: true,
       markedDatesMap: _markedDateMap,
       markedDateShowIcon: true,
@@ -141,6 +137,7 @@ class CalendarPage2State extends State<CalendarPage2> {
     );
 
     return new Scaffold(
+      backgroundColor:Color(curThema.getThemaList()['배경색']),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -149,13 +146,14 @@ class CalendarPage2State extends State<CalendarPage2> {
             // Container(width: 400, height: 1, color: Color(0xFFBCD4E6),),
             // Container(height: 3,),
             Container(
+              color: Color(curThema.getThemaList()['배경색']),
               margin: EdgeInsets.only(left: 13, bottom: 5,),
               child : Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                new Text(DateFormat('yyyy.MM.dd').format(_currentDate), style: TextStyle(color: Color(0xFF06397D2)),),
-                new FlatButton(child:const Text("상세보기", style: TextStyle(color: Color(0xFF6397D2),),), onPressed: ()=>{
-                  Navigator.push(
+                new Text(DateFormat('yyyy.MM.dd').format(_currentDate), style: TextStyle(color: Color(curThema.getThemaList()['달력하단날짜'])),),
+                new FlatButton(child: Text("상세보기", style: TextStyle(color: Color(curThema.getThemaList()['상세보기']),),), onPressed: ()=>{
+                    Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => todaydiaryView(_currentDate, diary_list[_currentDate])
@@ -164,7 +162,7 @@ class CalendarPage2State extends State<CalendarPage2> {
                 }),
               ],
             ),),
-            new Text(diary_list[_currentDate]!=null ? diary_list[_currentDate] : "쓰여진 일기가 없습니다.")
+            new Text(diary_list[_currentDate]!=null ? diary_list[_currentDate] : "작성된 일기가 없습니다.")
           ],
         ),
       ),
