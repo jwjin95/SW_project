@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:softwareEngineering/utilities/constants.dart';
 import 'login_screen.dart';
+import 'package:softwareEngineering/ThemaColorList.dart';
+import 'package:softwareEngineering/ThemaFont.dart';
+import 'package:flutter/foundation.dart';
+import 'package:provider/provider.dart';
 class CreatePassword extends StatefulWidget {
   @override
   createpasswordState createState() => createpasswordState();
@@ -13,16 +17,19 @@ class createpasswordState extends State<CreatePassword> {
   String insertedpassword='12345';
 
   void _showDialog(BuildContext context) {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
     showDialog(
       context: context,
       builder: (BuildContext context) {
         // return object of type Dialog
         return AlertDialog(
-          title: new Text("Congratuation!"),
-          content: new Text("Create a Password!" ),
+          title: new Text("축하드립니다!" ,style: TextStyle(
+            color: Color(curThema.getThemaList()['버튼글씨']),fontFamily: curFont.getFont(),)),
+          content: new Text("Create a Password!" ,style: TextStyle( color: Color(curThema.getThemaList()['버튼글씨']),fontFamily: curFont.getFont(),)),
           actions: <Widget>[
             new FlatButton(
-              child: new Text("Close"),
+              child: new Text("Close",style: TextStyle( color: Color(curThema.getThemaList()['버튼글씨']),fontFamily: curFont.getFont(),)),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -39,31 +46,30 @@ class createpasswordState extends State<CreatePassword> {
 
 
   Widget buildPasswordTF() {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text(
-          'Password',
-          style: kLabelStyle,
-        ),
         SizedBox(height: 10.0),
         Container(
 
           alignment: Alignment.centerLeft,
-          decoration: kBoxDecorationStyle,
+          decoration: BoxDecoration(
+            color: Color(curThema.getThemaList()['버튼배경색']),),
           height: 60.0,
           child: TextField(
             obscureText: true,
             style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'OpenSans',
+              color: Color(curThema.getThemaList()['버튼글씨']),
+              fontFamily: curFont.getFont(),
             ),
             decoration: InputDecoration(
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),
               prefixIcon: Icon(
                 Icons.lock,
-                color: Colors.white,
+                color: Color(curThema.getThemaList()['버튼글씨']),
               ),
               hintText: 'Enter your Password',
               hintStyle: kHintTextStyle,
@@ -91,6 +97,8 @@ class createpasswordState extends State<CreatePassword> {
 
 
   Widget buildLoginBtn() {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
     return Container(
       padding: EdgeInsets.symmetric(vertical: 25.0),
       width: double.infinity,
@@ -110,16 +118,16 @@ class createpasswordState extends State<CreatePassword> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),
-        color: Colors.white,
+        color: Color(curThema.getThemaList()['버튼배경색']),
 
         child: Text(
-          'Create',
+          '저장',
           style: TextStyle(
-            color: Color(0xFF527DAA),
+            color: Color(curThema.getThemaList()['버튼글씨']),
             letterSpacing: 1.5,
             fontSize: 18.0,
             fontWeight: FontWeight.bold,
-            fontFamily: 'OpenSans',
+            fontFamily: curFont.getFont(),
           ),
         ),
       ),
@@ -132,6 +140,8 @@ class createpasswordState extends State<CreatePassword> {
 
   @override
   Widget build(BuildContext context) {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
     return Scaffold(
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
@@ -142,36 +152,26 @@ class createpasswordState extends State<CreatePassword> {
               Container(
                 height: double.infinity,
                 width: double.infinity,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-
-                    colors: [
-                      Colors.purpleAccent,
-                      Colors.deepPurpleAccent,
-
-                    ],
-                    stops: [0.1, 0.5],
-                  ),
+              decoration: BoxDecoration(
+                color:  Color(curThema.getThemaList()['어플상하단색']),
                 ),
-              ),
+                ),
               Container(
                 height: double.infinity,
                 child: SingleChildScrollView(
                   physics: AlwaysScrollableScrollPhysics(),
                   padding: EdgeInsets.symmetric(
                     horizontal: 40.0,
-                    vertical: 120.0,
+                    vertical: 220.0,
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'Create Password',
+                        '비밀번호 재설정',
                         style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'OpenSans',
+                          color: Color(curThema.getThemaList()['어플상하단글씨']),
+                          fontFamily: curFont.getFont(),
                           fontSize: 30.0,
                           fontWeight: FontWeight.bold,
                         ),

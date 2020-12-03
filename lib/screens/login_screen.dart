@@ -4,6 +4,11 @@ import 'package:softwareEngineering/utilities/constants.dart';
 import 'setpassword.dart';
 import 'confirm.dart';
 import 'package:softwareEngineering/main.dart';
+import 'package:softwareEngineering/ThemaColorList.dart';
+import 'package:softwareEngineering/ThemaFont.dart';
+import 'package:flutter/foundation.dart';
+import 'package:provider/provider.dart';
+
 class LoginScreen extends StatefulWidget {
   String setpassword='';
   LoginScreen(String str){
@@ -28,16 +33,27 @@ class _LoginScreenState extends State<LoginScreen> {
 
 
   void _showDialog(BuildContext context) {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
     showDialog(
       context: context,
       builder: (BuildContext context) {
         // return object of type Dialog
         return AlertDialog(
-          title: new Text("Warning!"),
-          content: new Text("Password Not Matched"),
+          title: new Text("Warning!", style: TextStyle(
+            color: Color(curThema.getThemaList()['버튼글씨']),
+            fontFamily: curFont.getFont(),
+          ),),
+          content: new Text("비밀번호가 맞지 않습니다.", style: TextStyle(
+            color: Color(curThema.getThemaList()['버튼글씨']),
+            fontFamily: curFont.getFont(),
+          ),),
           actions: <Widget>[
             new FlatButton(
-              child: new Text("Close"),
+              child: new Text("Close", style: TextStyle(
+                color: Color(curThema.getThemaList()['버튼글씨']),
+                fontFamily: curFont.getFont(),
+              ),),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -48,30 +64,30 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
   Widget _buildPasswordTF() {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text(
-          'Password',
-          style: kLabelStyle,
-        ),
         SizedBox(height: 10.0),
         Container(
           alignment: Alignment.centerLeft,
-          decoration: kBoxDecorationStyle,
+          decoration: BoxDecoration(
+            color: Color(curThema.getThemaList()['버튼배경색']),),
           height: 60.0,
           child: TextField(
             obscureText: true,
             style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'OpenSans',
+              color: Color(curThema.getThemaList()['버튼글씨']),
+              fontFamily: curFont.getFont(),
             ),
             decoration: InputDecoration(
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),
               prefixIcon: Icon(
                 Icons.lock,
-                color: Colors.white,
+
+                color: Color(curThema.getThemaList()['버튼글씨']),
               ),
               hintText: 'Enter your Password',
               hintStyle: kHintTextStyle,
@@ -98,6 +114,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
 
   Widget _buildLoginBtn() {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
     return Container(
       padding: EdgeInsets.symmetric(vertical: 25.0),
       width: double.infinity,
@@ -121,16 +139,16 @@ class _LoginScreenState extends State<LoginScreen> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),
-        color: Colors.white,
+        color: Color(curThema.getThemaList()['버튼배경색']),
 
         child: Text(
-          'LOGIN',
+          '입력',
           style: TextStyle(
-            color: Color(0xFF527DAA),
+            color: Color(curThema.getThemaList()['버튼글씨']),
             letterSpacing: 1.5,
             fontSize: 18.0,
             fontWeight: FontWeight.bold,
-            fontFamily: 'OpenSans',
+            fontFamily: curFont.getFont(),
           ),
         ),
       ),
@@ -139,6 +157,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
 
   Widget _buildSignupBtn() {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
     return GestureDetector(
       onTap: () {
 
@@ -153,19 +173,12 @@ class _LoginScreenState extends State<LoginScreen> {
         text: TextSpan(
           children: [
             TextSpan(
-              text: 'Don\'t make any Password? ',
+              text: '비밀번호 재설정',
               style: TextStyle(
-                color: Colors.white,
-                fontSize: 18.0,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-            TextSpan(
-              text: 'Set Password',
-              style: TextStyle(
-                color: Colors.white,
+                color: Color(curThema.getThemaList()['달력상단']),
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
+                fontFamily: curFont.getFont(),
               ),
             ),
           ],
@@ -177,6 +190,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
     return Scaffold(
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
@@ -188,18 +203,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: double.infinity,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-
-                    colors: [
-                      Color(0xFF73AEF5),
-                      Color(0xFF61A4F1),
-                      Color(0xFF478DE0),
-                      Color(0xFF398AE5),
-                    ],
-                    stops: [0.1, 0.4, 0.7, 0.9],
-                  ),
+                  color:  Color(curThema.getThemaList()['어플상하단색']),
                 ),
               ),
               Container(
@@ -208,16 +212,16 @@ class _LoginScreenState extends State<LoginScreen> {
                   physics: AlwaysScrollableScrollPhysics(),
                   padding: EdgeInsets.symmetric(
                     horizontal: 40.0,
-                    vertical: 120.0,
+                    vertical: 220.0,
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'Sign In',
+                        '비밀번호',
                         style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'OpenSans',
+                          color: Color(curThema.getThemaList()['어플상하단글씨']),
+                          fontFamily: curFont.getFont(),
                           fontSize: 30.0,
                           fontWeight: FontWeight.bold,
                         ),

@@ -3,6 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:softwareEngineering/utilities/constants.dart';
 import 'setpassword.dart';
 import 'confirm.dart';
+import 'package:softwareEngineering/ThemaColorList.dart';
+import 'package:softwareEngineering/ThemaFont.dart';
+import 'package:flutter/foundation.dart';
+import 'package:provider/provider.dart';
+
 class confirmpassword extends StatefulWidget {
   String password='';
   confirmpassword(String str){
@@ -27,16 +32,27 @@ class _confirmpasswordState extends State<confirmpassword> {
 
 
   void _showDialog(BuildContext context) {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
     showDialog(
       context: context,
       builder: (BuildContext context) {
         // return object of type Dialog
         return AlertDialog(
-          title: new Text("Warning!"),
-          content: new Text("Password Not Matched"),
+          title: new Text("Warning!", style: TextStyle(
+            color: Color(curThema.getThemaList()['버튼글씨']),
+            fontFamily: curFont.getFont(),
+          ),),
+          content: new Text("이전 비밀번호와 맞지 않습니다.", style: TextStyle(
+            color: Color(curThema.getThemaList()['버튼글씨']),
+            fontFamily: curFont.getFont(),
+          ),),
           actions: <Widget>[
             new FlatButton(
-              child: new Text("Close"),
+              child: new Text("Close", style: TextStyle(
+                color: Color(curThema.getThemaList()['버튼글씨']),
+                fontFamily: curFont.getFont(),
+              ),),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -47,30 +63,30 @@ class _confirmpasswordState extends State<confirmpassword> {
     );
   }
   Widget _buildPasswordTF() {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text(
-          'Password',
-          style: kLabelStyle,
-        ),
         SizedBox(height: 10.0),
         Container(
           alignment: Alignment.centerLeft,
-          decoration: kBoxDecorationStyle,
+          decoration: BoxDecoration(
+            color: Color(curThema.getThemaList()['버튼배경색']),),
           height: 60.0,
           child: TextField(
             obscureText: true,
             style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'OpenSans',
+              color: Color(curThema.getThemaList()['버튼글씨']),
+              fontFamily: curFont.getFont(),
             ),
             decoration: InputDecoration(
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),
               prefixIcon: Icon(
                 Icons.lock,
-                color: Colors.white,
+
+                color: Color(curThema.getThemaList()['버튼글씨']),
               ),
               hintText: 'Enter your Password',
               hintStyle: kHintTextStyle,
@@ -97,6 +113,8 @@ class _confirmpasswordState extends State<confirmpassword> {
 
 
   Widget _buildLoginBtn() {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
     return Container(
       padding: EdgeInsets.symmetric(vertical: 25.0),
       width: double.infinity,
@@ -119,16 +137,16 @@ class _confirmpasswordState extends State<confirmpassword> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),
-        color: Colors.white,
+        color: Color(curThema.getThemaList()['버튼배경색']),
 
         child: Text(
-          'COMFIRMED',
+          '입력',
           style: TextStyle(
-            color: Color(0xFF527DAA),
+            color: Color(curThema.getThemaList()['버튼글씨']),
             letterSpacing: 1.5,
             fontSize: 18.0,
             fontWeight: FontWeight.bold,
-            fontFamily: 'OpenSans',
+            fontFamily: curFont.getFont(),
           ),
         ),
       ),
@@ -140,6 +158,8 @@ class _confirmpasswordState extends State<confirmpassword> {
 
   @override
   Widget build(BuildContext context) {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
     return Scaffold(
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
@@ -151,16 +171,7 @@ class _confirmpasswordState extends State<confirmpassword> {
                 height: double.infinity,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-
-                    colors: [
-                      Colors.purpleAccent,
-                      Colors.deepPurpleAccent,
-                    ],
-                    stops: [0.2, 0.7, ],
-                  ),
+                  color:  Color(curThema.getThemaList()['어플상하단색']),
                 ),
               ),
               Container(
@@ -169,16 +180,16 @@ class _confirmpasswordState extends State<confirmpassword> {
                   physics: AlwaysScrollableScrollPhysics(),
                   padding: EdgeInsets.symmetric(
                     horizontal: 40.0,
-                    vertical: 120.0,
+                    vertical: 220.0,
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'Confirm password',
+                        '이전 비밀번호 확인',
                         style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'OpenSans',
+                          color: Color(curThema.getThemaList()['어플상하단글씨']),
+                          fontFamily: curFont.getFont(),
                           fontSize: 30.0,
                           fontWeight: FontWeight.bold,
                         ),
