@@ -13,6 +13,10 @@ import 'package:softwareEngineering/ThemaColorList.dart';
 import 'package:softwareEngineering/ThemaFont.dart';
 import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
+import 'screens/confirm.dart';
+import 'screens/login_screen.dart';
+import 'screens/setpassword.dart';
+
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -109,13 +113,14 @@ class MyApp  extends StatelessWidget with ChangeNotifier{
   //final curFont=themaFont();
   @override
   Widget build(BuildContext context) {
+    String str12 ='0000';
     final themaFont curFont=Provider.of<themaFont>(context);
     final mainThema curThema=Provider.of<mainThema>(context);
     return Container(
         decoration:BoxDecoration(color: Color(curThema.getThemaList()['배경색'])),
         child:MaterialApp(
         title: _title,
-        home: MyStatefulWidget(),
+        home: LoginScreen(str12),
         theme: ThemeData(fontFamily: curFont.getFont(),)
     ));
 
