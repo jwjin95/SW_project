@@ -3,17 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:softwareEngineering/diary.dart';
 import 'package:softwareEngineering/showAlertDialog.dart';
 import 'package:softwareEngineering/Bubble.dart';
+import 'package:softwareEngineering/ThemaColorList.dart';
+import 'package:softwareEngineering/ThemaFont.dart';
+import 'package:flutter/foundation.dart';
+import 'package:provider/provider.dart';    
+
 
 class Question_end extends StatelessWidget {
   TextEditingController _tec = TextEditingController();
   TextEditingController _tec2 = TextEditingController();
   Map ans;
   Question_end(this.ans);
-  static const TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
+  
 
   @override
   Widget build(BuildContext context) {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
+    TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(curThema.getThemaList()['어플상하단글씨']), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
     return Scaffold(
+      backgroundColor: Color(curThema.getThemaList()['배경색']),
       resizeToAvoidBottomPadding: false,
 
       appBar: AppBar(
@@ -22,7 +31,7 @@ class Question_end extends StatelessWidget {
           style: optionStyle,
         ),
         centerTitle: true,
-        backgroundColor: Color(0xFF6397D2),
+        backgroundColor: Color(curThema.getThemaList()['어플상하단색']),
         elevation: 0.0,
       ),
       // appBar: AppBar(
@@ -42,6 +51,8 @@ class Question_end extends StatelessWidget {
   }
 
   Widget _buildButton(BuildContext context) {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
 
     return Padding(
       padding: EdgeInsets.all(16.0),

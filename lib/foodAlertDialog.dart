@@ -1,8 +1,12 @@
 
 import 'package:flutter/material.dart';
+import 'package:softwareEngineering/ThemaFont.dart';
+import 'package:flutter/foundation.dart';
+import 'package:provider/provider.dart';
 
 @override
 Future<String> foodAlertDialog(BuildContext context, text) async {
+  final themaFont curFont=Provider.of<themaFont>(context);
   final List foods=[
     ['삼겹살','족발','찜닭','치킨','소고기','돈가스','매운탕','갈비찜','덮밥','볶음밥','국수'],
     ['짜장면','짬뽕','탕수육','마라탕','꿔바로우','마라샹궈','양꼬치','훠궈','맨보샤'],
@@ -28,7 +32,7 @@ Future<String> foodAlertDialog(BuildContext context, text) async {
     barrierDismissible: true,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text(text),
+        title: Text(text , style: TextStyle(color: Colors.black, fontFamily: curFont.getFont(),),),
         content:Container(
           width: double.maxFinite,
           height:200.0,
@@ -41,7 +45,7 @@ Future<String> foodAlertDialog(BuildContext context, text) async {
                   itemCount: foods.length,
                   itemBuilder: (BuildContext context, int index){
                     return TextButton(
-                      child: Text(foodMap[text][index]),
+                      child: Text(foodMap[text][index], style: TextStyle(color: Colors.black, fontFamily: curFont.getFont(),),),
                       onPressed: (){
                         Navigator.pop(context, foodMap[text][index]+fSubs[text][index]);
                       },

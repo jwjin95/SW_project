@@ -2,6 +2,10 @@ import 'package:softwareEngineering/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:softwareEngineering/Question_end.dart';
 import 'package:softwareEngineering/Bubble.dart';
+import 'package:softwareEngineering/ThemaColorList.dart';
+import 'package:softwareEngineering/ThemaFont.dart';
+import 'package:flutter/foundation.dart';
+import 'package:provider/provider.dart'; 
 import 'package:softwareEngineering/main.dart';
 import 'package:softwareEngineering/Question1_2.dart';
 import 'package:softwareEngineering/Question1_3.dart';
@@ -58,12 +62,19 @@ class think7 extends StatelessWidget {
   }
 
 
-  static const TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(0xFFFFFFFF), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
-
-
+  int tmp() {
+    return 1;
+  }
   @override
+
+
   Widget build(BuildContext context) {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
+    TextStyle optionStyle = TextStyle(fontSize: 25, color: Color(curThema.getThemaList()['어플상하단글씨']), fontWeight: FontWeight.bold, fontFamily: 'Shrikhand');
     return Scaffold(
+      backgroundColor: Color(curThema.getThemaList()['배경색']),
+
       resizeToAvoidBottomPadding: false,
 
       appBar: AppBar(
@@ -72,71 +83,40 @@ class think7 extends StatelessWidget {
           style: optionStyle,
         ),
         centerTitle: true,
-        backgroundColor: Color(0xFF6397D2),
+        backgroundColor: Color(curThema.getThemaList()['어플상하단색']),
         elevation: 0.0,
       ),
-      body:
-
-      _buildButton(context),
+      body: SingleChildScrollView(
+        child: _buildButton(context),),
 
     );
   }
 
   Widget _buildButton(BuildContext context) {
+    final themaFont curFont=Provider.of<themaFont>(context);
+    final mainThema curThema=Provider.of<mainThema>(context);
+    
+
     final Map ans = ModalRoute.of(context).settings.arguments;
     return Padding(
       padding: EdgeInsets.all(16.0),
 
       child: Column(
         children: <Widget>[
-          // Center(child: Container(
-          //   width: double.infinity,
-          //   height : 160,
-          //   alignment: Alignment.center,
-          //   padding: const EdgeInsets.all(20),
-          //   margin: const EdgeInsets.only(left: 50, right: 50, top: 50, bottom: 20),
-          //
-          //   decoration: BoxDecoration(
-          //     color: const Color(0xffCAE0F8),
-          //     borderRadius: BorderRadius.circular(12),
-          //     boxShadow: [
-          //       BoxShadow(
-          //         color: Colors.grey.withOpacity(0.3),
-          //         spreadRadius: 2,
-          //         blurRadius: 13,
-          //         offset: Offset(4, 5), // changes position of shadow
-          //       ),
-          //     ],
-          //   ),
-          //   child:
-          //   Center(child: Text('앞으로 어떤 \n모습으로 변화하고 \n싶나요?',
-          //     textAlign: TextAlign.center,
-          //     style: TextStyle(
-          //       fontWeight: FontWeight.bold,
-          //       fontSize: 26,
-          //       color: Color(0xff6397D2),
-          //       height:1.5,
-          //     ),
-          //   ),
-          //   ),),
-          // ),
-          bubble(text: "앞으로 어떤 모습으로 \n변화하고 싶어?"),
-
-          SizedBox(
-            height: 10.0,
-          ),
+          bubble(text : "앞으로 어떤 모습으로 \n변화하고 싶어?"),
           Container(
             alignment: Alignment(0.0, 0.0),
             height: 45,
             padding: EdgeInsets.only(left: 20, right: 20),
             decoration: new BoxDecoration(
-                color: Colors.white,
+                color: Color(curThema.getThemaList()['배경색']),
                 borderRadius: BorderRadius.all(Radius.circular(30)),
-                border: Border.all(width: 3, color: Color(0xff99C1DE))),
+                border: Border.all(width: 3, color: Color(curThema.getThemaList()['버튼테두리']))),
+
 
             child: TextField(
               controller: _tec,
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(color: Color(curThema.getThemaList()['버튼글씨'])),
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: '직접입력',
