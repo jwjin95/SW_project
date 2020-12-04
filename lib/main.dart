@@ -259,7 +259,252 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> with ChangeNotifier
         centerTitle: true,
         backgroundColor: Color(curThema.getThemaList()['어플상하단색']), //
         elevation: 0.0,
-          actions: <Widget>[
+        leading: Builder (
+          builder: (context) {
+            return new IconButton(
+              icon: new Icon(Icons.settings),
+              tooltip: '테마/폰트 설정',
+              onPressed: (){
+                print(curFont.getFont());
+                showCupertinoModalPopup(
+                    context: context,
+                    builder: (context){
+                      return CupertinoAlertDialog(
+                        title: new Text("테마/폰트 설정", style: TextStyle(fontSize: 23, fontFamily: curFont.getFont())),
+                        content: new Text("현재 폰트: ${curFont.getFont()} \n현재 테마: ${curThema.getThema()}",style: TextStyle(fontSize: 15, fontFamily: curFont.getFont())),
+                        actions: <Widget>[
+                          CupertinoDialogAction(
+                              isDefaultAction: false,
+                              child: Text("폰트 설정",style: TextStyle(fontFamily: curFont.getFont(),),),
+                              onPressed: (){
+                                Navigator.of(context).pop(false);
+                                showCupertinoModalPopup(
+                                    context: context,
+                                    builder: (context){
+                                      return Column(
+                                          mainAxisAlignment: MainAxisAlignment.end,
+                                          children: <Widget>[
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color: Color(0xffffffff),
+                                                border: Border(
+                                                  bottom: BorderSide(
+                                                    color: Color(0xff999999),
+                                                    width: 0.0,
+                                                  ),
+                                                ),
+                                              ),
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                children: <Widget>[
+                                                  CupertinoButton(
+                                                    child: Text('취소',style: TextStyle(fontFamily: curFont.getFont(),),),
+                                                    onPressed: () {Navigator.pop(context);},
+                                                    padding: const EdgeInsets.symmetric(
+                                                      horizontal: 16.0,
+                                                      vertical: 5.0,
+                                                    ),
+                                                  ),
+                                                  CupertinoButton(
+                                                    child: Text('설정',style: TextStyle(fontFamily: curFont.getFont(),),),
+                                                    onPressed: () {
+                                                      curFont.ChangeFont(newFont);
+
+                                                      Navigator.of(context).pop(false);
+                                                      showDialog(
+                                                          context: context,
+                                                          builder: (BuildContext context) => CupertinoAlertDialog(
+                                                            title: new Text("폰트 설정 완료!",style: TextStyle(fontFamily: curFont.getFont(),),),
+                                                            content: new Text('폰트가 ${curFont.getFont()} 로 \n설정되었습니다.',style: TextStyle(fontFamily: curFont.getFont(),),),
+                                                            actions: <Widget>[
+                                                              CupertinoDialogAction(
+                                                                child: Text("확인",style: TextStyle(fontFamily: curFont.getFont(),),),
+                                                                onPressed:() => Navigator.of(context).pop(false),
+                                                              ),
+                                                            ],
+                                                          )
+                                                      );
+                                                    },
+                                                    padding: const EdgeInsets.symmetric(
+                                                      horizontal: 16.0,
+                                                      vertical: 5.0,
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              height: 320.0,
+                                              color: Colors.white,
+                                              child: CupertinoPicker(
+                                                magnification:1.5,
+                                                backgroundColor: Colors.white,
+                                                children: <Widget>[
+                                                  Text(
+                                                    "나눔바른고딕",
+                                                    style: TextStyle(
+                                                        fontFamily: 'NanumBarunCothic', fontSize:20),
+                                                  ),
+                                                  Text(
+                                                    "Cafe24Dajunghae",
+                                                    style: TextStyle(
+                                                        fontFamily: 'Cafe24Dajunghae', fontSize:20),
+                                                  ),
+                                                  Text(
+                                                    "Cafe24Dongdong",
+                                                    style: TextStyle(
+                                                        fontFamily: 'Cafe24Dongdong', fontSize:20),
+                                                  ),
+                                                  Text(
+                                                    "Cafe24Oneprettynight",
+                                                    style: TextStyle(
+                                                        fontFamily: 'Cafe24Oneprettynight', fontSize:20),
+                                                  ),
+                                                  Text(
+                                                    "Cafe24Shiningstar",
+                                                    style: TextStyle(
+                                                        fontFamily: 'Cafe24Shiningstar', fontSize:20),
+                                                  ),
+                                                  Text(
+                                                    "Maplestory OTF Light",
+                                                    style: TextStyle(
+                                                        fontFamily: 'Maplestory OTF Light', fontSize:20),
+                                                  ),
+                                                  Text(
+                                                    "MaruBuri-Regular",
+                                                    style: TextStyle(
+                                                        fontFamily: 'MaruBuri-Regular', fontSize:20),
+                                                  ),
+                                                  Text(
+                                                    "Shrikhand-Regular",
+                                                    style: TextStyle(
+                                                        fontFamily: 'Shrikhand-Regular', fontSize:20),
+                                                  ),
+                                                ],
+                                                itemExtent: 30,
+                                                looping: false,
+                                                onSelectedItemChanged: (value){
+                                                  print(value);
+                                                  newFont=themaFontList[value];
+                                                  //curFont.ChangeFont(themaFontList[value]);
+                                                  print(newFont);
+                                                },
+                                              ),
+                                            )
+                                          ]
+                                      );
+                                    }
+                                );
+                              }
+                          ),
+                          CupertinoDialogAction(
+                              child: Text('테마 설정', style: TextStyle(fontFamily: curFont.getFont())),
+                              onPressed: (){
+                                Navigator.of(context).pop(false);
+                                showCupertinoModalPopup(
+                                    context: context,
+                                    builder: (context){
+                                      return Column(
+                                          mainAxisAlignment:MainAxisAlignment.end,
+                                          children: <Widget>[
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color: Color(0xffffffff),
+                                                border: Border(
+                                                  bottom: BorderSide(
+                                                    color: Color(0xff999999),
+                                                    width: 0.0,
+                                                  ),
+                                                ),
+                                              ),
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                children: <Widget>[
+                                                  CupertinoButton(
+                                                    child: Text('취소',style: TextStyle(fontFamily: curFont.getFont())),
+                                                    onPressed: (){
+                                                      Navigator.pop(context);
+                                                    },
+                                                    padding: const EdgeInsets.symmetric(
+                                                      horizontal: 16.0,
+                                                      vertical: 5.0,
+                                                    ),
+                                                  ),
+                                                  CupertinoButton(
+                                                    child: Text('설정',style: TextStyle(fontFamily: curFont.getFont(),),),
+                                                    onPressed: (){
+                                                      curThema.ChangeThema(newThema);
+                                                      Navigator.of(context).pop(false);
+                                                      showDialog(
+                                                        context: context,
+                                                        builder: (BuildContext context)=>CupertinoAlertDialog(
+                                                          title: new Text("테마 설정 완료!", style: TextStyle(fontFamily: curFont.getFont())),
+                                                          content: new Text("테마가 ${curThema.getThema()}로 설정되었습니다.",style: TextStyle(fontFamily: curFont.getFont(),),),
+                                                          actions: <Widget>[
+                                                            CupertinoDialogAction(
+                                                              child: Text("확인",style: TextStyle(fontFamily: curFont.getFont(),),),
+                                                              onPressed: ()=>Navigator.of(context).pop(false),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                    padding: const EdgeInsets.symmetric(
+                                                      horizontal: 16.0,
+                                                      vertical: 5.0,
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                                height: 320.0,
+                                                color: Colors.white,
+                                                child: CupertinoPicker(
+                                                    magnification:1.5,
+                                                    backgroundColor: Colors.white,
+                                                    children: <Widget>[
+                                                      Text("카페", style: TextStyle(
+                                                          fontFamily:curFont.getFont(), fontSize:20)
+                                                      ),
+                                                      Text("산토리니", style: TextStyle(
+                                                          fontFamily:curFont.getFont(), fontSize:20)
+                                                      ),
+                                                      Text("레트로", style: TextStyle(
+                                                          fontFamily:curFont.getFont(), fontSize:20)
+                                                      ),
+                                                      Text("파스텔 팝", style: TextStyle(
+                                                          fontFamily:curFont.getFont(), fontSize:20)
+                                                      ),
+                                                      Text("모노톤", style: TextStyle(
+                                                          fontFamily:curFont.getFont(), fontSize:20)
+                                                      ),
+                                                    ],
+                                                    itemExtent:30,
+                                                    looping:false,
+                                                    onSelectedItemChanged: (value){
+                                                      //curThema.ChangeThema(themaList[value]);
+                                                      newThema=themaList[value];
+                                                      print(newThema);
+                                                    }
+                                                )
+                                            )
+                                          ]
+                                      );
+                                    }
+                                );
+                              }
+                          )
+                        ],
+                      );
+                    }
+
+                );
+              },
+            );
+          }
+        ),
+        actions: <Widget>[
             new IconButton(
               icon: new Icon(Icons.add_alert),
               tooltip: '알림 설정',
@@ -435,248 +680,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> with ChangeNotifier
                 );
               },
             ),
-            new IconButton(
-              icon: new Icon(Icons.settings),
-              tooltip: '테마/폰트 설정',
-              onPressed: (){
-                print(curFont.getFont());
-                showCupertinoModalPopup(
-                  context: context,
-                  builder: (context){
-                    return CupertinoAlertDialog(
-                      title: new Text("테마/폰트 설정", style: TextStyle(fontSize: 23, fontFamily: curFont.getFont())),
-                      content: new Text("현재 폰트: ${curFont.getFont()} \n현재 테마: ${curThema.getThema()}",style: TextStyle(fontSize: 15, fontFamily: curFont.getFont())),
-                        actions: <Widget>[
-                          CupertinoDialogAction(
-                              isDefaultAction: false,
-                              child: Text("폰트 설정",style: TextStyle(fontFamily: curFont.getFont(),),),
-                              onPressed: (){
-                                Navigator.of(context).pop(false);
-                                showCupertinoModalPopup(
-                                    context: context,
-                                    builder: (context){
-                                      return Column(
-                                          mainAxisAlignment: MainAxisAlignment.end,
-                                          children: <Widget>[
-                                            Container(
-                                              decoration: BoxDecoration(
-                                                color: Color(0xffffffff),
-                                                border: Border(
-                                                  bottom: BorderSide(
-                                                    color: Color(0xff999999),
-                                                    width: 0.0,
-                                                  ),
-                                                ),
-                                              ),
-                                              child: Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                children: <Widget>[
-                                                  CupertinoButton(
-                                                    child: Text('취소',style: TextStyle(fontFamily: curFont.getFont(),),),
-                                                    onPressed: () {Navigator.pop(context);},
-                                                    padding: const EdgeInsets.symmetric(
-                                                      horizontal: 16.0,
-                                                      vertical: 5.0,
-                                                    ),
-                                                  ),
-                                                  CupertinoButton(
-                                                    child: Text('설정',style: TextStyle(fontFamily: curFont.getFont(),),),
-                                                    onPressed: () {
-                                                      curFont.ChangeFont(newFont);
-
-                                                      Navigator.of(context).pop(false);
-                                                      showDialog(
-                                                          context: context,
-                                                          builder: (BuildContext context) => CupertinoAlertDialog(
-                                                            title: new Text("폰트 설정 완료!",style: TextStyle(fontFamily: curFont.getFont(),),),
-                                                            content: new Text('폰트가 ${curFont.getFont()} 로 \n설정되었습니다.',style: TextStyle(fontFamily: curFont.getFont(),),),
-                                                            actions: <Widget>[
-                                                              CupertinoDialogAction(
-                                                                child: Text("확인",style: TextStyle(fontFamily: curFont.getFont(),),),
-                                                                onPressed:() => Navigator.of(context).pop(false),
-                                                              ),
-                                                            ],
-                                                          )
-                                                      );
-                                                    },
-                                                    padding: const EdgeInsets.symmetric(
-                                                      horizontal: 16.0,
-                                                      vertical: 5.0,
-                                                    ),
-                                                  )
-                                                ],
-                                              ),
-                                            ),
-                                            Container(
-                                              height: 320.0,
-                                              color: Colors.white,
-                                              child: CupertinoPicker(
-                                                magnification:1.5,
-                                                backgroundColor: Colors.white,
-                                                children: <Widget>[
-                                                  Text(
-                                                    "나눔바른고딕",
-                                                    style: TextStyle(
-                                                      fontFamily: 'NanumBarunCothic', fontSize:20),
-                                                    ),
-                                                  Text(
-                                                    "Cafe24Dajunghae",
-                                                    style: TextStyle(
-                                                    fontFamily: 'Cafe24Dajunghae', fontSize:20),
-                                                  ),
-                                                  Text(
-                                                    "Cafe24Dongdong",
-                                                    style: TextStyle(
-                                                        fontFamily: 'Cafe24Dongdong', fontSize:20),
-                                                  ),
-                                                  Text(
-                                                    "Cafe24Oneprettynight",
-                                                    style: TextStyle(
-                                                        fontFamily: 'Cafe24Oneprettynight', fontSize:20),
-                                                  ),
-                                                  Text(
-                                                    "Cafe24Shiningstar",
-                                                    style: TextStyle(
-                                                        fontFamily: 'Cafe24Shiningstar', fontSize:20),
-                                                  ),
-                                                  Text(
-                                                    "Maplestory OTF Light",
-                                                    style: TextStyle(
-                                                        fontFamily: 'Maplestory OTF Light', fontSize:20),
-                                                  ),
-                                                  Text(
-                                                    "MaruBuri-Regular",
-                                                    style: TextStyle(
-                                                        fontFamily: 'MaruBuri-Regular', fontSize:20),
-                                                  ),
-                                                  Text(
-                                                    "Shrikhand-Regular",
-                                                    style: TextStyle(
-                                                        fontFamily: 'Shrikhand-Regular', fontSize:20),
-                                                  ),
-                                                ],
-                                                itemExtent: 30,
-                                                looping: false,
-                                                onSelectedItemChanged: (value){
-                                                  print(value);
-                                                  newFont=themaFontList[value];
-                                                  //curFont.ChangeFont(themaFontList[value]);
-                                                  print(newFont);
-                                                },
-                                              ),
-                                            )
-                                          ]
-                                      );
-                                    }
-                                );
-                              }
-                          ),
-                          CupertinoDialogAction(
-                            child: Text('테마 설정', style: TextStyle(fontFamily: curFont.getFont())),
-                            onPressed: (){
-                              Navigator.of(context).pop(false);
-                              showCupertinoModalPopup(
-                                context: context,
-                                builder: (context){
-                                  return Column(
-                                    mainAxisAlignment:MainAxisAlignment.end,
-                                    children: <Widget>[
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          color: Color(0xffffffff),
-                                          border: Border(
-                                            bottom: BorderSide(
-                                              color: Color(0xff999999),
-                                              width: 0.0,
-                                            ),
-                                          ),
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: <Widget>[
-                                            CupertinoButton(
-                                              child: Text('취소',style: TextStyle(fontFamily: curFont.getFont())),
-                                              onPressed: (){
-                                                Navigator.pop(context);
-                                              },
-                                              padding: const EdgeInsets.symmetric(
-                                                horizontal: 16.0,
-                                                vertical: 5.0,
-                                              ),
-                                            ),
-                                            CupertinoButton(
-                                              child: Text('설정',style: TextStyle(fontFamily: curFont.getFont(),),),
-                                              onPressed: (){
-                                                curThema.ChangeThema(newThema);
-                                                Navigator.of(context).pop(false);
-                                                showDialog(
-                                                  context: context,
-                                                  builder: (BuildContext context)=>CupertinoAlertDialog(
-                                                    title: new Text("테마 설정 완료!", style: TextStyle(fontFamily: curFont.getFont())),
-                                                    content: new Text("테마가 ${curThema.getThema()}로 설정되었습니다.",style: TextStyle(fontFamily: curFont.getFont(),),),
-                                                    actions: <Widget>[
-                                                      CupertinoDialogAction(
-                                                        child: Text("확인",style: TextStyle(fontFamily: curFont.getFont(),),),
-                                                        onPressed: ()=>Navigator.of(context).pop(false),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                );
-                                              },
-                                              padding: const EdgeInsets.symmetric(
-                                                horizontal: 16.0,
-                                                vertical: 5.0,
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                      Container(
-                                        height: 320.0,
-                                        color: Colors.white,
-                                        child: CupertinoPicker(
-                                          magnification:1.5,
-                                          backgroundColor: Colors.white,
-                                          children: <Widget>[
-                                            Text("카페", style: TextStyle(
-                                                fontFamily:curFont.getFont(), fontSize:20)
-                                            ),
-                                            Text("산토리니", style: TextStyle(
-                                                fontFamily:curFont.getFont(), fontSize:20)
-                                            ),
-                                            Text("레트로", style: TextStyle(
-                                                fontFamily:curFont.getFont(), fontSize:20)
-                                            ),
-                                            Text("파스텔 팝", style: TextStyle(
-                                                fontFamily:curFont.getFont(), fontSize:20)
-                                            ),
-                                            Text("모노톤", style: TextStyle(
-                                                fontFamily:curFont.getFont(), fontSize:20)
-                                            ),
-                                          ],
-                                          itemExtent:30,
-                                          looping:false,
-                                          onSelectedItemChanged: (value){
-                                            //curThema.ChangeThema(themaList[value]);
-                                            newThema=themaList[value];
-                                            print(newThema);
-                                          }
-                                        )
-                                      )
-                                    ]
-                                  );
-                                }
-                              );
-                            }
-                          )
-                        ],
-                    );
-                  }
-
-                );
-              },
-            ),
-
           ],
       ),
       body: Center(
