@@ -112,7 +112,7 @@ class qna extends StatelessWidget {
       home: Question1_1(),
       title: 'Question',
       routes: {
-        'main' : (context) => MyApp(),
+        'main' : (context) => MyStatefulWidget(),
         '1' : (context) => think1(),
         '2' : (context) => think2(),
         '3' : (context) => think3(),
