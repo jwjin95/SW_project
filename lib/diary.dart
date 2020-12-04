@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:softwareEngineering/example.dart';
 
 class diaryView extends StatelessWidget {
+
   String tmpStr = '오늘은 다현이와 점심을 먹었다. 강남역에 가서 엽떡을 먹었는데 조금 멀어서 귀찮았지만 맛은 있었다. 오늘 하루는 행복한 하루였다.아주아주아주';
   var ans_list = [];
   diaryView(this.ans_list){
